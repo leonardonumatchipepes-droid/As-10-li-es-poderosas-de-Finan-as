@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Índice - APP Finanças</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #000;
+      color: white;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .card {
+      padding: 15px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .locked {
+      background: #222;
+      color: #777;
+      cursor: not-allowed;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .open {
+      background: #22c55e;
+    }
+
+    .lock {
+      background: #e50914;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>📺 Série Financeira</h1>
+
+<div class="grid" id="list"></div>
+
+<script>
+  const chapters = [
+    "Lição 01 - Mentalidade Financeira",
+    "Lição 02 - Pequenos Gastos",
+    "Lição 03 - Organização",
+    "Lição 04 - Dívidas",
+    "Lição 05 - Poupança",
+    "Lição 06 - Investimentos",
+    "Lição 07 - Ativos vs Passivos",
+    "Lição 08 - Emergências",
+    "Lição 09 - Tempo e Dinheiro",
+    "Lição 10 - Liberdade Financeira"
+  ];
+
+  let progress = parseInt(localStorage.getItem("finance_progress") || "1");
+
+  const list = document.getElementById("list");
+
+  chapters.forEach((c, i) => {
+    let index = i + 1;
+    let unlocked = index <= progress;
+
+    let div = document.createElement("div");
+    div.className = "card " + (unlocked ? "" : "locked");
+
+    div.innerHTML = `
+      <span>${c}</span>
+      <span class="tag ${unlocked ? 'open' : 'lock'}">
+        ${unlocked ? "Desbloqueado" : "Bloqueado"}
+      </span>
+    `;
+
+    if (unlocked) {
+      div.onclick = () => {
+        localStorage.setItem("current_chapter", index);
+        window.location.href = "capitulo0" + index + ".html";
+      };
+    }
+
+    list.appendChild(div);
+  });
+</script>
+
+</body>
+</html>
