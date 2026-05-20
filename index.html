@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APP Finanças</title>
+
+  <style>
+    :root {
+      --bg: #000;
+      --text: #fff;
+      --card: rgba(255,255,255,0.08);
+      --btn: #e50914;
+      --locked: #555;
+    }
+
+    body.light {
+      --bg: #f5f5f5;
+      --text: #111;
+      --card: rgba(0,0,0,0.08);
+      --btn: #d10f1a;
+      --locked: #bbb;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url("capa.png") center/cover no-repeat;
+      filter: blur(14px) brightness(0.4);
+      transform: scale(1.1);
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
+
+    .settings {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .content {
+      position: relative;
+      z-index: 10;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .cover {
+      width: 160px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    h1 { margin: 5px; }
+
+    .btn {
+      padding: 14px 26px;
+      background: var(--btn);
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    /* MODAL SETTINGS */
+    .modal {
+      position: absolute;
+      top: 50px;
+      left: 15px;
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 20;
+      width: 220px;
+    }
+
+    .whatsapp {
+      background: #25D366;
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="background"></div>
+  <div class="overlay"></div>
+
+  <div class="settings" onclick="toggleSettings()">⚙️</div>
+
+  <div class="modal" id="modal">
+    <button onclick="toggleTheme()">🌗 Tema</button>
+
+    <small>Autor</small>
+    <div>APP Finanças Premium</div>
+
+    <a class="whatsapp" href="https://wa.me/244929311220" target="_blank">
+      WhatsApp Suporte
+    </a>
+  </div>
+
+  <div class="content">
+
+    <img src="capa.png" class="cover">
+
+    <h1>APP FINANÇAS</h1>
+    <p>Série de 10 lições para liberdade financeira</p>
+
+    <button class="btn" onclick="startReading()">
+      Começar a Leitura
+    </button>
+
+  </div>
+
+  <script>
+    // -------- SETTINGS --------
+    function toggleSettings() {
+      const m = document.getElementById("modal");
+      m.style.display = m.style.display === "flex" ? "none" : "flex";
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+    }
+
+    // -------- DESBLOQUEIO --------
+    function startReading() {
+      let progress = localStorage.getItem("finance_progress");
+
+      if (!progress) {
+        // começa no capítulo 1 bloqueando o resto
+        localStorage.setItem("finance_progress", "1");
+      }
+
+      window.location.href = "indice.html";
+    }
+  </script>
+
+</body>
+</html>
