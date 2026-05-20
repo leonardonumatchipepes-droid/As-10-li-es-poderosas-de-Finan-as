@@ -1,106 +1,196 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <title>Índice - APP Finanças</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Índice - APP Finanças 10X</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #000;
-      color: white;
-      padding: 20px;
-    }
+<style>
+:root {
+  --bg: #000;
+  --card: rgba(255,255,255,0.08);
+  --text: #fff;
+  --accent: #e50914;
+  --locked: rgba(255,255,255,0.05);
+}
 
-    h1 {
-      margin-bottom: 20px;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
 
-    .grid {
-      display: grid;
-      gap: 10px;
-    }
+/* HEADER */
+.header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .card {
-      padding: 15px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.08);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-    }
+.header h1 {
+  margin: 0;
+  font-size: 22px;
+}
 
-    .locked {
-      background: #222;
-      color: #777;
-      cursor: not-allowed;
-    }
+.header a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+}
 
-    .tag {
-      font-size: 12px;
-      padding: 4px 8px;
-      border-radius: 6px;
-    }
+/* NÍVEL */
+.level-box {
+  padding: 0 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  opacity: 0.9;
+}
 
-    .open {
-      background: #22c55e;
-    }
+/* PROGRESSO */
+.progress {
+  height: 5px;
+  background: #222;
+  margin: 0 20px 15px;
+  border-radius: 10px;
+  overflow: hidden;
+}
 
-    .lock {
-      background: #e50914;
-    }
-  </style>
+.bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: 0.4s;
+}
+
+/* LISTA */
+.list {
+  padding: 10px 20px 30px;
+}
+
+.card {
+  background: var(--card);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  background: rgba(255,255,255,0.12);
+}
+
+.locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.tag {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.4);
+}
+
+.open {
+  color: #22c55e;
+}
+
+.lock {
+  color: #e50914;
+}
+</style>
 </head>
 
 <body>
 
-<h1>📺 Série Financeira</h1>
+<!-- HEADER -->
+<div class="header">
+  <h1>📺 Lições Financeiras</h1>
+  <a href="autor.html">Autor ⚙️</a>
+</div>
 
-<div class="grid" id="list"></div>
+<!-- NÍVEL -->
+<div class="level-box">
+  Nível: <b id="level"></b>
+</div>
+
+<!-- PROGRESSO -->
+<div class="progress">
+  <div class="bar" id="bar"></div>
+</div>
+
+<!-- LISTA -->
+<div class="list" id="list"></div>
 
 <script>
-  const chapters = [
-    "Lição 01 - Mentalidade Financeira",
-    "Lição 02 - Pequenos Gastos",
-    "Lição 03 - Organização",
-    "Lição 04 - Dívidas",
-    "Lição 05 - Poupança",
-    "Lição 06 - Investimentos",
-    "Lição 07 - Ativos vs Passivos",
-    "Lição 08 - Emergências",
-    "Lição 09 - Tempo e Dinheiro",
-    "Lição 10 - Liberdade Financeira"
-  ];
+const lessons = [
+"Capítulo 01 - Mentalidade Financeira",
+"Capítulo 02 - Controle de Gastos",
+"Capítulo 03 - Salário não é riqueza",
+"Capítulo 04 - Dívidas perigosas",
+"Capítulo 05 - Poupança inteligente",
+"Capítulo 06 - Investimentos",
+"Capítulo 07 - Ativos vs Passivos",
+"Capítulo 08 - Reserva de Emergência",
+"Capítulo 09 - Juros Compostos",
+"Capítulo 10 - Liberdade Financeira"
+];
 
-  let progress = parseInt(localStorage.getItem("finance_progress") || "1");
+function getProgress() {
+  return parseInt(localStorage.getItem("finance_progress") || "1");
+}
 
-  const list = document.getElementById("list");
+/* NÍVEL DO UTILIZADOR */
+function getLevel(p) {
+  if (p <= 2) return "Iniciante";
+  if (p <= 4) return "Organizador";
+  if (p <= 6) return "Investidor";
+  if (p <= 8) return "Estratégico";
+  return "Liberdade Financeira";
+}
 
-  chapters.forEach((c, i) => {
-    let index = i + 1;
-    let unlocked = index <= progress;
+let progress = getProgress();
 
-    let div = document.createElement("div");
-    div.className = "card " + (unlocked ? "" : "locked");
+/* SET NÍVEL */
+document.getElementById("level").innerText = getLevel(progress);
 
-    div.innerHTML = `
-      <span>${c}</span>
-      <span class="tag ${unlocked ? 'open' : 'lock'}">
-        ${unlocked ? "Desbloqueado" : "Bloqueado"}
-      </span>
-    `;
+/* BARRA DE PROGRESSO */
+document.getElementById("bar").style.width =
+  (progress / lessons.length) * 100 + "%";
 
-    if (unlocked) {
-      div.onclick = () => {
-        localStorage.setItem("current_chapter", index);
-        window.location.href = "capitulo0" + index + ".html";
-      };
-    }
+const list = document.getElementById("list");
 
-    list.appendChild(div);
-  });
+lessons.forEach((title, i) => {
+  let num = i + 1;
+  let unlocked = num <= progress;
+
+  let card = document.createElement("div");
+  card.className = "card " + (unlocked ? "" : "locked");
+
+  card.innerHTML = `
+    <div>${title}</div>
+    <div class="tag ${unlocked ? 'open' : 'lock'}">
+      ${unlocked ? "Desbloqueado" : "Bloqueado"}
+    </div>
+  `;
+
+  if (unlocked) {
+    card.onclick = () => {
+      localStorage.setItem("current_chapter", num);
+      window.location.href = "cap0" + num + ".html";
+    };
+  }
+
+  list.appendChild(card);
+});
 </script>
 
 </body>
