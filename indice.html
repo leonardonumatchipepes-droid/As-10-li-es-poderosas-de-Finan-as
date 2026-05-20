@@ -16,7 +16,7 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   background: var(--bg);
   color: var(--text);
 }
@@ -26,33 +26,18 @@ body {
   padding: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-}
-
-.header h1 {
-  margin: 0;
-  font-size: 22px;
 }
 
 .header a {
   color: var(--accent);
   text-decoration: none;
-  font-size: 14px;
-}
-
-/* NÍVEL */
-.level-box {
-  padding: 0 20px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  opacity: 0.9;
 }
 
 /* PROGRESSO */
 .progress {
   height: 5px;
   background: #222;
-  margin: 0 20px 15px;
+  margin: 0 20px 10px;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -81,11 +66,10 @@ body {
 
 .card:hover {
   transform: scale(1.02);
-  background: rgba(255,255,255,0.12);
 }
 
 .locked {
-  opacity: 0.4;
+  opacity: 0.35;
   cursor: not-allowed;
 }
 
@@ -99,47 +83,35 @@ body {
   background: rgba(0,0,0,0.4);
 }
 
-.open {
-  color: #22c55e;
-}
-
-.lock {
-  color: #e50914;
-}
+.open { color: #22c55e; }
+.lock { color: #e50914; }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <div class="header">
-  <h1>📺 Lições Financeiras</h1>
+  <h2>📺 Lições Financeiras</h2>
   <a href="autor.html">Autor ⚙️</a>
 </div>
 
-<!-- NÍVEL -->
-<div class="level-box">
-  Nível: <b id="level"></b>
-</div>
-
-<!-- PROGRESSO -->
 <div class="progress">
   <div class="bar" id="bar"></div>
 </div>
 
-<!-- LISTA -->
 <div class="list" id="list"></div>
 
 <script>
+
 const lessons = [
 "Capítulo 01 - Mentalidade Financeira",
 "Capítulo 02 - Controle de Gastos",
 "Capítulo 03 - Salário não é riqueza",
-"Capítulo 04 - Dívidas perigosas",
-"Capítulo 05 - Poupança inteligente",
+"Capítulo 04 - Dívidas",
+"Capítulo 05 - Poupança",
 "Capítulo 06 - Investimentos",
 "Capítulo 07 - Ativos vs Passivos",
-"Capítulo 08 - Reserva de Emergência",
+"Capítulo 08 - Emergência",
 "Capítulo 09 - Juros Compostos",
 "Capítulo 10 - Liberdade Financeira"
 ];
@@ -148,26 +120,15 @@ function getProgress() {
   return parseInt(localStorage.getItem("finance_progress") || "1");
 }
 
-/* NÍVEL DO UTILIZADOR */
-function getLevel(p) {
-  if (p <= 2) return "Iniciante";
-  if (p <= 4) return "Organizador";
-  if (p <= 6) return "Investidor";
-  if (p <= 8) return "Estratégico";
-  return "Liberdade Financeira";
-}
-
 let progress = getProgress();
 
-/* SET NÍVEL */
-document.getElementById("level").innerText = getLevel(progress);
-
-/* BARRA DE PROGRESSO */
+/* PROGRESSO */
 document.getElementById("bar").style.width =
   (progress / lessons.length) * 100 + "%";
 
 const list = document.getElementById("list");
 
+/* CAPÍTULOS */
 lessons.forEach((title, i) => {
   let num = i + 1;
   let unlocked = num <= progress;
@@ -191,6 +152,49 @@ lessons.forEach((title, i) => {
 
   list.appendChild(card);
 });
+
+/* 👤 SOBRE O AUTOR (DESBLOQUEÁVEL) */
+let authorUnlocked = progress >= 4;
+
+let author = document.createElement("div");
+author.className = "card " + (authorUnlocked ? "" : "locked");
+
+author.innerHTML = `
+  <div>👤 Sobre o Autor</div>
+  <div class="tag ${authorUnlocked ? 'open' : 'lock'}">
+    ${authorUnlocked ? "Desbloqueado" : "Bloqueado"}
+  </div>
+`;
+
+if (authorUnlocked) {
+  author.onclick = () => {
+    window.location.href = "autor.html";
+  };
+}
+
+list.appendChild(author);
+
+/* 💼 CONSULTORIA (DESBLOQUEÁVEL PREMIUM) */
+let consultUnlocked = progress >= 7;
+
+let consult = document.createElement("div");
+consult.className = "card " + (consultUnlocked ? "" : "locked");
+
+consult.innerHTML = `
+  <div>💼 Consultoria Financeira</div>
+  <div class="tag ${consultUnlocked ? 'open' : 'lock'}">
+    ${consultUnlocked ? "Desbloqueado" : "Bloqueado"}
+  </div>
+`;
+
+if (consultUnlocked) {
+  consult.onclick = () => {
+    window.location.href = "https://wa.me/244929311220";
+  };
+}
+
+list.appendChild(consult);
+
 </script>
 
 </body>
