@@ -16,7 +16,7 @@
 
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
 }
@@ -26,11 +26,18 @@ body {
   padding: 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 20px;
+  margin: 0;
 }
 
 .header a {
   color: var(--accent);
   text-decoration: none;
+  font-size: 14px;
 }
 
 /* PROGRESSO */
@@ -47,6 +54,14 @@ body {
   width: 0%;
   background: var(--accent);
   transition: 0.4s;
+}
+
+/* LEVEL */
+.level {
+  padding: 0 20px;
+  font-size: 13px;
+  opacity: 0.8;
+  margin-bottom: 10px;
 }
 
 /* LISTA */
@@ -66,6 +81,7 @@ body {
 
 .card:hover {
   transform: scale(1.02);
+  background: rgba(255,255,255,0.12);
 }
 
 .locked {
@@ -90,15 +106,23 @@ body {
 
 <body>
 
+<!-- HEADER -->
 <div class="header">
-  <h2>📺 Lições Financeiras</h2>
+  <h1>📺 Finanças 10X</h1>
   <a href="autor.html">Autor ⚙️</a>
 </div>
 
+<!-- LEVEL -->
+<div class="level">
+  Nível: <b id="level"></b>
+</div>
+
+<!-- PROGRESSO -->
 <div class="progress">
   <div class="bar" id="bar"></div>
 </div>
 
+<!-- LISTA -->
 <div class="list" id="list"></div>
 
 <script>
@@ -120,9 +144,21 @@ function getProgress() {
   return parseInt(localStorage.getItem("finance_progress") || "1");
 }
 
+/* NÍVEL DO UTILIZADOR */
+function getLevel(p) {
+  if (p <= 2) return "Iniciante";
+  if (p <= 4) return "Organizador";
+  if (p <= 6) return "Investidor";
+  if (p <= 8) return "Estratégico";
+  return "Liberdade Financeira";
+}
+
 let progress = getProgress();
 
-/* PROGRESSO */
+/* LEVEL */
+document.getElementById("level").innerText = getLevel(progress);
+
+/* PROGRESS BAR */
 document.getElementById("bar").style.width =
   (progress / lessons.length) * 100 + "%";
 
@@ -153,7 +189,7 @@ lessons.forEach((title, i) => {
   list.appendChild(card);
 });
 
-/* 👤 SOBRE O AUTOR (DESBLOQUEÁVEL) */
+/* 👤 SOBRE O AUTOR (DESBLOQUEIO) */
 let authorUnlocked = progress >= 4;
 
 let author = document.createElement("div");
@@ -174,7 +210,7 @@ if (authorUnlocked) {
 
 list.appendChild(author);
 
-/* 💼 CONSULTORIA (DESBLOQUEÁVEL PREMIUM) */
+/* 💼 CONSULTORIA */
 let consultUnlocked = progress >= 7;
 
 let consult = document.createElement("div");
@@ -189,7 +225,7 @@ consult.innerHTML = `
 
 if (consultUnlocked) {
   consult.onclick = () => {
-    window.location.href = "https://wa.me/244929311220";
+    window.location.href = "consultoria.html";
   };
 }
 
