@@ -26,27 +26,22 @@ header{
 }
 
 header h1{
-    font-size:16px;
+    font-size:15px;
     margin:0;
     color:#facc15;
 }
 
 /* CONTAINER */
 .container{
-    max-width:800px;
+    max-width:820px;
     margin:auto;
     padding:20px;
 }
 
-/* TEXTO LIVRO */
+/* TEXTO ESTILO LIVRO */
 .content{
     font-size:17px;
     white-space:pre-wrap;
-}
-
-/* FRASES DE IMPACTO */
-strong{
-    color:#38bdf8;
 }
 
 /* BOTÕES */
@@ -54,7 +49,7 @@ strong{
     display:flex;
     gap:10px;
     flex-wrap:wrap;
-    margin:20px 0;
+    margin:18px 0;
 }
 
 button{
@@ -63,18 +58,19 @@ button{
     border-radius:10px;
     cursor:pointer;
     font-weight:bold;
+    transition:0.2s;
 }
 
 .play{background:#22c55e; color:white;}
+.next{background:#3b82f6; color:white;}
 .stop{background:#ef4444; color:white;}
-.note{background:#3b82f6; color:white;}
 .mode{background:#facc15; color:#111827;}
 
 /* IMAGEM */
 img{
     width:100%;
     border-radius:12px;
-    margin:20px 0;
+    margin:18px 0;
 }
 
 /* NOTAS */
@@ -92,6 +88,21 @@ textarea{
     padding:10px;
     border:none;
     font-size:14px;
+}
+
+/* BOTÃO PRÓXIMO GRANDE */
+.next-box{
+    margin-top:25px;
+    text-align:center;
+}
+
+.next-big{
+    background:#3b82f6;
+    color:white;
+    font-size:16px;
+    padding:14px 18px;
+    border-radius:12px;
+    width:100%;
 }
 
 /* MODO CLARO */
@@ -121,8 +132,8 @@ textarea{
 <img src="https://source.unsplash.com/900x400/?money,finance" alt="dinheiro">
 
 <div class="controls">
-<button class="play" onclick="play()">▶ Ouvir</button>
-<button class="stop" onclick="stop()">⏹ Parar</button>
+<button class="play" onclick="toggleAudio()">▶ Ouvir / ⏸</button>
+<button class="stop" onclick="stopAudio()">⏹ Parar</button>
 <button class="mode" onclick="toggleMode()">🌙 Modo</button>
 </div>
 
@@ -130,57 +141,61 @@ textarea{
 
 A MENTIRA QUE TODOS ACREDITAM
 
-Existe uma frase que parece inocente, mas destrói vidas financeiras todos os dias: “são apenas pequenos gastos”. O problema é que esta frase cria uma ilusão perigosa, fazendo as pessoas acreditarem que pequenas perdas não têm impacto, quando na verdade são exatamente essas pequenas perdas que destroem grandes futuros.
+Existe uma frase que parece inofensiva, mas destrói silenciosamente a vida financeira de milhões de pessoas: “são apenas pequenos gastos”. O problema é que esta mentalidade cria a ilusão de que pequenas perdas não têm impacto, quando na verdade são exatamente essas pequenas perdas que constroem grandes fracassos ao longo do tempo.
 
-A riqueza não desaparece de forma repentina. Ela vai sendo corroída lentamente, através de decisões pequenas repetidas diariamente. É como um barco a afundar não por um grande buraco visível, mas por várias infiltrações silenciosas que ninguém leva a sério até ser tarde demais.
+A riqueza não desaparece de uma vez. Ela vai sendo corroída lentamente, através de decisões pequenas repetidas todos os dias. É como um barco que não afunda por um grande buraco visível, mas por pequenas infiltrações ignoradas até ser tarde demais.
 
 PARTE 1: O DESAPARECIMENTO DO DINHEIRO
 
-Muitas pessoas sabem exatamente quanto ganham, mas não fazem ideia de onde o dinheiro desaparece. Dizem “ganho 150 mil”, mas quando perguntadas sobre os gastos, existe confusão. O dinheiro parece evaporar, mas na realidade ele apenas foi gasto sem controlo.
+Muitas pessoas sabem quanto ganham, mas não sabem para onde o dinheiro vai. O salário entra, mas desaparece sem explicação. Isso acontece porque não há controlo consciente dos gastos.
 
-Se uma pessoa gasta apenas 500 kwanzas por dia em pequenas coisas, isso parece irrelevante. Mas ao longo de um mês isso transforma-se em valores grandes e, ao longo de um ano, pode ultrapassar 180 mil kwanzas. Esse dinheiro poderia ter sido usado para construir algo real, como um negócio, uma formação ou uma reserva de emergência.
+Um simples hábito de gastar 500 kwanzas por dia pode parecer irrelevante, mas ao longo do mês e do ano transforma-se em valores significativos. Esse dinheiro poderia ser usado para criar estabilidade, investimento ou crescimento pessoal.
 
 <strong>O problema não está no valor, mas na repetição invisível.</strong>
 
 VERDADE DURA
 
-Muitas pessoas não estão pobres porque ganham pouco, mas porque não sabem controlar o que já têm. Quem não controla pouco, não controla muito.
+Quem não controla pouco, nunca controlará muito.
 
 PARTE 2: OS GASTOS INVISÍVEIS
 
-Os gastos mais perigosos são aqueles que acontecem sem consciência. São decisões automáticas: comprar por impulso, gastar para impressionar, ou gastar para aliviar emoções. Tudo isso parece pequeno no momento, mas no final do mês cria um rombo financeiro silencioso.
+Os gastos mais perigosos são os automáticos e emocionais. São decisões feitas sem consciência: comprar por impulso, gastar para impressionar ou gastar para aliviar emoções.
 
-Muitas pessoas vivem nesta realidade enquanto acreditam que estão no controlo. Por fora parecem organizadas, mas por dentro vivem sem estabilidade, sem poupança e sem segurança.
+Por fora, muitas pessoas parecem organizadas. Mas por dentro vivem sem poupança, sem segurança e sem direção financeira.
 
 O EXEMPLO DOS DOIS AMIGOS
 
-Dois amigos com o mesmo salário seguem caminhos completamente diferentes. Um vive no impulso e nunca planeia. O outro organiza o dinheiro, separa percentagens e pensa antes de gastar.
+Dois amigos com o mesmo salário seguem caminhos diferentes. Um vive sem planeamento. O outro organiza, poupa e investe.
 
-Com o tempo, um continua preso à mesma realidade, enquanto o outro começa a construir liberdade financeira. A diferença nunca foi o salário, mas sim o comportamento.
+Com o tempo, um continua preso ao mesmo nível. O outro conquista liberdade financeira. A diferença nunca foi o salário, mas o comportamento.
 
 PARTE 3: COMO MUDAR ISSO
 
-A mudança começa com consciência. Registar gastos durante uma semana revela verdades que muitas pessoas evitam ver. Depois disso, cortar desperdícios óbvios já cria espaço financeiro imediato.
+A mudança começa com consciência. Registar gastos durante alguns dias revela padrões ocultos. Depois, cortar desperdícios óbvios já cria alívio financeiro imediato.
 
-O passo mais importante é simples: poupar primeiro, antes de gastar. Quem espera sobras nunca constrói nada, mas quem separa primeiro cria futuro.
+O passo mais importante é simples: poupar primeiro. Quem espera sobras nunca constrói nada.
 
-Por fim, o dinheiro precisa de direção. Quando cada valor tem um propósito, o dinheiro deixa de desaparecer sem explicação.
+Por fim, cada dinheiro deve ter um propósito claro: necessidades, poupança, investimento e lazer.
 
 A VERDADE FINAL
 
-Controlar pequenos gastos não é ser avarento, é ser inteligente. A riqueza nasce de hábitos consistentes, não de grandes salários.
-
-Pequenas decisões diárias criam grandes destinos financeiros.
+Controlar pequenos gastos é disciplina, não avareza. É o início da liberdade financeira.
 
 <strong>Pequenos hábitos criam grandes resultados. Pequenos desperdícios criam grandes fracassos.</strong>
 
+</div>
+
+<div class="next-box">
+<a href="cap03.html">
+<button class="next-big">➡ PRÓXIMA LIÇÃO</button>
+</a>
 </div>
 
 <div class="notes">
 <h3>📝 O teu resumo pessoal</h3>
 <textarea id="nota" placeholder="Escreve aqui o que aprendeste..."></textarea>
 <br><br>
-<button class="note" onclick="save()">💾 Guardar</button>
+<button onclick="saveNote()" class="play">💾 Guardar Nota</button>
 </div>
 
 </div>
@@ -188,27 +203,40 @@ Pequenas decisões diárias criam grandes destinos financeiros.
 <script>
 let synth = window.speechSynthesis;
 let utter;
+let playing = false;
 
-function play(){
+function toggleAudio(){
     let text = document.getElementById("texto").innerText;
-    utter = new SpeechSynthesisUtterance(text);
-    utter.lang = "pt-PT";
-    utter.rate = 1;
-    synth.speak(utter);
+
+    if(!playing){
+        utter = new SpeechSynthesisUtterance(text);
+        utter.lang = "pt-PT";
+        utter.rate = 1;
+        synth.speak(utter);
+        playing = true;
+
+        utter.onend = () => { playing = false; };
+    } else {
+        synth.cancel();
+        playing = false;
+    }
 }
 
-function stop(){
+function stopAudio(){
     synth.cancel();
+    playing = false;
 }
 
-function save(){
+function saveNote(){
     localStorage.setItem("nota02", document.getElementById("nota").value);
-    alert("Nota guardada com sucesso");
 }
 
 function toggleMode(){
     document.body.classList.toggle("light");
 }
+
+// auto load notes
+document.getElementById("nota").value = localStorage.getItem("nota02") || "";
 </script>
 
 </body>
