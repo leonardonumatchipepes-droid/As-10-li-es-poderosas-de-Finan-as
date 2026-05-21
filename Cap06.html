@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lição 06 - O Seu Maior Ativo é a Sua Mente</title>
+
+  <style>
+    :root{
+      --bg:#000;
+      --card:#111;
+      --text:#fff;
+      --muted:#bdbdbd;
+      --gold:#f5c542;
+      --line:rgba(255,255,255,0.08);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Segoe UI',sans-serif;
+      line-height:1.9;
+      padding:20px;
+    }
+
+    .container{
+      max-width:900px;
+      margin:auto;
+    }
+
+    .topo{
+      text-align:center;
+      margin-bottom:40px;
+    }
+
+    .topo h1{
+      font-size:2.3rem;
+      color:var(--gold);
+      margin-bottom:10px;
+    }
+
+    .topo h2{
+      font-size:1.2rem;
+      color:#fff;
+      font-weight:300;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      padding:25px;
+      border-radius:20px;
+      margin-bottom:25px;
+    }
+
+    h3{
+      color:var(--gold);
+      margin-bottom:18px;
+      font-size:1.4rem;
+    }
+
+    p{
+      margin-bottom:18px;
+      color:#f1f1f1;
+    }
+
+    ul{
+      padding-left:20px;
+    }
+
+    li{
+      margin-bottom:12px;
+      color:#e5e5e5;
+    }
+
+    blockquote{
+      border-left:4px solid var(--gold);
+      padding-left:15px;
+      margin:20px 0;
+      color:#fff;
+      font-style:italic;
+    }
+
+    .destaque{
+      color:var(--gold);
+      font-weight:bold;
+    }
+
+    .tabela{
+      overflow-x:auto;
+      margin-top:20px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    table th,
+    table td{
+      border:1px solid var(--line);
+      padding:15px;
+      text-align:left;
+    }
+
+    table th{
+      background:#1b1b1b;
+      color:var(--gold);
+    }
+
+    .bloco{
+      background:#0c0c0c;
+      border:1px solid rgba(255,255,255,0.05);
+      padding:20px;
+      border-radius:15px;
+      margin-top:20px;
+    }
+
+    .resumo li{
+      margin-bottom:16px;
+      font-weight:500;
+    }
+
+    .acoes{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+      margin-top:40px;
+    }
+
+    button{
+      padding:14px 22px;
+      border:none;
+      border-radius:12px;
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.3s;
+      font-weight:bold;
+    }
+
+    .ouvir{
+      background:var(--gold);
+      color:#000;
+    }
+
+    .parar{
+      background:#fff;
+      color:#000;
+    }
+
+    .modo{
+      background:#222;
+      color:#fff;
+    }
+
+    .proximo{
+      background:var(--gold);
+      color:#000;
+      width:100%;
+      margin-top:30px;
+    }
+
+    button:hover{
+      transform:scale(1.03);
+    }
+
+    footer{
+      margin-top:60px;
+      padding:30px 10px;
+      border-top:1px solid var(--line);
+      text-align:center;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .nota{
+      margin-top:35px;
+      padding:20px;
+      border-radius:15px;
+      background:#111;
+      border:1px solid rgba(245,197,66,0.2);
+    }
+
+    .nota h4{
+      color:var(--gold);
+      margin-bottom:10px;
+    }
+
+    @media(max-width:768px){
+      .topo h1{
+        font-size:1.8rem;
+      }
+
+      .card{
+        padding:20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="topo">
+    <h1>LIÇÃO 06</h1>
+    <h2>O SEU MAIOR ATIVO É A SUA MENTE</h2>
+  </div>
+
+  <div class="acoes">
+    <button class="ouvir" onclick="falarTexto()">▶ Ouvir</button>
+    <button class="parar" onclick="pararTexto()">■ Parar</button>
+    <button class="modo" onclick="alternarModo()">🌙 Modo</button>
+  </div>
+
+  <div class="card">
+    <h3>A VERDADE QUE NINGUÉM QUER OUVIR</h3>
+
+    <p>
+      Você já parou para pensar no motivo pelo qual duas pessoas com exatamente o mesmo salário acabam em realidades financeiras completamente diferentes?
+    </p>
+
+    <p>
+      Uma tem carro novo, casa própria, investimentos. A outra está sempre no vermelho.
+    </p>
+
+    <p>
+      A resposta não está na sorte. Não está no acesso.
+      Está aqui:
+      <span class="destaque">na mente.</span>
+    </p>
+
+    <p>
+      A vida financeira de uma pessoa não começa no bolso.
+      Começa na cabeça.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>O ERRO MAIS CARO QUE VOCÊ PODE COMETER</h3>
+
+    <p>
+      Existe um engano que prende milhões de pessoas numa ilusão:
+    </p>
+
+    <blockquote>
+      “Se eu tivesse mais dinheiro, minha vida seria diferente.”
+    </blockquote>
+
+    <p>
+      É uma mentira perigosa.
+      Porque o dinheiro nunca muda ninguém.
+      Ele apenas revela quem você realmente é.
+    </p>
+
+    <ul>
+      <li>Uma mente desorganizada perde dinheiro — mesmo que ganhe mais</li>
+      <li>Uma mente fraca desperdiça oportunidades — mesmo que elas apareçam</li>
+      <li>Uma mente disciplinada constrói riqueza — independentemente do ponto de partida</li>
+    </ul>
+
+    <p>
+      O maior ativo que você possui não é o seu salário.
+      É a forma como você pensa.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>1. EDUCAÇÃO FINANCEIRA</h3>
+
+    <p>
+      Educação financeira não é luxo.
+      É sobrevivência moderna.
+    </p>
+
+    <p>
+      Quem não entende como o dinheiro funciona vive apenas para pagar contas.
+      Trabalha para sobreviver.
+      Ganha para gastar.
+    </p>
+
+    <ul>
+      <li>Gastos sem controlo</li>
+      <li>Compras impulsivas</li>
+      <li>Falta de visão de futuro</li>
+    </ul>
+
+    <blockquote>
+      Quem não aprende a lidar com dinheiro será sempre controlado por ele.
+    </blockquote>
+  </div>
+
+  <div class="card">
+    <h3>2. HABILIDADES</h3>
+
+    <p>
+      O mercado não paga intenções.
+      Paga capacidade.
+    </p>
+
+    <p>
+      O valor de uma pessoa no mundo real está ligado ao que ela consegue entregar.
+    </p>
+
+    <div class="bloco">
+      <p>SEM HABILIDADES → Você depende</p>
+      <p>COM HABILIDADES → Você estabiliza</p>
+      <p>COM HABILIDADES FORTES → Você é livre</p>
+    </div>
+
+    <p>
+      Sua vida financeira nunca vai superar o nível das suas habilidades.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>3. CONHECIMENTO PRÁTICO</h3>
+
+    <p>
+      Muitas pessoas acumulam informação, mas não acumulam resultados.
+    </p>
+
+    <p>
+      Saber não é suficiente.
+      Você precisa agir.
+    </p>
+
+    <blockquote>
+      A vida ensina através de consequências.
+    </blockquote>
+
+    <p>
+      Quem aprende com a prática evolui.
+      Quem ignora os erros repete os mesmos ciclos.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>4. DISCIPLINA</h3>
+
+    <p>
+      Um plano sem disciplina é apenas papel amassado.
+    </p>
+
+    <ul>
+      <li>O que se aprende não é aplicado</li>
+      <li>O que se planeia não é executado</li>
+      <li>O que se deseja não se concretiza</li>
+    </ul>
+
+    <blockquote>
+      Disciplina é fazer o que precisa ser feito, mesmo quando você não tem vontade.
+    </blockquote>
+
+    <p>
+      Não é a falta de conhecimento que impede o sucesso.
+      É a falta de disciplina diária.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>5. A MENTE COMO ATIVO PRINCIPAL</h3>
+
+    <p>
+      O crescimento financeiro começa no pensamento antes de aparecer na realidade.
+    </p>
+
+    <div class="bloco">
+      <p><strong>Mente limitada:</strong> “Nunca vou conseguir.”</p>
+      <p><strong>Mente em desenvolvimento:</strong> “Como posso fazer isso?”</p>
+      <p><strong>Mente forte:</strong> “Vou aprender até conseguir.”</p>
+    </div>
+
+    <p>
+      Primeiro você pensa diferente.
+      Depois você age diferente.
+      Depois você vive diferente.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>6. O QUE VOCÊ APRENDEU ATÉ AQUI</h3>
+
+    <div class="tabela">
+      <table>
+        <tr>
+          <th>Lição</th>
+          <th>Aprendizado</th>
+          <th>Resultado</th>
+        </tr>
+
+        <tr>
+          <td>01</td>
+          <td>O dinheiro deve ser servo, não mestre</td>
+          <td>Você recupera o controlo</td>
+        </tr>
+
+        <tr>
+          <td>02</td>
+          <td>Pequenos gastos destroem grandes resultados</td>
+          <td>Você entende o impacto real</td>
+        </tr>
+
+        <tr>
+          <td>03</td>
+          <td>Desorganização gera pobreza</td>
+          <td>Você cria estrutura</td>
+        </tr>
+
+        <tr>
+          <td>04</td>
+          <td>Dívidas mal geridas destroem o futuro</td>
+          <td>Você protege-se</td>
+        </tr>
+
+        <tr>
+          <td>05</td>
+          <td>Poupança sem investimento é estagnação</td>
+          <td>Você faz o dinheiro trabalhar</td>
+        </tr>
+
+        <tr>
+          <td>06</td>
+          <td>A mente é o maior ativo</td>
+          <td>Você transforma-se</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>A ESCOLHA ESTÁ NAS SUAS MÃOS</h3>
+
+    <p>
+      O dinheiro não transforma ninguém.
+      Ele apenas revela quem você realmente é.
+    </p>
+
+    <div class="bloco">
+      <p>✗ Mente fraca → Dinheiro desaparece</p>
+      <p>~ Mente desorganizada → Continua no mesmo ciclo</p>
+      <p>✓ Mente disciplinada → Liberdade conquistada</p>
+    </div>
+
+    <p>
+      A verdadeira riqueza não começa no banco.
+      Começa na mente.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>RESUMO FINAL</h3>
+
+    <ul class="resumo">
+      <li>Lição 01: O dinheiro deve ser controlado, não idolatrado</li>
+      <li>Lição 02: Pequenos gastos determinam grandes resultados</li>
+      <li>Lição 03: Sem organização financeira não há crescimento</li>
+      <li>Lição 04: Dívidas mal geridas comprometem o futuro</li>
+      <li>Lição 05: Poupança sem investimento é estagnação</li>
+      <li>Lição 06: A mente é o maior ativo — tudo começa aqui</li>
+    </ul>
+  </div>
+
+  <div class="nota">
+    <h4>Nota Final</h4>
+
+    <p>
+      Você não está a centenas de anos da liberdade financeira.
+      Está apenas a decisões corretas repetidas diariamente.
+    </p>
+
+    <p>
+      A mudança começa quando a mente muda.
+    </p>
+
+    <button class="proximo" onclick="window.location.href='cap07.html'">
+      Próxima Lição
+    </button>
+  </div>
+
+  <footer>
+    APP Finanças — Educação financeira para transformar mentalidade, hábitos e futuro.
+  </footer>
+
+</div>
+
+<script>
+
+function falarTexto() {
+  const texto = document.body.innerText;
+  const fala = new SpeechSynthesisUtterance(texto);
+
+  fala.lang = 'pt-PT';
+  fala.rate = 0.95;
+
+  speechSynthesis.speak(fala);
+}
+
+function pararTexto() {
+  speechSynthesis.cancel();
+}
+
+function alternarModo() {
+
+  if(document.body.style.background == "white"){
+
+    document.body.style.background = "#000";
+    document.body.style.color = "#fff";
+
+  } else {
+
+    document.body.style.background = "white";
+    document.body.style.color = "#000";
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
