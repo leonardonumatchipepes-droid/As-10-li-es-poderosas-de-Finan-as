@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIÇÃO 08 - Emergências Acontecem</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.7;
+    }
+
+    /* BARRA DE PROGRESSO */
+    #progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: #00ffcc;
+      z-index: 999;
+    }
+
+    header {
+      padding: 40px 20px 20px;
+      text-align: center;
+      background: #111;
+      border-bottom: 2px solid #222;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+      color: #00ffcc;
+    }
+
+    header h2 {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #ccc;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h3 { color: #00ffcc; margin-top: 40px; }
+    h4 { color: #ffffff; margin-top: 25px; }
+
+    p, li { color: #ddd; }
+
+    ul { margin-left: 20px; }
+
+    .box {
+      background: #111;
+      padding: 15px;
+      border-left: 4px solid #00ffcc;
+      margin: 15px 0;
+    }
+
+    .danger { border-left: 4px solid #ff4d4d; }
+    .success { border-left: 4px solid #00ff99; }
+
+    /* BOTÕES FIXOS */
+    .actions {
+      position: sticky;
+      top: 5px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      background: #0a0a0a;
+      padding: 10px;
+      z-index: 100;
+    }
+
+    .btn {
+      padding: 10px 15px;
+      background: #00ffcc;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover { background: #00ddb3; }
+
+    .btn-dark {
+      background: #222;
+      color: #fff;
+    }
+
+    /* MODO LEITURA */
+    .reading-mode {
+      font-size: 20px;
+      line-height: 2;
+      background: #050505;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #111;
+      margin-top: 50px;
+      color: #777;
+    }
+
+    /* ANIMAÇÃO SUAVE */
+    .container {
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div id="progress"></div>
+
+<header>
+  <h1>LIÇÃO 08</h1>
+  <h2>EMERGÊNCIAS ACONTECEM: O FUNDO QUE SEPARA A ESTABILIDADE DO CAOS</h2>
+</header>
+
+<!-- BOTÕES -->
+<div class="actions">
+  <button class="btn" onclick="toggleAudio()">🔊 Ouvir</button>
+  <button class="btn btn-dark" onclick="toggleMode()">📖 Modo Leitura</button>
+  <a class="btn btn-dark" href="index.html">⬅ Índice</a>
+</div>
+
+<div class="container">
+
+  <h3>INTRODUÇÃO — A REALIDADE QUE NINGUÉM QUER ACEITAR</h3>
+
+  <p>A vida financeira não se rompe de forma gradual. Ela colapsa de forma repentina.</p>
+
+  <div class="box danger">
+    Emergências não avisam. Elas acontecem.
+  </div>
+
+  <div class="box success">
+    Quem se prepara sobrevive com calma. Quem não se prepara entra em caos.
+  </div>
+
+  <h3>a) RESERVA FINANCEIRA — O ESCUDO INVISÍVEL</h3>
+
+  <p><b>Reserva financeira = sobrevivência.</b></p>
+
+  <h4>Regra ideal</h4>
+
+  <ul>
+    <li>3 meses = básico</li>
+    <li>6 meses = seguro</li>
+  </ul>
+
+  <div class="box">
+    200.000 Kz → 600.000 a 1.200.000 Kz
+  </div>
+
+  <h3>b) FUNDO DE EMERGÊNCIA</h3>
+
+  <div class="box danger">
+    Emergência não é desejo.
+  </div>
+
+  <ul>
+    <li>Conta separada</li>
+    <li>Acesso controlado</li>
+    <li>Uso apenas real</li>
+  </ul>
+
+  <h3>c) SEGURANÇA FINANCEIRA</h3>
+
+  <div class="box success">
+    Segurança = tempo que você vive sem renda.
+  </div>
+
+  <ul>
+    <li>Reserva</li>
+    <li>Controle</li>
+    <li>Renda múltipla</li>
+  </ul>
+
+  <h3>CONCLUSÃO</h3>
+
+  <div class="box success">
+    Riqueza não é apenas ganhar dinheiro. É não cair quando a vida testa você.
+  </div>
+
+  <h3>RESUMO RÁPIDO</h3>
+
+  <div class="box">
+    ✔ Emergências são inevitáveis<br>
+    ✔ Reserva protege sua vida financeira<br>
+    ✔ Fundo exige disciplina<br>
+    ✔ Segurança é estrutura, não sorte
+  </div>
+
+  <a class="btn" href="cap09.html">PRÓXIMA LIÇÃO →</a>
+
+</div>
+
+<footer>
+  APP FINANÇAS • LIÇÕES DE LIBERDADE FINANCEIRA
+</footer>
+
+<script>
+  // PROGRESS BAR
+  window.onscroll = function() {
+    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    document.getElementById("progress").style.width = scrolled + "%";
+  };
+
+  // MODO LEITURA
+  function toggleMode() {
+    document.body.classList.toggle("reading-mode");
+  }
+
+  // SIMULAÇÃO ÁUDIO
+  let speaking = false;
+  function toggleAudio() {
+    if (!speaking) {
+      alert("🔊 Leitura em voz simulada ativada (pode integrar TTS depois)");
+      speaking = true;
+    } else {
+      alert("⏹ Leitura pausada");
+      speaking = false;
+    }
+  }
+</script>
+
+</body>
+</html>
