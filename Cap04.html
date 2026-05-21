@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Capítulo 04 - Dívidas Que Podem Destruir o Teu Futuro</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: "Segoe UI", sans-serif;
+      background:#050505;
+      color:#f5f5f5;
+      line-height:1.8;
+    }
+
+    header{
+      padding:80px 25px;
+      text-align:center;
+      background:linear-gradient(180deg,#111,#000);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    header h1{
+      font-size:2.8rem;
+      margin-bottom:20px;
+      color:#ff4747;
+      text-transform:uppercase;
+      letter-spacing:2px;
+    }
+
+    header h2{
+      font-size:1.2rem;
+      color:#bbb;
+      font-weight:400;
+    }
+
+    .container{
+      width:90%;
+      max-width:1000px;
+      margin:auto;
+      padding:50px 0;
+    }
+
+    section{
+      margin-bottom:70px;
+      padding:35px;
+      background:rgba(255,255,255,0.03);
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,0.05);
+      box-shadow:0 0 20px rgba(0,0,0,0.3);
+    }
+
+    h3{
+      color:#ff5c5c;
+      margin-bottom:20px;
+      font-size:1.9rem;
+    }
+
+    h4{
+      color:#ffd166;
+      margin-top:30px;
+      margin-bottom:15px;
+      font-size:1.3rem;
+    }
+
+    p{
+      margin-bottom:18px;
+      color:#ddd;
+    }
+
+    strong{
+      color:#fff;
+    }
+
+    ul{
+      padding-left:25px;
+      margin:20px 0;
+    }
+
+    ul li{
+      margin-bottom:12px;
+    }
+
+    .quote{
+      margin:30px 0;
+      padding:25px;
+      background:rgba(255,71,71,0.08);
+      border-left:5px solid #ff4747;
+      font-style:italic;
+      color:#fff;
+      border-radius:12px;
+    }
+
+    .danger{
+      background:rgba(255,0,0,0.08);
+      border-left:5px solid red;
+      padding:25px;
+      border-radius:12px;
+      margin:25px 0;
+    }
+
+    .success{
+      background:rgba(0,255,120,0.08);
+      border-left:5px solid #00ff88;
+      padding:25px;
+      border-radius:12px;
+      margin:25px 0;
+    }
+
+    .challenge{
+      background:rgba(255,209,102,0.08);
+      border-left:5px solid #ffd166;
+      padding:25px;
+      border-radius:12px;
+      margin-top:30px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+      margin-top:30px;
+    }
+
+    button{
+      padding:14px 22px;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:1rem;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .play{
+      background:#00c853;
+      color:white;
+    }
+
+    .stop{
+      background:#d50000;
+      color:white;
+    }
+
+    .mode{
+      background:#2962ff;
+      color:white;
+    }
+
+    button:hover{
+      transform:scale(1.05);
+      opacity:0.9;
+    }
+
+    .next{
+      display:inline-block;
+      margin-top:40px;
+      padding:18px 28px;
+      background:#ff4747;
+      color:#fff;
+      text-decoration:none;
+      border-radius:12px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .next:hover{
+      background:#ff2222;
+      transform:translateY(-3px);
+    }
+
+    footer{
+      text-align:center;
+      padding:40px 20px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      color:#888;
+      margin-top:60px;
+      font-size:0.95rem;
+    }
+
+    .highlight{
+      color:#ff4747;
+      font-weight:bold;
+    }
+
+    @media(max-width:768px){
+
+      header h1{
+        font-size:2rem;
+      }
+
+      section{
+        padding:25px;
+      }
+
+      h3{
+        font-size:1.5rem;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>LIÇÃO 04</h1>
+  <h2>DÍVIDAS QUE PODEM DESTRUIR O TEU FUTURO</h2>
+
+  <div class="buttons">
+    <button class="play" onclick="falarTexto()">▶ Ouvir</button>
+    <button class="stop" onclick="pararTexto()">■ Parar</button>
+    <button class="mode" onclick="alternarModo()">☾ Modo</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <section>
+    <h3>PARTE 1: O DESPERTAR</h3>
+
+    <h4>Você está preso.</h4>
+
+    <p>Mas não vê as correntes.</p>
+
+    <p>
+      Uma prisão moderna assombra milhões de pessoas.
+      Ela não possui grades, correntes visíveis nem guardas.
+      Mas rouba tudo:
+    </p>
+
+    <ul>
+      <li>A paz</li>
+      <li>O sono</li>
+      <li>A liberdade</li>
+      <li>O futuro</li>
+    </ul>
+
+    <div class="quote">
+      Ela se chama:
+      <strong>DÍVIDA</strong>
+    </div>
+
+    <h4>A Verdade Que Ninguém Quer Ouvir</h4>
+
+    <p>
+      A maioria entra em dívida não por necessidade extrema.
+    </p>
+
+    <p class="highlight">
+      Entra por ignorância. Por impulso. Por emoção.
+    </p>
+
+  </section>
+
+  <section>
+
+    <h3>PARTE 2: A ILUSÃO DO SUCESSO</h3>
+
+    <h4>Vivemos uma geração perigosa.</h4>
+
+    <p>
+      Uma geração onde
+      <strong>parecer rico se tornou mais importante que ser rico.</strong>
+    </p>
+
+    <h4>O Que Você Vê Nas Redes Sociais</h4>
+
+    <ul>
+      <li>O carro financiado</li>
+      <li>O telefone parcelado</li>
+      <li>As roupas compradas com empréstimos</li>
+      <li>As viagens pagas em 24 parcelas</li>
+    </ul>
+
+    <h4>O Que Elas Escondem</h4>
+
+    <div class="danger">
+      <ul>
+        <li>Parcelas infinitas</li>
+        <li>Empréstimos acumulados</li>
+        <li>Ansiedade silenciosa</li>
+        <li>Desespero emocional</li>
+        <li>Noites sem dormir</li>
+      </ul>
+    </div>
+
+    <p>
+      A sociedade ensinou você a consumir antes de aprender a construir patrimônio.
+    </p>
+
+    <div class="quote">
+      Você foi treinado para:
+      desejar rápido,
+      comprar impulsivamente,
+      pagar lentamente
+      e sofrer silenciosamente.
+    </div>
+
+  </section>
+
+  <section>
+
+    <h3>PARTE 3: O GRANDE SEGREDO</h3>
+
+    <h4>Nem Toda Dívida É Má</h4>
+
+    <p>
+      A diferença não está na dívida.
+    </p>
+
+    <p class="highlight">
+      Está no propósito.
+    </p>
+
+    <div class="danger">
+      <h4>🔴 Dívida Burra</h4>
+
+      <ul>
+        <li>Compra aparência</li>
+        <li>Gera prejuízo</li>
+        <li>Cria dependência</li>
+        <li>Destrói o futuro</li>
+      </ul>
+    </div>
+
+    <div class="success">
+      <h4>🟢 Dívida Inteligente</h4>
+
+      <ul>
+        <li>Cria patrimônio</li>
+        <li>Gera renda</li>
+        <li>Produz crescimento</li>
+        <li>Fortalece o futuro</li>
+      </ul>
+    </div>
+
+    <div class="quote">
+      A única diferença:
+      <strong>MENTALIDADE.</strong>
+    </div>
+
+  </section>
+
+  <section>
+
+    <h3>SEÇÃO 1: OS JUROS</h3>
+
+    <h4>O Inimigo Silencioso</h4>
+
+    <p>
+      Os juros trabalham 24 horas por dia.
+    </p>
+
+    <p>
+      Quando você investe,
+      eles trabalham para você.
+    </p>
+
+    <p>
+      Quando você deve,
+      eles trabalham contra você.
+    </p>
+
+    <div class="quote">
+      Muitos entregam anos da própria vida apenas para pagar juros.
+    </div>
+
+    <h4>O Acúmulo Silencioso</h4>
+
+    <ul>
+      <li>Telefone parcelado</li>
+      <li>Carro financiado</li>
+      <li>Móveis parcelados</li>
+      <li>Roupas parceladas</li>
+      <li>Viagens parceladas</li>
+    </ul>
+
+    <p class="highlight">
+      O salário inteiro já pertence ao banco antes mesmo de chegar.
+    </p>
+
+    <h4>Quando Os Juros Se Tornam Inteligentes</h4>
+
+    <div class="success">
+      Empresários usam crédito para:
+      <ul>
+        <li>Abrir negócios</li>
+        <li>Expandir empresas</li>
+        <li>Comprar máquinas</li>
+        <li>Gerar patrimônio</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <section>
+
+    <h3>SEÇÃO 2: EMPRÉSTIMOS</h3>
+
+    <h4>Dinheiro Rápido, Sofrimento Longo</h4>
+
+    <p>
+      O empréstimo parece solução.
+      Mas muitas vezes apenas adia o problema.
+    </p>
+
+    <div class="danger">
+      Quem não sabe administrar pouco dinheiro
+      dificilmente saberá administrar dinheiro emprestado.
+    </div>
+
+    <h4>O Ciclo Da Destruição</h4>
+
+    <ul>
+      <li>Paga uma dívida com outra</li>
+      <li>Vive pressionado</li>
+      <li>Perde a paz</li>
+      <li>Trabalha apenas para sobreviver</li>
+    </ul>
+
+    <h4>O Preço Emocional</h4>
+
+    <div class="danger">
+      <ul>
+        <li>Ansiedade</li>
+        <li>Insônia</li>
+        <li>Vergonha</li>
+        <li>Conflitos familiares</li>
+        <li>Depressão emocional</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <section>
+
+    <h3>SEÇÃO 3: CRÉDITO BANCÁRIO</h3>
+
+    <h4>A Armadilha Do Dinheiro Fácil</h4>
+
+    <p>
+      Ter limite bancário não significa ter riqueza.
+    </p>
+
+    <div class="quote">
+      Significa apenas que alguém está disposto a emprestar dinheiro cobrando juros.
+    </div>
+
+    <h4>O Erro Fatal Da Nova Geração</h4>
+
+    <ul>
+      <li>Carro acima da realidade</li>
+      <li>Telefone de luxo</li>
+      <li>Vida financiada</li>
+      <li>Status comprado</li>
+    </ul>
+
+    <div class="success">
+      Os verdadeiramente ricos:
+      <ul>
+        <li>Evitam dívidas desnecessárias</li>
+        <li>Compram ativos</li>
+        <li>Investem antes de ostentar</li>
+        <li>Pensam no longo prazo</li>
+      </ul>
+    </div>
+
+    <div class="quote">
+      “A riqueza verdadeira é silenciosa.”
+    </div>
+
+  </section>
+
+  <section>
+
+    <h3>SEÇÃO 4: DÍVIDAS EMOCIONAIS</h3>
+
+    <h4>O Tipo Mais Perigoso</h4>
+
+    <p>
+      Você não gasta porque precisa.
+    </p>
+
+    <p class="highlight">
+      Você gasta porque sente.
+    </p>
+
+    <ul>
+      <li>Compra quando está triste</li>
+      <li>Compra quando está ansioso</li>
+      <li>Compra buscando validação</li>
+      <li>Compra tentando preencher vazios</li>
+    </ul>
+
+    <div class="danger">
+      O consumo vira vício.
+      As parcelas viram prisão.
+    </div>
+
+    <h4>O Vazio Que Nenhuma Compra Preenche</h4>
+
+    <div class="quote">
+      Felicidade comprada dura horas.
+      A dívida permanece anos.
+    </div>
+
+  </section>
+
+  <section>
+
+    <h3>SEÇÃO 5: O SEGREDO DAS PESSOAS FINANCEIRAMENTE FORTES</h3>
+
+    <ul>
+      <li>Controlam emoções</li>
+      <li>Vivem abaixo do que ganham</li>
+      <li>Pararam de competir</li>
+      <li>Constroem patrimônio em silêncio</li>
+      <li>Valorizam estabilidade acima de status</li>
+    </ul>
+
+    <div class="quote">
+      “Ser rico é infinitamente melhor do que parecer rico.”
+    </div>
+
+  </section>
+
+  <section class="challenge">
+
+    <h3>DESAFIO: 30 DIAS DE TRANSFORMAÇÃO</h3>
+
+    <ul>
+      <li>Anote todas as suas dívidas</li>
+      <li>Descubra quais são emocionais</li>
+      <li>Elimine gastos por aparência</li>
+      <li>Crie um plano de quitação</li>
+      <li>Pare de competir</li>
+      <li>Construa patrimônio silenciosamente</li>
+    </ul>
+
+    <div class="quote">
+      A transformação financeira começa quando a verdade finalmente é aceita.
+    </div>
+
+  </section>
+
+  <section>
+
+    <h3>CONCLUSÃO</h3>
+
+    <p>
+      Dívidas destroem vidas inteiras.
+    </p>
+
+    <p>
+      Mas o verdadeiro problema não está apenas no dinheiro.
+    </p>
+
+    <p class="highlight">
+      Está na mentalidade que o gerou.
+    </p>
+
+    <div class="quote">
+      A maior riqueza não é ostentar.
+      A maior riqueza é viver com paz, estabilidade e liberdade.
+    </div>
+
+    <h4>O MOMENTO É AGORA</h4>
+
+    <p>
+      Você continuará comprando aparência
+      ou começará a construir patrimônio?
+    </p>
+
+    <a href="cap05.html" class="next">
+      Próxima Lição →
+    </a>
+
+  </section>
+
+</div>
+
+<footer>
+  APP Finanças © 2026 • Educação Financeira • Liberdade Financeira
+</footer>
+
+<script>
+
+function falarTexto(){
+
+  const texto = document.body.innerText;
+
+  const fala = new SpeechSynthesisUtterance(texto);
+
+  fala.lang = "pt-PT";
+  fala.rate = 0.95;
+  fala.pitch = 1;
+
+  speechSynthesis.speak(fala);
+
+}
+
+function pararTexto(){
+  speechSynthesis.cancel();
+}
+
+function alternarModo(){
+
+  const body = document.body;
+
+  if(body.style.background === "white"){
+
+    body.style.background = "#050505";
+    body.style.color = "#f5f5f5";
+
+  } else {
+
+    body.style.background = "white";
+    body.style.color = "#111";
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
