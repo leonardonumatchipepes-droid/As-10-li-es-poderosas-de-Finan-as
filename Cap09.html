@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIÇÃO 09 - Tempo e Dinheiro</title>
+
+<style>
+:root{
+  --bg:#0b0c10;
+  --card:#151a24;
+  --text:#eaeaea;
+  --muted:#9aa0a6;
+  --accent:#00d4ff;
+  --accent2:#00ff9d;
+}
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Arial;
+  background:var(--bg);
+  color:var(--text);
+  scroll-behavior:smooth;
+  font-size:16px;
+}
+
+/* HEADER */
+header{
+  padding:40px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#0f172a,#0b0c10);
+  position:sticky;
+  top:0;
+  z-index:10;
+  border-bottom:1px solid #1f2937;
+}
+
+header h1{
+  margin:0;
+  font-size:22px;
+  color:var(--accent);
+}
+
+header p{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* BUTTONS */
+.controls{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+.btn{
+  padding:12px 16px;
+  border-radius:12px;
+  border:1px solid #2a2a2a;
+  background:#111827;
+  color:var(--text);
+  font-weight:600;
+  font-size:14px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  background:var(--accent);
+  color:#000;
+}
+
+/* BEST MODE */
+.best{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#000;
+}
+
+/* LAYOUT */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+
+/* CARDS */
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:16px;
+  margin:18px 0;
+  border:1px solid #222;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.6s ease;
+}
+
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.tag{
+  display:inline-block;
+  font-size:12px;
+  padding:5px 10px;
+  border-radius:20px;
+  background:#0f172a;
+  color:var(--accent2);
+  margin-bottom:10px;
+  border:1px solid #1f2937;
+}
+
+h2{
+  font-size:18px;
+  margin:10px 0;
+  color:var(--accent);
+}
+
+p{
+  line-height:1.8;
+  font-size:15px;
+  color:var(--text);
+}
+
+.highlight{
+  color:var(--accent2);
+  font-weight:700;
+}
+
+.quote{
+  border-left:3px solid var(--accent);
+  padding-left:12px;
+  color:#cbd5e1;
+  font-style:italic;
+  margin:12px 0;
+}
+
+/* NAV */
+.nav{
+  display:flex;
+  gap:10px;
+  margin-top:30px;
+}
+
+.nav a{
+  flex:1;
+  text-align:center;
+  padding:14px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+  background:#111827;
+  color:#fff;
+  border:1px solid #2a2a2a;
+  transition:0.3s;
+}
+
+.nav a:hover{
+  background:var(--accent);
+  color:#000;
+  transform:scale(1.03);
+}
+
+/* SCROLL EFFECT */
+html{
+  scroll-behavior:smooth;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>LIÇÃO 09</h1>
+  <p>O tempo é mais poderoso que o dinheiro</p>
+
+  <div class="controls">
+    <button class="btn" onclick="playAudio()">🔊 Áudio</button>
+    <button class="btn" onclick="stopAudio()">⛔ Parar</button>
+    <button class="btn best" onclick="bestMode()">✨ Best Mode</button>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- INTRO -->
+<div class="card">
+  <span class="tag">INTRODUÇÃO</span>
+  <h2>O erro silencioso</h2>
+  <p>
+    Existe um erro silencioso que estraga a vida financeira de milhões de pessoas: acreditar que o dinheiro é o fator mais importante para se ficar rico.
+  </p>
+  <p>
+    O verdadeiro motor da riqueza é invisível: <span class="highlight">o tempo</span>.
+  </p>
+  <div class="quote">O dinheiro é visível. O tempo é o que o multiplica.</div>
+</div>
+
+<!-- A -->
+<div class="card">
+  <span class="tag">A) INVESTIR CEDO</span>
+  <h2>Vantagem impossível de recuperar</h2>
+
+  <p>Investir cedo parece pequeno hoje, mas gigante no futuro.</p>
+  <p>A riqueza não nasce no começo, nasce na continuidade.</p>
+
+  <p class="highlight">“Vou começar quando ganhar mais.”</p>
+
+  <p>Esse pensamento destrói milhões de futuros financeiros.</p>
+
+  <div class="quote">Tempo perdido nunca volta.</div>
+</div>
+
+<!-- B -->
+<div class="card">
+  <span class="tag">B) EFEITO COMPOSTO</span>
+  <h2>Crescimento silencioso</h2>
+
+  <p>O efeito composto faz o dinheiro crescer sobre ele mesmo.</p>
+  <p>No início é lento, depois acelera de forma explosiva.</p>
+
+  <p class="highlight">Interromper é destruir o crescimento.</p>
+</div>
+
+<!-- C -->
+<div class="card">
+  <span class="tag">C) CONSISTÊNCIA</span>
+  <h2>A verdadeira força</h2>
+
+  <p>Consistência é continuar quando a motivação desaparece.</p>
+  <p>Pequenas ações repetidas criam grandes resultados.</p>
+
+  <p class="highlight">Quem para, perde tudo.</p>
+</div>
+
+<!-- CONCLUSÃO -->
+<div class="card">
+  <span class="tag">CONCLUSÃO</span>
+  <h2>O investidor invisível</h2>
+
+  <p>O tempo trabalha sempre — mas só para quem não desiste.</p>
+  <p>O sucesso não é sorte. É permanência.</p>
+
+  <div class="quote">Quem respeita o tempo, vence o sistema.</div>
+</div>
+
+<!-- RESUMO -->
+<div class="card">
+  <span class="tag">RESUMO</span>
+  <p>✔ Investir cedo cria vantagem</p>
+  <p>✔ O tempo multiplica dinheiro</p>
+  <p>✔ O efeito composto precisa continuidade</p>
+  <p>✔ Consistência vence emoção</p>
+</div>
+
+<div class="nav">
+  <a href="cap08.html">⬅ Lição 08</a>
+  <a href="cap10.html">Próxima ➜</a>
+</div>
+
+</div>
+
+<script>
+// ANIMAÇÃO SCROLL
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+},{threshold:0.2});
+
+cards.forEach(c=>observer.observe(c));
+
+// ÁUDIO SIMULADO
+function playAudio(){
+  alert("🔊 Áudio iniciado (aqui pode ligar TTS futuramente)");
+}
+
+function stopAudio(){
+  alert("⛔ Áudio parado");
+}
+
+function bestMode(){
+  document.body.style.filter = "contrast(1.1) saturate(1.2)";
+  alert("✨ Best Mode ativado");
+}
+</script>
+
+</body>
+</html>
