@@ -1,77 +1,753 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<title>Capítulo 01</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lição 01 - O Dinheiro é um Servo, Não um Mestre</title>
 
-<style>
-body {
-  margin:0;
-  font-family:Arial;
-  background:#000;
-  color:white;
-  padding:20px;
-}
+  <style>
 
-h1 {
-  color:#e50914;
-}
+    :root{
+      --bg:#0b0b0b;
+      --card:#131313;
+      --text:#f5f5f5;
+      --muted:#bdbdbd;
+      --accent:#00d084;
+      --border:rgba(255,255,255,0.08);
+    }
 
-.btn {
-  padding:12px 18px;
-  background:#e50914;
-  border:none;
-  color:white;
-  border-radius:6px;
-  cursor:pointer;
-  margin-top:20px;
-  transition:0.3s;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-.btn:hover {
-  transform:scale(1.05);
-}
-</style>
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:"Segoe UI",sans-serif;
+      line-height:1.9;
+      padding:20px;
+      transition:0.3s;
+    }
+
+    .container{
+      max-width:900px;
+      margin:auto;
+    }
+
+    .hero{
+      text-align:center;
+      padding:50px 25px;
+      border-radius:26px;
+      background:linear-gradient(145deg,#111,#1a1a1a);
+      border:1px solid var(--border);
+      margin-bottom:25px;
+    }
+
+    .hero h1{
+      color:var(--accent);
+      font-size:2.4rem;
+      line-height:1.3;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+
+    /* CONTROLOS */
+
+    .controls{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:25px 0 35px;
+    }
+
+    .control-btn{
+      background:var(--accent);
+      color:#000;
+      border:none;
+      padding:12px 22px;
+      border-radius:14px;
+      font-weight:700;
+      cursor:pointer;
+      transition:0.3s;
+      font-size:0.95rem;
+    }
+
+    .control-btn:hover{
+      transform:translateY(-2px);
+      opacity:0.9;
+    }
+
+    .section{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:30px;
+      margin-bottom:25px;
+    }
+
+    .section h2{
+      color:var(--accent);
+      margin-bottom:25px;
+      font-size:1.7rem;
+      line-height:1.4;
+    }
+
+    .section p{
+      margin-bottom:22px;
+      font-size:1.05rem;
+      color:var(--text);
+    }
+
+    .quote{
+      margin:30px 0;
+      padding:22px;
+      border-left:4px solid var(--accent);
+      background:rgba(255,255,255,0.03);
+      border-radius:14px;
+      font-style:italic;
+      color:#fff;
+    }
+
+    .steps{
+      margin-top:25px;
+    }
+
+    .step{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:18px;
+      padding:22px;
+      margin-bottom:18px;
+    }
+
+    .step h3{
+      color:var(--accent);
+      margin-bottom:12px;
+    }
+
+    ul{
+      padding-left:22px;
+      margin-top:15px;
+    }
+
+    li{
+      margin-bottom:10px;
+    }
+
+    /* FINAL */
+
+    .final{
+      text-align:center;
+      padding:40px 25px;
+      border-radius:26px;
+      background:linear-gradient(145deg,#111,#1a1a1a);
+      border:1px solid var(--border);
+      margin-top:30px;
+    }
+
+    .final h2{
+      color:var(--accent);
+      margin-bottom:20px;
+      font-size:2rem;
+    }
+
+    .final p{
+      margin-bottom:18px;
+      color:#f1f1f1;
+    }
+
+    /* PRÓXIMA */
+
+    .next-lesson{
+      margin-top:45px;
+      text-align:center;
+    }
+
+    .lesson-note{
+      color:var(--muted);
+      line-height:1.8;
+      margin-bottom:20px;
+    }
+
+    .next-btn{
+      display:inline-block;
+      background:var(--accent);
+      color:#000;
+      text-decoration:none;
+      padding:15px 28px;
+      border-radius:16px;
+      font-weight:700;
+      transition:0.3s;
+    }
+
+    .next-btn:hover{
+      transform:translateY(-2px);
+      opacity:0.9;
+    }
+
+    /* RODAPÉ */
+
+    .footer{
+      margin-top:70px;
+      padding:45px 20px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      text-align:center;
+    }
+
+    .footer h3{
+      color:var(--accent);
+      margin-bottom:15px;
+      font-size:1.5rem;
+    }
+
+    .footer p{
+      color:var(--muted);
+      max-width:650px;
+      margin:auto;
+      margin-bottom:25px;
+      line-height:1.8;
+    }
+
+    .footer-links{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:20px;
+    }
+
+    .footer-links a{
+      color:#fff;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .footer-links a:hover{
+      color:var(--accent);
+    }
+
+    .footer small{
+      color:#888;
+    }
+
+    /* MODO CLARO */
+
+    .light-mode{
+      --bg:#f5f5f5;
+      --card:#ffffff;
+      --text:#111;
+      --muted:#555;
+      --border:rgba(0,0,0,0.08);
+    }
+
+    /* RESPONSIVO */
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:2rem;
+      }
+
+      .section{
+        padding:24px;
+      }
+
+      .section h2{
+        font-size:1.4rem;
+      }
+
+      .section p{
+        font-size:1rem;
+      }
+
+    }
+
+  </style>
 </head>
 
 <body>
 
-<h1>CAPÍTULO 01</h1>
-<h2>Mentalidade Financeira</h2>
+<div class="container">
 
-<p>
-O dinheiro não começa na carteira, começa na mente.
-Quem muda a mentalidade muda o destino financeiro.
-</p>
+  <!-- HERO -->
 
-<button class="btn" onclick="finish()">
-Concluir capítulo
-</button>
+  <div class="hero">
+
+    <h1>
+      LIÇÃO 01<br>
+      O DINHEIRO É UM SERVO, NÃO UM MESTRE
+    </h1>
+
+    <p>
+      A verdadeira liberdade financeira começa
+      quando você aprende a controlar o dinheiro,
+      em vez de ser controlado por ele.
+    </p>
+
+  </div>
+
+  <!-- CONTROLOS -->
+
+  <div class="controls">
+
+    <button onclick="falarTexto()" class="control-btn">
+      Ouvir
+    </button>
+
+    <button onclick="pararTexto()" class="control-btn">
+      Parar
+    </button>
+
+    <button onclick="alternarModo()" class="control-btn">
+      Modo
+    </button>
+
+  </div>
+
+  <!-- INTRODUÇÃO -->
+
+  <div class="section">
+
+    <p>
+      Existe uma guerra silenciosa dentro da vida de cada pessoa.
+    </p>
+
+    <p>
+      Não é entre ricos e pobres.
+      Não é entre patrão e empregado.
+    </p>
+
+    <p>
+      É entre quem controla o dinheiro…
+      e quem é controlado por ele.
+    </p>
+
+    <p>
+      Em Angola, há pessoas que trabalham todos os dias presos num ciclo vicioso:
+      salário que nunca chega quando é esperado,
+      contas que se multiplicam,
+      sonhos eternamente adiados,
+      e uma vida inteira a “apagar incêndios”
+      que nunca terminam.
+    </p>
+
+    <p>
+      Você conhece essa sensação.
+      Aquele nó no peito quando fala em dinheiro.
+      Aquela frustração de trabalhar tanto
+      e ter tão pouco para mostrar por isso.
+    </p>
+
+    <p>
+      O problema não é apenas falta de dinheiro.
+    </p>
+
+    <p>
+      O problema é que o dinheiro virou mestre.
+    </p>
+
+    <p>
+      E aqui está o que ninguém te diz:
+      você não está preso por acaso.
+      Está preso porque ainda não entendeu
+      que pode mudar isto.
+    </p>
+
+    <p>
+      Quando o dinheiro manda na vida de alguém,
+      a pessoa perde paz
+      e passa a viver em constante tensão.
+    </p>
+
+    <p>
+      Perde o direito de fazer escolhas reais.
+      Perde a liberdade de desenhar seu próprio caminho.
+      E começa a viver em puro modo de sobrevivência.
+    </p>
+
+    <p>
+      Mas isto pode acabar hoje.
+    </p>
+
+    <p>
+      Esta lição vai inverter tudo isso.
+      Vai revelar uma verdade simples que te vai libertar:
+      o dinheiro não foi feito para te dominar.
+      Ele foi feito para te servir.
+    </p>
+
+  </div>
+
+  <!-- CONTROLO EMOCIONAL -->
+
+  <div class="section">
+
+    <h2>
+      Controlo Emocional: Onde Tudo Começa
+    </h2>
+
+    <p>
+      O primeiro erro financeiro não está no bolso.
+    </p>
+
+    <p>
+      Está na cabeça.
+    </p>
+
+    <p>
+      Muita gente compra porque está triste,
+      frustrada,
+      invejosa,
+      ou quer prova de que ainda importa.
+    </p>
+
+    <p>
+      Compra por emoção —
+      e depois paga com sofrimento que dura meses.
+    </p>
+
+    <p>
+      Há quem receba dinheiro e,
+      nesse mesmo dia,
+      veja alguém a sair
+      e decida ir atrás.
+    </p>
+
+    <p>
+      A emoção fala mais alto:
+      “Vou também, não quero ser deixado.”
+    </p>
+
+    <p>
+      E transfere metade do ganho —
+      dinheiro que era para pagar a renda,
+      para comida,
+      para materiais de trabalho —
+      só para estar “à altura”
+      naquela noite.
+    </p>
+
+    <div class="quote">
+      “Não é sobre ganhar mais.
+      É sobre controlar o que ganhas.”
+    </div>
+
+    <p>
+      Toda vez que você compra movido por emoção,
+      está dizendo sem palavras:
+      “Meus sentimentos são mais importantes
+      que meu futuro.”
+    </p>
+
+    <p>
+      Mas toda vez que você para,
+      respira,
+      e escolhe diferente,
+      está a dizer:
+      “Eu sou mais forte que isto.
+      Eu controlo isto.”
+    </p>
+
+  </div>
+
+  <!-- IMPRESSIONAR -->
+
+  <div class="section">
+
+    <h2>
+      Não Viver Para Impressionar
+    </h2>
+
+    <p>
+      Este é talvez o maior ladrão de riqueza que existe.
+    </p>
+
+    <p>
+      Muita gente não compra para viver melhor.
+      Compra para ser vista.
+    </p>
+
+    <p>
+      Roupa cara para parecer bem-sucedido.
+      Telefone para status.
+      Carro para aparência.
+      Festas para validação.
+    </p>
+
+    <p>
+      Mas por dentro:
+      ansiedade,
+      dívida,
+      medo,
+      pressão.
+    </p>
+
+    <div class="quote">
+      “A liberdade começa quando você para
+      de pagar o preço da aprovação alheia.”
+    </div>
+
+    <p>
+      Quem vive para impressionar
+      acaba preso a trabalhar
+      apenas para sustentar uma mentira.
+    </p>
+
+  </div>
+
+  <!-- DINHEIRO -->
+
+  <div class="section">
+
+    <h2>
+      Dinheiro Deve Trabalhar Para Você
+    </h2>
+
+    <p>
+      Existem dois tipos de pessoas no mundo financeiro.
+    </p>
+
+    <p>
+      Quem trabalha pelo dinheiro.
+    </p>
+
+    <p>
+      E quem faz o dinheiro trabalhar.
+    </p>
+
+    <p>
+      O primeiro depende apenas do salário.
+      O segundo constrói ativos,
+      cria renda extra
+      e pensa no futuro.
+    </p>
+
+    <p>
+      A diferença não está no salário.
+    </p>
+
+    <p>
+      Está na direção do dinheiro.
+    </p>
+
+    <div class="quote">
+      “Não é o tamanho do salário que muda a vida.
+      É o tamanho das decisões
+      que você toma com ele.”
+    </div>
+
+    <p>
+      O dinheiro é como um empregado.
+    </p>
+
+    <p>
+      Se você não lhe der ordens,
+      ele trabalha para qualquer pessoa.
+    </p>
+
+    <p>
+      Mas se você aprender a controlá-lo,
+      ele começa a construir sua liberdade.
+    </p>
+
+  </div>
+
+  <!-- 30 DIAS -->
+
+  <div class="section">
+
+    <h2>
+      Comece Agora: Os Próximos 30 Dias
+    </h2>
+
+    <div class="steps">
+
+      <div class="step">
+
+        <h3>Semana 1: Reconhecimento</h3>
+
+        <p>
+          Observe como gasta dinheiro durante 7 dias.
+          Veja quando compra por emoção
+          e quando compra por necessidade.
+        </p>
+
+      </div>
+
+      <div class="step">
+
+        <h3>Semana 2: A Pausa</h3>
+
+        <p>
+          Antes de comprar algo não essencial,
+          espere 24 horas.
+          A emoção passa.
+          A consciência fica.
+        </p>
+
+      </div>
+
+      <div class="step">
+
+        <h3>Semana 3: O Investimento</h3>
+
+        <p>
+          Pegue o dinheiro poupado
+          e invista em algo que gere renda.
+        </p>
+
+        <ul>
+          <li>Revenda de produtos</li>
+          <li>Pequeno negócio</li>
+d           <li>Prestação de serviços</li>
+          <li>Aprender habilidade lucrativa</li>
+        </ul>
+
+      </div>
+
+      <div class="step">
+
+        <h3>Semana 4: O Ciclo</h3>
+
+        <p>
+          Reinvista 80% do lucro
+          e guarde 20%.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FINAL -->
+
+  <div class="final">
+
+    <h2>
+      O Ponto de Viragem
+    </h2>
+
+    <p>
+      O dinheiro não é o vilão da história.
+    </p>
+
+    <p>
+      O vilão é a ilusão
+      de que ele deve mandar na tua vida.
+    </p>
+
+    <p>
+      Se o dinheiro é teu mestre,
+      vais viver em pressão constante.
+    </p>
+
+    <p>
+      Mas se o dinheiro for teu servo,
+      tudo muda.
+    </p>
+
+    <p>
+      O teu poder não está no que recebes.
+      Está no que fazes com o que recebes.
+    </p>
+
+    <div class="quote">
+      “O dinheiro não pode ser teu dono.
+      Ele deve ser teu empregado.”
+    </div>
+
+    <p>
+      E a partir de agora,
+      você é o patrão.
+    </p>
+
+  </div>
+
+  <!-- PRÓXIMA -->
+
+  <div class="next-lesson">
+
+    <p class="lesson-note">
+      Nota do Autor:
+      A mudança financeira começa
+      no momento em que você decide
+      parar de viver apenas para sobreviver.
+    </p>
+
+    <a href="cap02.html" class="next-btn">
+      Próxima Lição
+    </a>
+
+  </div>
+
+  <!-- RODAPÉ -->
+
+  <footer class="footer">
+
+    <h3>APP Finanças</h3>
+
+    <p>
+      Educação financeira prática
+      para transformar mentalidades,
+      construir liberdade
+      e criar um futuro melhor.
+    </p>
+
+    <div class="footer-links">
+
+      <a href="index.html">Início</a>
+      <a href="autor.html">Autor</a>
+      <a href="consultoria.html">Consultoria</a>
+
+    </div>
+
+    <small>
+      © 2026 APP Finanças.
+      Todos os direitos reservados.
+    </small>
+
+  </footer>
+
+</div>
 
 <script>
-// carregar sistema global
-function getProgress() {
-  return parseInt(localStorage.getItem("finance_progress") || "1");
-}
 
-function unlockNext(level) {
-  let current = getProgress();
-  if (level >= current) {
-    localStorage.setItem("finance_progress", level + 1);
+  let voz = window.speechSynthesis;
+
+  function falarTexto(){
+
+    pararTexto();
+
+    let texto = document.body.innerText;
+
+    let speech = new SpeechSynthesisUtterance(texto);
+
+    speech.lang = "pt-PT";
+    speech.rate = 0.95;
+
+    voz.speak(speech);
   }
-}
 
-function finish() {
-  playSound();
-  unlockNext(1);
-  window.location.href = "indice.html";
-}
+  function pararTexto(){
+    voz.cancel();
+  }
 
-// som simples
-function playSound() {
-  let audio = new Audio("https://actions.google.com/sounds/v1/alarms/beep_short.ogg");
-  audio.play();
-}
+  function alternarModo(){
+    document.body.classList.toggle("light-mode");
+  }
+
 </script>
 
 </body>
