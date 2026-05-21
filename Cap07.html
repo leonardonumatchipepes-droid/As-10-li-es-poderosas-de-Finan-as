@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CAP07 - Ricos Compram Ativos</title>
+
+  <style>
+    :root{
+      --bg:#050505;
+      --card:#111;
+      --text:#f5f5f5;
+      --muted:#b0b0b0;
+      --gold:#FFD700;
+      --green:#00ff88;
+      --red:#ff5c5c;
+      --border:rgba(255,255,255,0.08);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Segoe UI',sans-serif;
+      line-height:1.8;
+      padding-bottom:120px;
+    }
+
+    header{
+      padding:60px 25px 40px;
+      text-align:center;
+      background:linear-gradient(to bottom,#111,#050505);
+      border-bottom:1px solid var(--border);
+    }
+
+    header h1{
+      font-size:2.3rem;
+      color:var(--gold);
+      margin-bottom:15px;
+    }
+
+    header p{
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    main{
+      max-width:900px;
+      margin:auto;
+      padding:30px 20px;
+    }
+
+    section{
+      margin-bottom:45px;
+      background:var(--card);
+      padding:25px;
+      border-radius:18px;
+      border:1px solid var(--border);
+      box-shadow:0 0 20px rgba(0,0,0,0.4);
+    }
+
+    h2{
+      color:var(--gold);
+      margin-bottom:20px;
+      font-size:1.5rem;
+    }
+
+    h3{
+      color:var(--green);
+      margin:25px 0 15px;
+    }
+
+    p{
+      margin-bottom:18px;
+      color:#e8e8e8;
+    }
+
+    ul{
+      margin-left:20px;
+      margin-bottom:20px;
+    }
+
+    li{
+      margin-bottom:12px;
+    }
+
+    .ativo{
+      color:var(--green);
+      font-weight:bold;
+    }
+
+    .passivo{
+      color:var(--red);
+      font-weight:bold;
+    }
+
+    .quote{
+      margin:25px 0;
+      padding:20px;
+      border-left:4px solid var(--gold);
+      background:#0b0b0b;
+      font-style:italic;
+      color:#ddd;
+      border-radius:10px;
+    }
+
+    .highlight{
+      color:var(--gold);
+      font-weight:bold;
+    }
+
+    .box{
+      background:#0d0d0d;
+      border:1px solid var(--border);
+      padding:18px;
+      border-radius:14px;
+      margin:20px 0;
+    }
+
+    .btns{
+      position:fixed;
+      bottom:0;
+      left:0;
+      width:100%;
+      background:#0b0b0b;
+      border-top:1px solid var(--border);
+      padding:15px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    button,a{
+      border:none;
+      text-decoration:none;
+      padding:12px 20px;
+      border-radius:12px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+      font-size:0.95rem;
+    }
+
+    .speak{
+      background:var(--green);
+      color:#000;
+    }
+
+    .stop{
+      background:var(--red);
+      color:#fff;
+    }
+
+    .mode{
+      background:var(--gold);
+      color:#000;
+    }
+
+    .next{
+      background:#fff;
+      color:#000;
+    }
+
+    footer{
+      margin-top:50px;
+      text-align:center;
+      color:#888;
+      padding:30px 20px;
+      border-top:1px solid var(--border);
+    }
+
+    .author-note{
+      margin-top:40px;
+      background:#0f0f0f;
+      padding:25px;
+      border-radius:16px;
+      border:1px solid var(--border);
+    }
+
+    @media(max-width:700px){
+      header h1{
+        font-size:1.8rem;
+      }
+
+      section{
+        padding:20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>LIÇÃO 07</h1>
+  <p>RICOS COMPRAM ATIVOS; A CLASSE MÉDIA COMPRA APARÊNCIA</p>
+</header>
+
+<main>
+
+<section>
+  <h2>Uma Verdade Silenciosa, Porém Devastadora</h2>
+
+  <p>
+    Existe uma diferença silenciosa, porém devastadora, entre pessoas que constroem riqueza e pessoas que apenas parecem ter riqueza.
+  </p>
+
+  <p>
+    A maioria das pessoas não fica pobre por falta de dinheiro. Fica pobre por uma série de pequenas decisões repetidas que privilegiam a aparência imediata em vez da construção de riqueza real.
+  </p>
+
+  <div class="quote">
+    “Ter coisas caras não significa ser rico. Significa apenas que você gastou dinheiro.”
+  </div>
+
+  <p>
+    Pense bem: você conhece algum milionário que precisa trocar de carro todos os anos apenas para impressionar? Conhece alguém verdadeiramente rico que precisa provar sucesso através de roupas caras?
+  </p>
+
+  <p>
+    Os ricos descobriram algo que a maioria ainda não percebeu:
+    <span class="highlight">
+      riqueza não é aparência; riqueza é possuir ativos que geram dinheiro continuamente.
+    </span>
+  </p>
+</section>
+
+<section>
+
+  <h2>O Fundamento de Tudo: Ativos vs Passivos</h2>
+
+  <h3>O Que É Um Ativo?</h3>
+
+  <p>
+    Um <span class="ativo">ATIVO</span> é tudo aquilo que coloca dinheiro no teu bolso mesmo quando você não está trabalhando.
+  </p>
+
+  <div class="box">
+    <ul>
+      <li>Negócios online</li>
+      <li>Investimentos</li>
+      <li>Imóveis alugados</li>
+      <li>Dividendos</li>
+      <li>Royalties</li>
+      <li>Cursos digitais</li>
+      <li>Aplicativos e softwares</li>
+    </ul>
+  </div>
+
+  <p>
+    Um ativo trabalha por você.
+    Enquanto você dorme, ele continua produzindo.
+  </p>
+
+  <h3>O Que É Um Passivo?</h3>
+
+  <p>
+    Um <span class="passivo">PASSIVO</span> é tudo aquilo que tira dinheiro do teu bolso constantemente.
+  </p>
+
+  <div class="box">
+    <ul>
+      <li>Carros financiados</li>
+      <li>Casas extremamente caras</li>
+      <li>Dívidas</li>
+      <li>Compras emocionais</li>
+      <li>Luxos desnecessários</li>
+      <li>Juros altos</li>
+    </ul>
+  </div>
+
+  <p>
+    Quanto mais passivos você possui, mais preso ao trabalho você se torna.
+  </p>
+
+</section>
+
+<section>
+
+  <h2>O Erro Fatal Que Rouba Seu Futuro</h2>
+
+  <p>
+    A maior ilusão da classe média é acreditar que comprar coisas caras representa sucesso.
+  </p>
+
+  <p>
+    Mas sucesso financeiro não é parecer rico.
+    É possuir liberdade.
+  </p>
+
+  <div class="quote">
+    A verdadeira riqueza está no invisível:
+    investimentos, negócios, ativos e sistemas que continuam produzindo dinheiro.
+  </div>
+
+  <p>
+    Muitos passam anos trabalhando apenas para sustentar uma aparência temporária.
+  </p>
+
+</section>
+
+<section>
+
+  <h2>A Mentalidade dos Ricos</h2>
+
+  <p>
+    Antes de qualquer compra, os ricos fazem uma pergunta simples:
+  </p>
+
+  <div class="quote">
+    “Isso vai me gerar dinheiro ou tirar dinheiro de mim?”
+  </div>
+
+  <p>
+    Já a maioria das pessoas pergunta:
+  </p>
+
+  <div class="quote">
+    “Será que vão me admirar se eu comprar isso?”
+  </div>
+
+  <p>
+    E é exatamente essa mentalidade emocional que mantém milhões presos financeiramente.
+  </p>
+
+</section>
+
+<section>
+
+  <h2>Casas vs Carros</h2>
+
+  <h3>O Grande Mito da Casa Própria</h3>
+
+  <p>
+    A sociedade ensina que a casa própria é automaticamente riqueza.
+  </p>
+
+  <p>
+    Porém, uma casa onde você vive normalmente é um passivo, porque consome dinheiro continuamente.
+  </p>
+
+  <div class="box">
+    <ul>
+      <li>Manutenção</li>
+      <li>Impostos</li>
+      <li>Condomínio</li>
+      <li>Reformas</li>
+      <li>Financiamentos longos</li>
+    </ul>
+  </div>
+
+  <p>
+    Agora, uma casa alugada para outras pessoas pode se tornar um ativo.
+  </p>
+
+  <h3>O Carro: O Maior Símbolo de Consumo</h3>
+
+  <p>
+    O carro é um dos maiores destruidores silenciosos de riqueza.
+  </p>
+
+  <div class="box">
+    <ul>
+      <li>Desvaloriza rapidamente</li>
+      <li>Consome combustível</li>
+      <li>Exige manutenção constante</li>
+      <li>Seguro caro</li>
+      <li>Não gera retorno financeiro</li>
+    </ul>
+  </div>
+
+  <div class="quote">
+    Um carro pessoal quase nunca é um ativo.
+    É um passivo elegante.
+  </div>
+
+</section>
+
+<section>
+
+  <h2>O Padrão Que Separa Ricos de Pobres</h2>
+
+  <h3>Classe Média</h3>
+
+  <div class="box">
+    <p>
+      1. Ganha dinheiro<br>
+      2. Compra carro<br>
+      3. Compra casa cara<br>
+      4. Tenta investir depois
+    </p>
+  </div>
+
+  <h3>Ricos</h3>
+
+  <div class="box">
+    <p>
+      1. Ganha dinheiro<br>
+      2. Compra ativos<br>
+      3. Cria investimentos<br>
+      4. Usa o lucro dos ativos para consumir
+    </p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>O Motor da Riqueza Real: Negócios</h2>
+
+  <p>
+    Negócios são sistemas que geram dinheiro mesmo quando você não está presente.
+  </p>
+
+  <p>
+    Eles quebram a maior limitação da vida:
+  </p>
+
+  <div class="quote">
+    Você deixa de trocar apenas tempo por dinheiro.
+  </div>
+
+  <h3>Exemplos Modernos</h3>
+
+  <div class="box">
+    <ul>
+      <li>Lojas online</li>
+      <li>Marketing digital</li>
+      <li>Aplicativos</li>
+      <li>Software</li>
+      <li>Produção de conteúdo</li>
+      <li>Cursos digitais</li>
+      <li>Franquias</li>
+    </ul>
+  </div>
+
+  <h3>Empregado vs Empreendedor</h3>
+
+  <p>
+    <span class="highlight">Empregado:</span>
+    vende horas.
+  </p>
+
+  <p>
+    <span class="highlight">Empreendedor:</span>
+    cria sistemas.
+  </p>
+
+</section>
+
+<section>
+
+  <h2>Investimentos: O Tempo Trabalhando Por Você</h2>
+
+  <p>
+    Enquanto você dorme, os investimentos continuam funcionando.
+  </p>
+
+  <p>
+    O poder dos juros compostos é uma das maiores forças financeiras do planeta.
+  </p>
+
+  <div class="box">
+    <p>
+      • 100 investidos hoje → 10 anos = 259<br><br>
+      • 100 investidos hoje → 20 anos = 673<br><br>
+      • 100 investidos hoje → 30 anos = 1.745
+    </p>
+  </div>
+
+  <p>
+    Quanto mais cedo você começa, mais poderoso o tempo se torna.
+  </p>
+
+  <div class="quote">
+    Invista primeiro.
+    Depois viva com o restante.
+  </div>
+
+</section>
+
+<section>
+
+  <h2>A Equação da Liberdade Financeira</h2>
+
+  <p>
+    A liberdade financeira acontece quando:
+  </p>
+
+  <div class="quote">
+    Seus ativos pagam todas as suas despesas.
+  </div>
+
+  <p>
+    Nesse momento:
+  </p>
+
+  <div class="box">
+    <ul>
+      <li>O trabalho vira escolha</li>
+      <li>Você ganha liberdade</li>
+      <li>O dinheiro deixa de controlar sua vida</li>
+      <li>Você vive estrategicamente</li>
+    </ul>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>RESUMO DA LIÇÃO 07</h2>
+
+  <div class="box">
+    <ul>
+      <li>Ativos colocam dinheiro no bolso</li>
+      <li>Passivos retiram dinheiro constantemente</li>
+      <li>Carros e luxos podem destruir riqueza</li>
+      <li>Negócios criam sistemas financeiros</li>
+      <li>Investimentos usam o tempo ao seu favor</li>
+      <li>Liberdade financeira nasce da construção de ativos</li>
+    </ul>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>O Que Fazer Agora</h2>
+
+  <div class="box">
+    <ul>
+      <li>Liste todos os seus gastos</li>
+      <li>Separe ativos e passivos</li>
+      <li>Elimine gastos desnecessários</li>
+      <li>Comece um pequeno investimento</li>
+      <li>Planeje uma ideia de negócio</li>
+    </ul>
+  </div>
+
+  <p>
+    A liberdade financeira não começa com milhões.
+    Começa com pequenas decisões repetidas todos os dias.
+  </p>
+
+</section>
+
+<div class="author-note">
+
+  <h2>Nota do Autor</h2>
+
+  <p>
+    O mundo ensina você a parecer rico.
+    Esta lição ensina você a construir riqueza real.
+  </p>
+
+  <p>
+    Nunca confunda aparência com liberdade.
+    Existem pessoas com carros luxuosos e contas vazias.
+    E existem pessoas simples construindo patrimônio silenciosamente.
+  </p>
+
+  <p>
+    Escolha construir ativos.
+    Porque ativos compram tempo.
+    E tempo é a verdadeira riqueza.
+  </p>
+
+</div>
+
+</main>
+
+<footer>
+  APP FINANÇAS © 2026 • Educação Financeira e Liberdade
+</footer>
+
+<div class="btns">
+  <button class="speak" onclick="lerTexto()">🔊 Ouvir</button>
+  <button class="stop" onclick="pararLeitura()">⏹ Parar</button>
+  <button class="mode" onclick="alternarModo()">🌙 Modo</button>
+  <a href="cap08.html" class="next">➡ Próxima Lição</a>
+</div>
+
+<script>
+
+  function lerTexto(){
+    const texto = document.body.innerText;
+    const speech = new SpeechSynthesisUtterance(texto);
+
+    speech.lang = 'pt-PT';
+    speech.rate = 0.95;
+
+    window.speechSynthesis.speak(speech);
+  }
+
+  function pararLeitura(){
+    window.speechSynthesis.cancel();
+  }
+
+  function alternarModo(){
+    document.body.classList.toggle("light");
+
+    if(document.body.classList.contains("light")){
+      document.documentElement.style.setProperty('--bg','#f5f5f5');
+      document.documentElement.style.setProperty('--text','#111');
+      document.documentElement.style.setProperty('--card','#ffffff');
+      document.documentElement.style.setProperty('--muted','#555');
+    } else {
+      document.documentElement.style.setProperty('--bg','#050505');
+      document.documentElement.style.setProperty('--text','#f5f5f5');
+      document.documentElement.style.setProperty('--card','#111');
+      document.documentElement.style.setProperty('--muted','#b0b0b0');
+    }
+  }
+
+</script>
+
+</body>
+</html>
