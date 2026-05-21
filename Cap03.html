@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lição 03 - Salário Não é Riqueza</title>
+
+  <style>
+    :root{
+      --bg:#050505;
+      --card:#101010;
+      --text:#f5f5f5;
+      --muted:#bdbdbd;
+      --gold:#d4af37;
+      --line:rgba(255,255,255,0.08);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family: "Segoe UI", sans-serif;
+      line-height:1.9;
+    }
+
+    .container{
+      width:92%;
+      max-width:900px;
+      margin:auto;
+      padding:40px 0 120px;
+    }
+
+    .topo{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .topo h1{
+      font-size:15px;
+      color:var(--gold);
+      letter-spacing:3px;
+      margin-bottom:15px;
+    }
+
+    .topo h2{
+      font-size:38px;
+      line-height:1.3;
+    }
+
+    .linha{
+      width:90px;
+      height:4px;
+      background:var(--gold);
+      margin:25px auto;
+      border-radius:10px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:30px;
+      margin-bottom:35px;
+    }
+
+    .card h3{
+      color:var(--gold);
+      margin-bottom:20px;
+      font-size:24px;
+    }
+
+    .card p{
+      margin-bottom:22px;
+      color:var(--text);
+      font-size:18px;
+    }
+
+    .card ul{
+      padding-left:20px;
+    }
+
+    .card li{
+      margin-bottom:14px;
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .frase{
+      font-size:26px;
+      text-align:center;
+      font-weight:bold;
+      color:var(--gold);
+      margin:40px 0;
+      line-height:1.5;
+    }
+
+    .subtitulo{
+      color:var(--gold);
+      font-size:30px;
+      margin-bottom:25px;
+      line-height:1.4;
+    }
+
+    .destaque{
+      background:rgba(212,175,55,0.08);
+      border-left:4px solid var(--gold);
+      padding:20px;
+      margin:30px 0;
+      border-radius:12px;
+    }
+
+    .destaque p{
+      margin:0;
+      font-size:20px;
+      color:#fff;
+      font-weight:bold;
+    }
+
+    .acoes{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+      margin-top:50px;
+    }
+
+    button,a.botao{
+      border:none;
+      padding:16px 24px;
+      border-radius:14px;
+      background:var(--gold);
+      color:#000;
+      font-weight:bold;
+      font-size:15px;
+      cursor:pointer;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    button:hover,a.botao:hover{
+      transform:scale(1.03);
+    }
+
+    footer{
+      margin-top:80px;
+      text-align:center;
+      color:#8d8d8d;
+      padding:40px 10px;
+      border-top:1px solid var(--line);
+      font-size:14px;
+    }
+
+    @media(max-width:700px){
+
+      .topo h2{
+        font-size:28px;
+      }
+
+      .card{
+        padding:22px;
+      }
+
+      .card p{
+        font-size:17px;
+      }
+
+      .subtitulo{
+        font-size:25px;
+      }
+
+      .frase{
+        font-size:22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="topo">
+      <h1>LIÇÃO 03</h1>
+      <h2>SALÁRIO NÃO É RIQUEZA</h2>
+      <div class="linha"></div>
+    </div>
+
+    <div class="card">
+      <h3>Ensinamentos da Lição</h3>
+
+      <ul>
+        <li>A diferença perigosa entre salário e riqueza</li>
+        <li>O que é patrimônio e por que a maioria não tem</li>
+        <li>Como funciona o fluxo de caixa</li>
+        <li>O que são ativos e como constroem riqueza</li>
+        <li>Por que ganhar bem e continuar pobre é comum</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Introdução</h3>
+
+      <p>
+        Há uma ilusão silenciosa destruindo milhares de vidas.
+      </p>
+
+      <p>
+        A ilusão de que quem ganha muito dinheiro é automaticamente rico.
+      </p>
+
+      <p>
+        Talvez você conheça alguém assim.
+        Talvez seja você.
+      </p>
+
+      <p>
+        Tem salário bom.
+        Usa roupas caras.
+        Parece bem-sucedido.
+      </p>
+
+      <p>
+        Mas por trás da aparência existe ansiedade, dívidas e medo constante de perder o emprego.
+      </p>
+
+      <p>
+        Porque sem aquele salário… tudo desaba.
+      </p>
+
+      <div class="destaque">
+        <p>
+          Riqueza não é quanto dinheiro entra.
+          É quanto dinheiro permanece e cresce.
+        </p>
+      </div>
+    </div>
+
+    <div class="frase">
+      “Dinheiro sem direção desaparece.”
+    </div>
+
+    <div class="card">
+      <h2 class="subtitulo">
+        1. O SALÁRIO É APENAS UM COMEÇO,
+        NÃO UMA SOLUÇÃO
+      </h2>
+
+      <p>
+        Salário é dinheiro trocado por tempo.
+      </p>
+
+      <p>
+        Você trabalha.
+        Você recebe.
+      </p>
+
+      <p>
+        Você para…
+        o dinheiro para também.
+      </p>
+
+      <p>
+        E aqui nasce a dependência financeira.
+      </p>
+
+      <p>
+        Muitas pessoas passam décadas vivendo apenas disso:
+        esperando o dia do pagamento para respirar novamente.
+      </p>
+
+      <p>
+        Vivem cansadas.
+        Presas.
+        Dependentes.
+      </p>
+
+      <p>
+        Até perceberem uma verdade:
+      </p>
+
+      <div class="destaque">
+        <p>
+          Uma única fonte de renda é uma vulnerabilidade.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="subtitulo">
+        2. RIQUEZA NÃO É O QUE ENTRA.
+        É O QUE FICA.
+      </h2>
+
+      <p>
+        Há pessoas que ganham 500 mil kwanzas
+        e terminam o mês sem nada.
+      </p>
+
+      <p>
+        Outras ganham menos…
+        mas conseguem guardar, investir e crescer.
+      </p>
+
+      <p>
+        A diferença não é salário.
+      </p>
+
+      <p>
+        É gestão.
+      </p>
+
+      <p>
+        Quem não controla o dinheiro,
+        nunca consegue construir riqueza.
+      </p>
+
+      <p>
+        O dinheiro entra…
+        e desaparece em pequenos buracos invisíveis.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="subtitulo">
+        3. O QUE É PATRIMÔNIO?
+      </h2>
+
+      <p>
+        Patrimônio é tudo aquilo que possui valor e pertence a você.
+      </p>
+
+      <p>
+        Casas.
+        Terrenos.
+        Negócios.
+        Investimentos.
+        Reservas.
+      </p>
+
+      <p>
+        O patrimônio continua existindo mesmo quando o salário acaba.
+      </p>
+
+      <div class="destaque">
+        <p>
+          Salário ajuda a viver.
+          Patrimônio ajuda a permanecer.
+        </p>
+      </div>
+
+      <p>
+        A maioria trabalha a vida inteira…
+        mas termina sem construir nada.
+      </p>
+
+      <p>
+        Porque confundiu consumo com riqueza.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="subtitulo">
+        4. FLUXO DE CAIXA:
+        O MAPA DO DINHEIRO
+      </h2>
+
+      <p>
+        Fluxo de caixa é simplesmente:
+      </p>
+
+      <ul>
+        <li>Quanto entra</li>
+        <li>Quanto sai</li>
+        <li>Para onde vai</li>
+      </ul>
+
+      <p>
+        Parece simples.
+      </p>
+
+      <p>
+        Mas a maioria nunca acompanha isso.
+      </p>
+
+      <p>
+        Recebem dinheiro.
+        Gastam.
+        E no fim perguntam:
+      </p>
+
+      <p>
+        “Para onde foi o dinheiro?”
+      </p>
+
+      <div class="destaque">
+        <p>
+          O que não é controlado desaparece.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="subtitulo">
+        5. ATIVOS:
+        O QUE REALMENTE CRIA RIQUEZA
+      </h2>
+
+      <p>
+        Ativos são coisas que colocam dinheiro no seu bolso.
+      </p>
+
+      <p>
+        Investimentos.
+        Negócios.
+        Imóveis alugados.
+        Produtos.
+        Serviços.
+      </p>
+
+      <p>
+        Enquanto você dorme…
+        o ativo continua trabalhando.
+      </p>
+
+      <div class="destaque">
+        <p>
+          Pessoas pobres compram aparência.
+          Pessoas inteligentes constroem ativos.
+        </p>
+      </div>
+
+      <p>
+        Um compra para impressionar.
+        O outro compra para crescer.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="subtitulo">
+        6. O ERRO GIGANTE:
+        CONFUNDIR APARÊNCIA COM RIQUEZA
+      </h2>
+
+      <p>
+        Este é um dos maiores destruidores financeiros do mundo moderno.
+      </p>
+
+      <p>
+        Pessoas vivem para:
+      </p>
+
+      <ul>
+        <li>Impressionar</li>
+        <li>Mostrar status</li>
+        <li>Parecer ricas</li>
+        <li>Receber validação</li>
+      </ul>
+
+      <p>
+        Mas por trás da aparência existe ansiedade.
+      </p>
+
+      <p>
+        Dívidas.
+        Stress.
+        Fragilidade financeira.
+      </p>
+
+      <div class="destaque">
+        <p>
+          Liberdade começa quando você para de viver para aprovação alheia.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="subtitulo">
+        7. DEPENDER APENAS DO SALÁRIO
+        É PERIGOSO
+      </h2>
+
+      <p>
+        Empresas fecham.
+        Crises acontecem.
+        Empregos terminam.
+      </p>
+
+      <p>
+        E quem depende apenas do salário…
+        vive vulnerável.
+      </p>
+
+      <p>
+        Pessoas financeiramente inteligentes constroem:
+      </p>
+
+      <ul>
+        <li>Múltiplas fontes de renda</li>
+        <li>Ativos</li>
+        <li>Investimentos</li>
+        <li>Patrimônio</li>
+      </ul>
+
+      <p>
+        Porque entenderam uma verdade:
+      </p>
+
+      <div class="destaque">
+        <p>
+          Uma renda é fragilidade.
+          Múltiplas rendas são força.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="subtitulo">
+        8. O DINHEIRO PRECISA CRESCER
+      </h2>
+
+      <p>
+        O objetivo não deve ser apenas sobreviver.
+      </p>
+
+      <p>
+        Deve ser construir futuro.
+      </p>
+
+      <p>
+        Parte do dinheiro deve pagar o presente.
+      </p>
+
+      <p>
+        Outra parte deve construir liberdade.
+      </p>
+
+      <p>
+        Quem investe consistentemente…
+        transforma lentamente a própria vida.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2 class="subtitulo">
+        Conclusão
+      </h2>
+
+      <p>
+        Salário é importante.
+      </p>
+
+      <p>
+        Mas salário sozinho nunca criou riqueza verdadeira.
+      </p>
+
+      <p>
+        Riqueza nasce quando:
+      </p>
+
+      <ul>
+        <li>Controla despesas</li>
+        <li>Organiza o fluxo de caixa</li>
+        <li>Constrói patrimônio</li>
+        <li>Adquire ativos</li>
+        <li>Faz o dinheiro crescer</li>
+      </ul>
+
+      <div class="destaque">
+        <p>
+          O salário sustenta o presente.
+          O patrimônio protege o futuro.
+        </p>
+      </div>
+
+      <p>
+        E quem aprende isso cedo…
+        muda completamente o destino da própria vida.
+      </p>
+    </div>
+
+    <div class="acoes">
+      <button onclick="lerTexto()">🔊 Ouvir</button>
+      <button onclick="pararLeitura()">⏹ Parar</button>
+      <button onclick="alternarModo()">🌙 Modo</button>
+
+      <a class="botao" href="cap04.html">
+        ➜ Próxima Lição
+      </a>
+    </div>
+
+    <footer>
+      APP Finanças © 2026 • Educação Financeira para Transformação Real
+    </footer>
+
+  </div>
+
+  <script>
+
+    function lerTexto(){
+      const texto = document.body.innerText;
+      const fala = new SpeechSynthesisUtterance(texto);
+
+      fala.lang = "pt-PT";
+      fala.rate = 0.92;
+
+      speechSynthesis.cancel();
+      speechSynthesis.speak(fala);
+    }
+
+    function pararLeitura(){
+      speechSynthesis.cancel();
+    }
+
+    function alternarModo(){
+
+      const root = document.documentElement;
+
+      if(root.style.getPropertyValue('--bg') === '#ffffff'){
+
+        root.style.setProperty('--bg','#050505');
+        root.style.setProperty('--card','#101010');
+        root.style.setProperty('--text','#f5f5f5');
+        root.style.setProperty('--muted','#bdbdbd');
+
+      }else{
+
+        root.style.setProperty('--bg','#ffffff');
+        root.style.setProperty('--card','#f2f2f2');
+        root.style.setProperty('--text','#111111');
+        root.style.setProperty('--muted','#444444');
+      }
+    }
+
+  </script>
+
+</body>
+</html>
