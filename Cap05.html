@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lição 05 - Poupança sem Investimento</title>
+
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --card:#141414;
+      --text:#f5f5f5;
+      --muted:#bdbdbd;
+      --gold:#d4af37;
+      --line:rgba(255,255,255,0.08);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family: "Segoe UI", sans-serif;
+      line-height:1.9;
+      padding:25px;
+    }
+
+    .container{
+      max-width:900px;
+      margin:auto;
+    }
+
+    .top{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .top h1{
+      font-size:15px;
+      color:var(--gold);
+      letter-spacing:3px;
+      margin-bottom:15px;
+    }
+
+    .top h2{
+      font-size:38px;
+      line-height:1.3;
+      font-weight:800;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:30px;
+      margin-bottom:28px;
+    }
+
+    h3{
+      color:var(--gold);
+      margin-bottom:20px;
+      font-size:24px;
+    }
+
+    p{
+      margin-bottom:18px;
+      color:var(--text);
+    }
+
+    ul{
+      padding-left:20px;
+    }
+
+    li{
+      margin-bottom:12px;
+      color:var(--muted);
+    }
+
+    .quote{
+      border-left:4px solid var(--gold);
+      padding-left:20px;
+      margin:30px 0;
+      font-size:22px;
+      font-style:italic;
+      color:#fff;
+    }
+
+    .formula{
+      background:#1d1d1d;
+      border-radius:15px;
+      padding:25px;
+      text-align:center;
+      font-size:28px;
+      margin:30px 0;
+      border:1px solid rgba(255,255,255,0.05);
+      color:var(--gold);
+      overflow:auto;
+    }
+
+    .highlight{
+      color:var(--gold);
+      font-weight:bold;
+    }
+
+    .buttons{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+      margin-top:25px;
+    }
+
+    button{
+      padding:14px 20px;
+      border:none;
+      border-radius:12px;
+      background:var(--gold);
+      color:#000;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform:scale(1.03);
+    }
+
+    .footer{
+      margin-top:60px;
+      text-align:center;
+      color:var(--muted);
+      border-top:1px solid var(--line);
+      padding-top:30px;
+    }
+
+    .next{
+      display:inline-block;
+      margin-top:20px;
+      padding:16px 24px;
+      background:var(--gold);
+      color:#000;
+      text-decoration:none;
+      border-radius:12px;
+      font-weight:bold;
+    }
+
+    .section-title{
+      margin-bottom:20px;
+      font-size:28px;
+      color:#fff;
+    }
+
+    .mini-title{
+      color:var(--gold);
+      margin-top:20px;
+      margin-bottom:10px;
+      font-size:20px;
+    }
+
+    @media(max-width:768px){
+
+      .top h2{
+        font-size:30px;
+      }
+
+      .card{
+        padding:22px;
+      }
+
+      .formula{
+        font-size:22px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="top">
+    <h1>LIÇÃO 05</h1>
+    <h2>Poupança sem Investimento é Estagnação Disfarçada de Segurança</h2>
+  </div>
+
+  <div class="buttons">
+    <button onclick="falar()">🔊 Ouvir</button>
+    <button onclick="parar()">⏹ Parar</button>
+    <button onclick="modoLeitura()">🌙 Modo</button>
+  </div>
+
+  <div class="card">
+    <h3>📚 Introdução</h3>
+
+    <p>
+      Existe uma ideia amplamente aceite e aparentemente sólida:
+      guardar dinheiro é sinónimo de segurança financeira.
+    </p>
+
+    <p>
+      Existe verdade nesta premissa,
+      mas ela é apenas parcial.
+    </p>
+
+    <p>
+      Poupar é essencial.
+      Protege contra imprevistos,
+      cria disciplina
+      e ajuda a organizar a vida financeira.
+    </p>
+
+    <p>
+      Contudo,
+      há uma realidade que muitos descobrem demasiado tarde:
+      <span class="highlight">
+        poupar sozinho não faz o dinheiro crescer.
+      </span>
+    </p>
+
+    <div class="quote">
+      “A verdadeira segurança financeira não vem apenas de guardar dinheiro,
+      mas de fazê-lo crescer continuamente.”
+    </div>
+
+    <p>
+      Enquanto o dinheiro permanece parado,
+      o custo de vida aumenta,
+      as oportunidades passam
+      e o poder de compra diminui silenciosamente.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h3>1. O Erro de Confundir Poupança com Crescimento</h3>
+
+    <p>
+      Poupar é uma estratégia defensiva.
+      Crescimento é uma estratégia evolutiva.
+    </p>
+
+    <p>
+      Muitas pessoas confundem estas duas ideias.
+      Acham que guardar dinheiro automaticamente cria riqueza.
+    </p>
+
+    <p>
+      Mas dinheiro parado:
+    </p>
+
+    <ul>
+      <li>não gera retorno;</li>
+      <li>não acompanha a inflação;</li>
+      <li>não constrói liberdade financeira;</li>
+      <li>mantém a pessoa no mesmo nível económico.</li>
+    </ul>
+
+    <p>
+      É como estacionar um carro
+      e esperar chegar ao destino.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h3>2. Investimentos: O Motor do Crescimento Financeiro</h3>
+
+    <p>
+      Investir muda completamente a relação entre a pessoa e o dinheiro.
+    </p>
+
+    <p>
+      Enquanto a poupança guarda,
+      o investimento multiplica.
+    </p>
+
+    <p>
+      O dinheiro deixa de ser apenas protegido
+      e passa a trabalhar.
+    </p>
+
+    <ul>
+      <li>gera retorno;</li>
+      <li>cria crescimento;</li>
+      <li>produz novas oportunidades;</li>
+      <li>constrói independência financeira.</li>
+    </ul>
+
+    <div class="quote">
+      “Quem apenas trabalha pelo dinheiro vive limitado.
+      Quem faz o dinheiro trabalhar começa a construir liberdade.”
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h3>3. Juros Compostos: O Crescimento Invisível</h3>
+
+    <p>
+      Juros compostos são o mecanismo
+      que permite ao dinheiro crescer exponencialmente.
+    </p>
+
+    <p>
+      O dinheiro gera rendimento,
+      e esse rendimento também começa a gerar novos rendimentos.
+    </p>
+
+    <div class="formula">
+      A = P (1 + r)<sup>t</sup>
+    </div>
+
+    <p>
+      Onde:
+    </p>
+
+    <ul>
+      <li><strong>A</strong> = valor final</li>
+      <li><strong>P</strong> = valor inicial</li>
+      <li><strong>r</strong> = taxa de crescimento</li>
+      <li><strong>t</strong> = tempo</li>
+    </ul>
+
+    <p>
+      O factor mais poderoso aqui não é apenas o valor investido.
+    </p>
+
+    <p>
+      É o tempo.
+    </p>
+
+    <div class="quote">
+      “Quem começa cedo com pouco
+      pode superar quem começa tarde com muito.”
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h3>4. Inflação: O Inimigo Invisível</h3>
+
+    <p>
+      A inflação reduz o poder de compra do dinheiro ao longo do tempo.
+    </p>
+
+    <p>
+      Isso significa que:
+    </p>
+
+    <ul>
+      <li>o dinheiro perde valor;</li>
+      <li>os preços aumentam;</li>
+      <li>o custo de vida cresce;</li>
+      <li>o dinheiro parado torna-se mais fraco.</li>
+    </ul>
+
+    <p>
+      Poupar sem investir
+      é como tentar encher um balde furado.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h3>5. Segurança Real vs Segurança Ilusória</h3>
+
+    <p>
+      Existe uma diferença importante entre sentir-se seguro
+      e estar realmente seguro financeiramente.
+    </p>
+
+    <p>
+      Segurança verdadeira:
+    </p>
+
+    <ul>
+      <li>protege;</li>
+      <li>cresce;</li>
+      <li>evolui;</li>
+      <li>constrói liberdade.</li>
+    </ul>
+
+    <p>
+      Segurança ilusória:
+    </p>
+
+    <ul>
+      <li>mantém dinheiro parado;</li>
+      <li>não cria crescimento;</li>
+      <li>depende constantemente do salário.</li>
+    </ul>
+
+    <div class="quote">
+      “Proteção sem crescimento
+      transforma-se lentamente em estagnação.”
+    </div>
+
+  </div>
+
+  <div class="card">
+
+    <h3>6. O Dinheiro Precisa de Movimento</h3>
+
+    <p>
+      Dinheiro parado perde força.
+    </p>
+
+    <p>
+      Dinheiro em movimento:
+    </p>
+
+    <ul>
+      <li>cresce;</li>
+      <li>multiplica-se;</li>
+      <li>gera oportunidades;</li>
+      <li>constrói futuro.</li>
+    </ul>
+
+    <p>
+      O objectivo financeiro não é apenas guardar dinheiro.
+    </p>
+
+    <p>
+      É fazer o dinheiro trabalhar continuamente a teu favor.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h3>🔗 Conexão com as Lições Anteriores</h3>
+
+    <p>
+      Na Lição 01 aprendeste que o dinheiro deve ser servo, não mestre.
+    </p>
+
+    <p>
+      Na Lição 02 entendeste que pequenos gastos destroem riqueza.
+    </p>
+
+    <p>
+      Na Lição 03 percebeste que salário não é riqueza.
+    </p>
+
+    <p>
+      Na Lição 04 viste que dívidas comprometem o futuro.
+    </p>
+
+    <p>
+      Agora compreendes algo ainda mais profundo:
+      <span class="highlight">
+        não basta guardar dinheiro.
+        É necessário fazê-lo crescer.
+      </span>
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <h3>🚀 Conclusão</h3>
+
+    <p>
+      Poupar é importante.
+      Mas sozinho não constrói riqueza verdadeira.
+    </p>
+
+    <p>
+      A verdadeira segurança financeira nasce quando:
+    </p>
+
+    <ul>
+      <li>o dinheiro é protegido;</li>
+      <li>o dinheiro é investido;</li>
+      <li>o dinheiro cresce ao longo do tempo.</li>
+    </ul>
+
+    <div class="quote">
+      “A segurança financeira real
+      não está em guardar dinheiro.
+      Está em transformá-lo em crescimento contínuo.”
+    </div>
+
+  </div>
+
+  <div class="footer">
+
+    <p>
+      APP Finanças • Educação Financeira Inteligente
+    </p>
+
+    <a href="cap06.html" class="next">
+      Próxima Lição →
+    </a>
+
+  </div>
+
+</div>
+
+<script>
+
+function falar(){
+
+  const texto = document.body.innerText;
+
+  const speech = new SpeechSynthesisUtterance(texto);
+
+  speech.lang = "pt-PT";
+
+  speech.rate = 0.95;
+
+  window.speechSynthesis.speak(speech);
+
+}
+
+function parar(){
+  window.speechSynthesis.cancel();
+}
+
+function modoLeitura(){
+
+  const body = document.body;
+
+  if(body.style.background == "white"){
+
+    body.style.background = "#0b0b0b";
+    body.style.color = "#fff";
+
+  }else{
+
+    body.style.background = "white";
+    body.style.color = "#111";
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
