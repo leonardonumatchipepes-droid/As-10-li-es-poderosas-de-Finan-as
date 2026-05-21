@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capítulo 10 - Liberdade Financeira</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color:#fff;
+    line-height:1.7;
+    overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:40px 20px;
+    background: rgba(0,0,0,0.3);
+    animation: fadeDown 1s ease;
+}
+
+header h1{
+    font-size:28px;
+    color:#38bdf8;
+}
+
+header p{
+    font-size:16px;
+    color:#cbd5e1;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+/* SECTIONS */
+.section{
+    margin:30px 0;
+    padding:20px;
+    background: rgba(255,255,255,0.05);
+    border-left:4px solid #38bdf8;
+    border-radius:10px;
+    transform: translateY(30px);
+    opacity:0;
+    animation: fadeUp 1s forwards;
+}
+
+.section:nth-child(odd){ animation-delay:0.2s; }
+.section:nth-child(even){ animation-delay:0.4s; }
+
+h2{
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+p{
+    color:#e2e8f0;
+}
+
+/* BUTTONS */
+.buttons{
+    text-align:center;
+    margin:20px 0;
+}
+
+button{
+    padding:12px 18px;
+    margin:5px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.play{ background:#22c55e; color:#fff; }
+.pause{ background:#ef4444; color:#fff; }
+.next{ background:#38bdf8; color:#000; }
+
+button:hover{ transform:scale(1.05); }
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px;
+    color:#94a3b8;
+    margin-top:40px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+    to{ transform: translateY(0); opacity:1; }
+}
+
+@keyframes fadeDown{
+    from{ transform: translateY(-30px); opacity:0; }
+    to{ transform: translateY(0); opacity:1; }
+}
+
+html{ scroll-behavior:smooth; }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>LIÇÃO 10</h1>
+    <p>Liberdade Financeira: O Verdadeiro Sentido de uma Vida Livre</p>
+</header>
+
+<div class="buttons">
+    <button class="play" onclick="playAudio()">Ouvir</button>
+    <button class="pause" onclick="pauseAudio()">Parar</button>
+    <button class="next" onclick="nextLesson()">Próxima Lição</button>
+</div>
+
+<audio id="audio">
+    <source src="cap10.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+    <div class="section">
+        <h2>Introdução</h2>
+        <p>
+            Liberdade financeira não é sobre ser rico. É sobre não viver preso ao dinheiro.
+            É quando o dinheiro deixa de ser um problema diário e passa a ser uma ferramenta de construção de vida.
+            <br><br>
+            <b>Exemplo:</b> duas pessoas ganham o mesmo salário. Uma vive estressada, sem dinheiro no final do mês.
+            A outra começa a investir e em alguns anos já tem tranquilidade. A diferença não é o salário — é a mentalidade.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Paz Interior</h2>
+        <p>
+            A maior riqueza é acordar sem medo de contas, dívidas ou cobranças.
+            A mente livre pensa melhor, cria melhor e vive melhor.
+            <br><br>
+            <b>Motivação:</b> quando você controla o dinheiro, você controla a ansiedade.
+            Quando o dinheiro te controla, você perde a paz.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Família</h2>
+        <p>
+            A liberdade financeira protege aquilo que mais importa: a família.
+            Menos stress financeiro significa mais amor, mais presença e mais união.
+            <br><br>
+            <b>Exemplo real:</b> pais que trabalham apenas para sobreviver chegam em casa cansados e sem energia emocional.
+            Já quem tem estabilidade consegue estar presente de verdade com os filhos.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Liberdade de Escolha</h2>
+        <p>
+            Sem dinheiro, muitas decisões não são escolhas — são obrigações.
+            Com liberdade financeira, você decide sua vida.
+            <br><br>
+            <b>Exemplo:</b> trabalhar porque quer crescer é liberdade. Trabalhar porque não tem opção é prisão invisível.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Futuro e Legado</h2>
+        <p>
+            O futuro não acontece por acaso. Ele é construído por pequenas decisões diárias.
+            Cada gasto, cada investimento, cada escolha cria o amanhã.
+            <br><br>
+            <b>Legado:</b> não é apenas dinheiro. É mentalidade, educação e exemplo.
+            É fazer com que a próxima geração comece mais forte do que você começou.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Tempo: A Verdadeira Riqueza</h2>
+        <p>
+            O dinheiro compra coisas, mas a liberdade financeira compra tempo.
+            E o tempo é o único recurso que não volta.
+            <br><br>
+            <b>Reflexão:</b> se você tiver dinheiro mas não tiver tempo, você ainda não é livre.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Motivação Final</h2>
+        <p>
+            Você não precisa começar rico. Você precisa começar consciente.
+            Pequenas decisões hoje podem mudar completamente o seu futuro.
+            <br><br>
+            Não é sobre velocidade. É sobre direção.
+            E quem mantém a direção certa, inevitavelmente chega à liberdade.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Conclusão</h2>
+        <p>
+            Liberdade financeira é o início de uma nova vida: paz, família forte, escolhas reais, futuro seguro e legado duradouro.
+            <br><br>
+            <b>Mensagem final:</b> não trabalhe apenas por dinheiro. Trabalhe para conquistar liberdade.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    <p>“A verdadeira riqueza é viver sem ser escravo do dinheiro.”</p>
+</footer>
+
+<script>
+let audio = document.getElementById("audio");
+
+function playAudio(){
+    audio.play();
+}
+
+function pauseAudio(){
+    audio.pause();
+}
+
+function nextLesson(){
+    window.location.href = "cap11.html";
+}
+</script>
+
+</body>
+</html>
