@@ -11,15 +11,11 @@
       --text: #fff;
       --card: rgba(255,255,255,0.08);
       --btn: #e50914;
-      --locked: #555;
     }
 
     body.light {
       --bg: #f5f5f5;
       --text: #111;
-      --card: rgba(0,0,0,0.08);
-      --btn: #d10f1a;
-      --locked: #bbb;
     }
 
     body {
@@ -30,12 +26,13 @@
       overflow: hidden;
     }
 
+    /* FUNDO CINEMATOGRÁFICO */
     .background {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: url("capa.png") center/cover no-repeat;
-      filter: blur(14px) brightness(0.4);
+      background: url("IMG_1810.jpeg") center/cover no-repeat;
+      filter: blur(18px) brightness(0.4);
       transform: scale(1.1);
     }
 
@@ -43,9 +40,10 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.65);
     }
 
+    /* SETTINGS */
     .settings {
       position: absolute;
       top: 15px;
@@ -55,7 +53,8 @@
       z-index: 10;
     }
 
-    .content {
+    /* SPLASH CONTENT */
+    .splash {
       position: relative;
       z-index: 10;
       height: 100vh;
@@ -66,22 +65,54 @@
       text-align: center;
     }
 
-    .cover {
-      width: 160px;
-      border-radius: 12px;
-      margin-bottom: 10px;
+    .logo {
+      width: 180px;
+      border-radius: 14px;
+      box-shadow: 0 10px 50px rgba(0,0,0,0.8);
+      animation: zoom 1.5s ease-in-out;
     }
 
-    h1 { margin: 5px; }
-
-    .btn {
-      padding: 14px 26px;
-      background: var(--btn);
-      border: none;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
+    h1 {
       margin-top: 15px;
+      letter-spacing: 2px;
+      animation: fade 2s ease-in-out;
+    }
+
+    p {
+      opacity: 0.7;
+      font-size: 13px;
+      animation: fade 2.5s ease-in-out;
+    }
+
+    /* LOADING BAR */
+    .loader {
+      margin-top: 20px;
+      width: 160px;
+      height: 4px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .loader div {
+      width: 0%;
+      height: 100%;
+      background: #e50914;
+      animation: load 3s linear forwards;
+    }
+
+    @keyframes load {
+      to { width: 100%; }
+    }
+
+    @keyframes zoom {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* MODAL SETTINGS */
@@ -89,7 +120,7 @@
       position: absolute;
       top: 50px;
       left: 15px;
-      background: var(--card);
+      background: rgba(255,255,255,0.08);
       backdrop-filter: blur(10px);
       padding: 15px;
       border-radius: 10px;
@@ -113,11 +144,14 @@
 
 <body>
 
+  <!-- FUNDO -->
   <div class="background"></div>
   <div class="overlay"></div>
 
+  <!-- SETTINGS -->
   <div class="settings" onclick="toggleSettings()">⚙️</div>
 
+  <!-- MODAL -->
   <div class="modal" id="modal">
     <button onclick="toggleTheme()">🌗 Tema</button>
 
@@ -129,41 +163,34 @@
     </a>
   </div>
 
-  <div class="content">
+  <!-- SPLASH -->
+  <div class="splash">
 
-    <img src="IMG_1810.jpeg" class="cover">
+    <img src="IMG_1810.jpeg" class="logo">
 
     <h1>APP FINANÇAS</h1>
-    <p>Série de 10 lições para liberdade financeira</p>
+    <p>Carregando experiência financeira...</p>
 
-    <button class="btn" onclick="startReading()">
-      Começar a Leitura
-    </button>
+    <div class="loader">
+      <div></div>
+    </div>
 
   </div>
 
   <script>
-    // -------- SETTINGS --------
     function toggleSettings() {
       const m = document.getElementById("modal");
-      m.style.display = m.style.display === "flex" ? "none" : "flex";
+      m.style.display = (m.style.display === "flex") ? "none" : "flex";
     }
 
     function toggleTheme() {
       document.body.classList.toggle("light");
     }
 
-    // -------- DESBLOQUEIO --------
-    function startReading() {
-      let progress = localStorage.getItem("finance_progress");
-
-      if (!progress) {
-        // começa no capítulo 1 bloqueando o resto
-        localStorage.setItem("finance_progress", "1");
-      }
-
+    // SPLASH → INDICE
+    setTimeout(() => {
       window.location.href = "indice.html";
-    }
+    }, 3000);
   </script>
 
 </body>
