@@ -1,102 +1,115 @@
-```html
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
 
-  <meta name="viewport"
-        content="width=device-width,
-                 initial-scale=1.0,
-                 viewport-fit=cover">
+<meta charset="UTF-8">
 
-  <meta name="theme-color" content="#050807">
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               viewport-fit=cover">
 
-  <meta name="apple-mobile-web-app-capable"
-        content="yes">
+<meta name="theme-color" content="#050807">
 
-  <meta name="apple-mobile-web-app-status-bar-style"
-        content="black-translucent">
+<meta name="apple-mobile-web-app-capable"
+      content="yes">
 
-  <title>As 10 Lições Mais Poderosas sobre Finanças</title>
+<meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent">
 
-  <style>
+<meta name="mobile-web-app-capable"
+      content="yes">
 
-    /* =====================================================
-       VARIÁVEIS
-    ===================================================== */
+<title>As 10 Lições Mais Poderosas sobre Finanças</title>
 
-    :root {
 
-      --bg: #050807;
-      --text: #ffffff;
+<style>
 
-      --muted: rgba(255,255,255,.65);
+/* =========================================================
+   SISTEMA DE CORES
+========================================================= */
 
-      --gold: #d4af37;
-      --gold-light: #f5d76e;
+:root {
 
-      --green: #00c896;
+    --bg: #030504;
+    --bg-secondary: #08100c;
 
-      --glass: rgba(255,255,255,.075);
+    --text: #ffffff;
+    --muted: rgba(255,255,255,.66);
 
-      --glass-border:
-        rgba(255,255,255,.13);
+    --gold: #d4af37;
+    --gold-light: #ffe78a;
 
-      --shadow:
-        0 25px 80px rgba(0,0,0,.65);
+    --green: #00d49a;
+    --green-dark: #008f6a;
 
-      --transition:
+    --glass: rgba(255,255,255,.075);
+    --glass-hover: rgba(255,255,255,.12);
+
+    --border: rgba(255,255,255,.14);
+
+    --shadow:
+        0 30px 100px rgba(0,0,0,.65);
+
+    --transition:
         .35s cubic-bezier(.4,0,.2,1);
-    }
+
+    --font-scale: 1;
+}
 
 
-    /* =====================================================
-       TEMA CLARO
-    ===================================================== */
+/* =========================================================
+   TEMA CLARO
+========================================================= */
 
-    body.light {
+body.light {
 
-      --bg: #f4f6f5;
+    --bg: #f5f7f6;
+    --bg-secondary: #ffffff;
 
-      --text: #111111;
+    --text: #101412;
 
-      --muted:
-        rgba(0,0,0,.6);
+    --muted:
+        rgba(0,0,0,.62);
 
-      --glass:
-        rgba(255,255,255,.6);
+    --glass:
+        rgba(255,255,255,.72);
 
-      --glass-border:
-        rgba(0,0,0,.08);
-    }
+    --glass-hover:
+        rgba(255,255,255,.9);
+
+    --border:
+        rgba(0,0,0,.10);
+}
 
 
-    /* =====================================================
-       RESET
-    ===================================================== */
+/* =========================================================
+   RESET
+========================================================= */
 
-    * {
+* {
 
-      box-sizing: border-box;
+    box-sizing: border-box;
 
-      -webkit-tap-highlight-color:
+    -webkit-tap-highlight-color:
         transparent;
-    }
+}
 
 
-    html,
-    body {
+html,
+body {
 
-      width: 100%;
-      height: 100%;
+    width: 100%;
+    height: 100%;
 
-      margin: 0;
-    }
+    margin: 0;
+    padding: 0;
+}
 
 
-    body {
+body {
 
-      font-family:
+    font-family:
         Inter,
         -apple-system,
         BlinkMacSystemFont,
@@ -104,1548 +117,2119 @@
         Arial,
         sans-serif;
 
-      background:
+    background:
         var(--bg);
 
-      color:
+    color:
         var(--text);
 
-      overflow: hidden;
+    overflow: hidden;
 
-      transition:
+    transition:
         background var(--transition),
         color var(--transition);
-    }
+}
 
 
-    /* =====================================================
-       FUNDO
-    ===================================================== */
+/* =========================================================
+   FUNDO PREMIUM
+========================================================= */
 
-    .background {
+.background {
 
-      position: fixed;
+    position: fixed;
 
-      inset: -8%;
+    inset: 0;
 
-      background:
+    z-index: 0;
 
-        linear-gradient(
-          135deg,
-          rgba(0,0,0,.78),
-          rgba(0,30,20,.68)
-        ),
+    overflow: hidden;
 
-        url("IMG_1810.jpeg")
-        center / cover no-repeat;
-
-      filter:
-        blur(18px)
-        brightness(.48)
-        saturate(1.15);
-
-      transform:
-        scale(1.08);
-
-      animation:
-        backgroundZoom
-        12s
-        ease-in-out
-        infinite
-        alternate;
-    }
-
-
-    @keyframes backgroundZoom {
-
-      from {
-        transform: scale(1.08);
-      }
-
-      to {
-        transform: scale(1.15);
-      }
-    }
-
-
-    /* =====================================================
-       OVERLAY
-    ===================================================== */
-
-    .overlay {
-
-      position: fixed;
-
-      inset: 0;
-
-      background:
+    background:
 
         radial-gradient(
-          circle at 50% 35%,
-          rgba(212,175,55,.14),
-          transparent 35%
+            circle at 50% 20%,
+            rgba(212,175,55,.13),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 15% 85%,
+            rgba(0,212,154,.10),
+            transparent 30%
         ),
 
         linear-gradient(
-          to bottom,
-          rgba(0,0,0,.15),
-          rgba(0,0,0,.90)
+            135deg,
+            #020403,
+            #07100c 55%,
+            #020403
+        );
+}
+
+
+/* =========================================================
+   GRID FINANCEIRO
+========================================================= */
+
+.background::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .12;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.08) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.08) 1px,
+            transparent 1px
         );
 
-      z-index: 1;
+    background-size:
+        45px 45px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 25%,
+            black 75%,
+            transparent
+        );
+}
+
+
+/* =========================================================
+   ELEMENTOS DE DINHEIRO
+========================================================= */
+
+.money {
+
+    position: absolute;
+
+    user-select: none;
+
+    pointer-events: none;
+
+    opacity: .16;
+
+    filter:
+        blur(.3px);
+
+    animation:
+        moneyFloat
+        linear
+        infinite;
+}
+
+
+.money.bill {
+
+    width: 80px;
+    height: 38px;
+
+    border:
+        1px solid
+        rgba(212,175,55,.55);
+
+    border-radius: 6px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(212,175,55,.18),
+            rgba(0,212,154,.10)
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 17px;
+
+    color:
+        rgba(255,231,138,.65);
+
+    box-shadow:
+        0 0 25px
+        rgba(212,175,55,.08);
+}
+
+
+.money.coin {
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid
+        rgba(212,175,55,.55);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 18px;
+
+    color:
+        rgba(255,231,138,.75);
+}
+
+
+.money:nth-child(1) {
+    left: 5%;
+    top: 15%;
+    animation-duration: 15s;
+}
+
+.money:nth-child(2) {
+    left: 17%;
+    top: 75%;
+    animation-duration: 19s;
+}
+
+.money:nth-child(3) {
+    left: 30%;
+    top: 10%;
+    animation-duration: 17s;
+}
+
+.money:nth-child(4) {
+    left: 48%;
+    top: 80%;
+    animation-duration: 21s;
+}
+
+.money:nth-child(5) {
+    left: 65%;
+    top: 13%;
+    animation-duration: 18s;
+}
+
+.money:nth-child(6) {
+    left: 78%;
+    top: 70%;
+    animation-duration: 16s;
+}
+
+.money:nth-child(7) {
+    left: 90%;
+    top: 25%;
+    animation-duration: 20s;
+}
+
+
+@keyframes moneyFloat {
+
+    0% {
+
+        transform:
+            translateY(30px)
+            rotate(-8deg);
+
+        opacity: 0;
     }
 
+    15% {
 
-    /* =====================================================
-       LUZES
-    ===================================================== */
-
-    .light {
-
-      position: fixed;
-
-      width: 240px;
-      height: 240px;
-
-      border-radius: 50%;
-
-      filter:
-        blur(80px);
-
-      opacity: .16;
-
-      pointer-events:
-        none;
+        opacity: .16;
     }
 
+    50% {
 
-    .light.one {
+        transform:
+            translateY(-80px)
+            rotate(12deg);
 
-      background:
-        var(--gold);
-
-      top:
-        -100px;
-
-      right:
-        -80px;
+        opacity: .22;
     }
 
+    85% {
 
-    .light.two {
+        opacity: .10;
+    }
 
-      background:
+    100% {
+
+        transform:
+            translateY(-180px)
+            rotate(-10deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   GRÁFICO DECORATIVO
+========================================================= */
+
+.finance-chart {
+
+    position: absolute;
+
+    right: 4%;
+    bottom: 7%;
+
+    width: 170px;
+    height: 80px;
+
+    opacity: .14;
+}
+
+
+.finance-chart svg {
+
+    width: 100%;
+    height: 100%;
+}
+
+
+.chart-line {
+
+    fill: none;
+
+    stroke:
         var(--green);
 
-      bottom:
-        -100px;
+    stroke-width: 2;
 
-      left:
-        -80px;
+    stroke-linecap: round;
+
+    stroke-dasharray: 300;
+
+    stroke-dashoffset: 300;
+
+    animation:
+        chartDraw
+        5s
+        ease
+        infinite;
+}
+
+
+@keyframes chartDraw {
+
+    0% {
+        stroke-dashoffset: 300;
     }
 
+    50% {
+        stroke-dashoffset: 0;
+    }
 
-    /* =====================================================
-       BOTÃO CONFIGURAÇÕES
-    ===================================================== */
+    100% {
+        stroke-dashoffset: -300;
+    }
+}
 
-    .settings-button {
 
-      position: fixed;
+/* =========================================================
+   OVERLAY
+========================================================= */
 
-      top:
-        max(20px,
-        env(safe-area-inset-top));
+.overlay {
 
-      left:
-        20px;
+    position: fixed;
 
-      width:
-        44px;
+    inset: 0;
 
-      height:
-        44px;
+    z-index: 1;
 
-      border-radius:
-        50%;
+    background:
 
-      border:
+        radial-gradient(
+            circle at 50% 38%,
+            rgba(212,175,55,.12),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.82)
+        );
+
+    pointer-events: none;
+}
+
+
+body.light .overlay {
+
+    background:
+
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(212,175,55,.10),
+            transparent 40%
+        ),
+
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,.1),
+            rgba(255,255,255,.25)
+        );
+}
+
+
+/* =========================================================
+   LUZES
+========================================================= */
+
+.light {
+
+    position: fixed;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    filter:
+        blur(90px);
+
+    opacity: .13;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+.light.one {
+
+    background:
+        var(--gold);
+
+    top: -130px;
+    right: -100px;
+}
+
+
+.light.two {
+
+    background:
+        var(--green);
+
+    bottom: -130px;
+    left: -100px;
+}
+
+
+/* =========================================================
+   BOTÃO DEFINIÇÕES
+========================================================= */
+
+.settings-button {
+
+    position: fixed;
+
+    top:
+        max(
+            20px,
+            env(safe-area-inset-top)
+        );
+
+    left: 20px;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    border:
         1px solid
-        var(--glass-border);
+        var(--border);
 
-      background:
+    background:
         var(--glass);
 
-      backdrop-filter:
-        blur(18px);
+    backdrop-filter:
+        blur(22px);
 
-      -webkit-backdrop-filter:
-        blur(18px);
+    -webkit-backdrop-filter:
+        blur(22px);
 
-      color:
+    color:
         var(--text);
 
-      font-size:
-        19px;
+    font-size: 20px;
 
-      display:
-        flex;
+    display: flex;
 
-      align-items:
-        center;
+    align-items: center;
 
-      justify-content:
-        center;
+    justify-content: center;
 
-      cursor:
-        pointer;
+    cursor: pointer;
 
-      z-index:
-        20;
+    z-index: 50;
 
-      box-shadow:
-        0 8px 30px
-        rgba(0,0,0,.3);
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.35);
 
-      transition:
+    transition:
         var(--transition);
-    }
+}
 
 
-    .settings-button:hover {
+.settings-button:hover {
 
-      transform:
-        rotate(30deg)
-        scale(1.06);
-    }
+    transform:
+        rotate(45deg)
+        scale(1.08);
+
+    border-color:
+        rgba(212,175,55,.45);
+}
 
 
-    /* =====================================================
-       PAINEL SETTINGS
-    ===================================================== */
+/* =========================================================
+   PAINEL DE DEFINIÇÕES
+========================================================= */
 
-    .settings-panel {
+.settings-panel {
 
-      position: fixed;
+    position: fixed;
 
-      top:
-        75px;
+    top: 80px;
+    left: 20px;
 
-      left:
-        20px;
+    width: 285px;
 
-      width:
-        250px;
+    padding: 20px;
 
-      padding:
-        18px;
+    border-radius: 24px;
 
-      border-radius:
-        20px;
+    background:
+        rgba(10,14,12,.92);
 
-      background:
-        rgba(15,18,17,.90);
-
-      border:
+    border:
         1px solid
-        rgba(255,255,255,.12);
+        rgba(255,255,255,.13);
 
-      backdrop-filter:
-        blur(25px);
+    backdrop-filter:
+        blur(30px);
 
-      -webkit-backdrop-filter:
-        blur(25px);
+    -webkit-backdrop-filter:
+        blur(30px);
 
-      box-shadow:
+    box-shadow:
         var(--shadow);
 
-      opacity:
-        0;
+    opacity: 0;
 
-      visibility:
-        hidden;
+    visibility: hidden;
 
-      transform:
-        translateY(-10px)
-        scale(.96);
+    transform:
+        translateY(-12px)
+        scale(.94);
 
-      transition:
+    transition:
         var(--transition);
 
-      z-index:
-        30;
-    }
+    z-index: 40;
+}
 
 
-    .settings-panel.active {
+body.light .settings-panel {
 
-      opacity:
-        1;
+    background:
+        rgba(255,255,255,.94);
 
-      visibility:
-        visible;
+    color:
+        #111;
+}
 
-      transform:
+
+.settings-panel.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
         translateY(0)
         scale(1);
-    }
+}
 
 
-    .settings-title {
+.settings-header {
 
-      font-size:
-        12px;
+    display: flex;
 
-      color:
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+
+.settings-title {
+
+    font-size: 12px;
+
+    letter-spacing: 1.4px;
+
+    font-weight: 800;
+
+    color:
+        var(--muted);
+}
+
+
+.settings-close {
+
+    border: 0;
+
+    background: transparent;
+
+    color:
         var(--muted);
 
-      margin-bottom:
-        12px;
+    cursor: pointer;
 
-      letter-spacing:
-        1px;
-
-      font-weight:
-        700;
-    }
+    font-size: 18px;
+}
 
 
-    .theme-button {
+/* =========================================================
+   GRUPOS
+========================================================= */
 
-      width:
-        100%;
+.setting-group {
 
-      border:
-        0;
-
-      padding:
-        12px;
-
-      border-radius:
-        12px;
-
-      background:
-        rgba(255,255,255,.08);
-
-      color:
-        white;
-
-      cursor:
-        pointer;
-
-      font-size:
-        14px;
-
-      margin-bottom:
-        12px;
-    }
+    margin-bottom: 17px;
+}
 
 
-    .support {
+.setting-label {
 
-      display:
-        block;
+    display: block;
 
-      text-align:
-        center;
+    font-size: 11px;
 
-      padding:
-        12px;
+    color:
+        var(--muted);
 
-      border-radius:
-        12px;
+    margin-bottom: 8px;
 
-      text-decoration:
-        none;
+    font-weight: 700;
+}
 
-      color:
-        white;
 
-      background:
+.setting-row {
+
+    display: flex;
+
+    gap: 7px;
+}
+
+
+.setting-btn {
+
+    flex: 1;
+
+    border:
+        1px solid
+        var(--border);
+
+    background:
+        rgba(255,255,255,.07);
+
+    color:
+        var(--text);
+
+    border-radius: 11px;
+
+    padding: 10px 8px;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+
+.setting-btn:hover {
+
+    background:
+        var(--glass-hover);
+
+    border-color:
+        rgba(212,175,55,.4);
+}
+
+
+.contact-btn {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    width: 100%;
+
+    padding: 11px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    margin-bottom: 8px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: .25s;
+}
+
+
+.contact-btn.email {
+
+    background:
+        rgba(212,175,55,.12);
+
+    color:
+        var(--gold-light);
+
+    border:
+        1px solid
+        rgba(212,175,55,.22);
+}
+
+
+.contact-btn.whatsapp {
+
+    background:
         #25D366;
 
-      font-size:
-        14px;
+    color:
+        #ffffff;
 
-      font-weight:
-        600;
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+}
+
+
+.contact-btn:hover {
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL
+========================================================= */
+
+.app {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+
+    height: 100vh;
+
+    min-height: 600px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        60px 25px
+        max(
+            45px,
+            env(safe-area-inset-bottom)
+        );
+}
+
+
+.content {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo-wrapper {
+
+    position: relative;
+
+    margin-bottom: 23px;
+
+    animation:
+        logoEnter
+        1.1s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+
+.logo-wrapper::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -30px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.32),
+            transparent 67%
+        );
+
+    filter:
+        blur(22px);
+
+    animation:
+        pulse
+        3s
+        ease-in-out
+        infinite;
+}
+
+
+.logo {
+
+    position: relative;
+
+    width: 135px;
+    height: 135px;
+
+    object-fit: cover;
+
+    border-radius: 32px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.24);
+
+    box-shadow:
+
+        0 25px 70px
+        rgba(0,0,0,.72),
+
+        0 0 45px
+        rgba(212,175,55,.18);
+}
+
+
+@keyframes logoEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.65)
+            translateY(30px);
     }
 
+    to {
 
-    /* =====================================================
-       ÁREA PRINCIPAL
-    ===================================================== */
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+@keyframes pulse {
+
+    0%,100% {
+
+        transform:
+            scale(.94);
+
+        opacity: .55;
+    }
+
+    50% {
+
+        transform:
+            scale(1.08);
+
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding:
+        7px 14px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(212,175,55,.09);
+
+    border:
+        1px solid
+        rgba(212,175,55,.25);
+
+    color:
+        var(--gold-light);
+
+    font-size:
+        calc(10px * var(--font-scale));
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 15px;
+
+    animation:
+        fadeUp
+        1s
+        .2s
+        both;
+}
+
+
+.badge-dot {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        var(--green);
+
+    box-shadow:
+        0 0 12px
+        var(--green);
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+h1 {
+
+    margin: 0;
+
+    font-size:
+        calc(
+            clamp(
+                30px,
+                8vw,
+                55px
+            ) * var(--font-scale)
+        );
+
+    line-height: 1.04;
+
+    letter-spacing: -1.7px;
+
+    font-weight: 900;
+
+    animation:
+        fadeUp
+        1s
+        .35s
+        both;
+}
+
+
+h1 span {
+
+    display: block;
+
+    margin-top: 7px;
+
+    background:
+
+        linear-gradient(
+            100deg,
+            #ffffff,
+            var(--gold-light),
+            #ffffff
+        );
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    color: transparent;
+
+    background-size:
+        200% auto;
+
+    animation:
+        shine
+        4s
+        linear
+        infinite;
+}
+
+
+body.light h1 span {
+
+    background:
+
+        linear-gradient(
+            100deg,
+            #111,
+            #9c7610,
+            #111
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+}
+
+
+@keyframes shine {
+
+    to {
+
+        background-position:
+            200% center;
+    }
+}
+
+
+/* =========================================================
+   SUBTÍTULO
+========================================================= */
+
+.subtitle {
+
+    max-width: 470px;
+
+    margin:
+        19px auto 0;
+
+    font-size:
+        calc(
+            14px * var(--font-scale)
+        );
+
+    line-height: 1.65;
+
+    color:
+        var(--muted);
+
+    animation:
+        fadeUp
+        1s
+        .5s
+        both;
+}
+
+
+/* =========================================================
+   BOTÃO PRINCIPAL
+========================================================= */
+
+.btn-veja {
+
+    position: relative;
+
+    margin-top: 28px;
+
+    min-width: 235px;
+
+    padding:
+        16px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    border:
+        1px solid
+        rgba(245,215,110,.6);
+
+    border-radius: 50px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #c89f25,
+            #f5d76e
+        );
+
+    color:
+        #080908;
+
+    font-size:
+        calc(
+            12px * var(--font-scale)
+        );
+
+    font-weight: 900;
+
+    letter-spacing: 1.4px;
+
+    cursor: pointer;
+
+    box-shadow:
+
+        0 12px 40px
+        rgba(212,175,55,.28),
+
+        inset 0 1px 0
+        rgba(255,255,255,.55);
+
+    animation:
+        fadeUp
+        1s
+        .65s
+        both;
+
+    transition: .3s ease;
+
+    overflow: hidden;
+}
+
+
+.btn-veja::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.5),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition: .7s;
+}
+
+
+.btn-veja:hover::before {
+
+    left: 140%;
+}
+
+
+.btn-veja:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+
+        0 18px 50px
+        rgba(212,175,55,.42),
+
+        inset 0 1px 0
+        rgba(255,255,255,.7);
+}
+
+
+.btn-veja:active {
+
+    transform:
+        scale(.95);
+}
+
+
+.btn-arrow {
+
+    font-size: 21px;
+
+    transition:
+        transform .3s ease;
+}
+
+
+.btn-veja:hover .btn-arrow {
+
+    transform:
+        translateX(6px);
+}
+
+
+/* =========================================================
+   INDICADOR
+========================================================= */
+
+.loader-container {
+
+    width: 100%;
+
+    max-width: 285px;
+
+    margin-top: 25px;
+
+    animation:
+        fadeUp
+        1s
+        .8s
+        both;
+}
+
+
+.loader-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+    font-size:
+        calc(9px * var(--font-scale));
+
+    color:
+        var(--muted);
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+
+.loader {
+
+    width: 100%;
+
+    height: 4px;
+
+    background:
+        rgba(255,255,255,.11);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.loader-bar {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--green),
+            var(--gold-light)
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(212,175,55,.5);
+
+    animation:
+        loading
+        3s
+        linear
+        forwards;
+}
+
+
+@keyframes loading {
+
+    to {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    position: fixed;
+
+    bottom:
+        max(
+            18px,
+            env(safe-area-inset-bottom)
+        );
+
+    left: 0;
+    right: 0;
+
+    text-align: center;
+
+    z-index: 10;
+
+    color:
+        rgba(255,255,255,.38);
+
+    font-size:
+        calc(9px * var(--font-scale));
+
+    letter-spacing: 1.2px;
+
+    animation:
+        fadeUp
+        1s
+        1s
+        both;
+}
+
+
+body.light .footer {
+
+    color:
+        rgba(0,0,0,.42);
+}
+
+
+/* =========================================================
+   ANIMAÇÃO
+========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width:480px) {
 
     .app {
 
-      position:
-        relative;
+        padding-left: 18px;
 
-      z-index:
-        5;
-
-      width:
-        100%;
-
-      height:
-        100vh;
-
-      min-height:
-        600px;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      padding:
-
-        40px
-
-        25px
-
-        max(
-          40px,
-          env(safe-area-inset-bottom)
-        );
-    }
-
-
-    .content {
-
-      width:
-        100%;
-
-      max-width:
-        600px;
-
-      text-align:
-        center;
-
-      display:
-        flex;
-
-      flex-direction:
-        column;
-
-      align-items:
-        center;
-    }
-
-
-    /* =====================================================
-       LOGO
-    ===================================================== */
-
-    .logo-wrapper {
-
-      position:
-        relative;
-
-      margin-bottom:
-        25px;
-
-      animation:
-        logoEnter
-        1.2s
-        cubic-bezier(.2,.8,.2,1);
-    }
-
-
-    .logo-wrapper::before {
-
-      content:
-        "";
-
-      position:
-        absolute;
-
-      inset:
-        -25px;
-
-      border-radius:
-        50%;
-
-      background:
-
-        radial-gradient(
-          circle,
-          rgba(212,175,55,.32),
-          transparent 65%
-        );
-
-      filter:
-        blur(20px);
-
-      animation:
-        pulse
-        3s
-        infinite
-        ease-in-out;
+        padding-right: 18px;
     }
 
 
     .logo {
 
-      position:
-        relative;
+        width: 112px;
+        height: 112px;
 
-      width:
-        145px;
-
-      height:
-        145px;
-
-      object-fit:
-        cover;
-
-      border-radius:
-        32px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.22);
-
-      box-shadow:
-
-        0 20px 60px
-        rgba(0,0,0,.7),
-
-        0 0 40px
-        rgba(212,175,55,.15);
+        border-radius: 27px;
     }
 
 
-    @keyframes logoEnter {
+    .logo-wrapper {
 
-      from {
-
-        opacity:
-          0;
-
-        transform:
-          scale(.65)
-          translateY(30px);
-      }
-
-      to {
-
-        opacity:
-          1;
-
-        transform:
-          scale(1)
-          translateY(0);
-      }
+        margin-bottom: 20px;
     }
 
-
-    @keyframes pulse {
-
-      0%,100% {
-
-        transform:
-          scale(.95);
-
-        opacity:
-          .6;
-      }
-
-      50% {
-
-        transform:
-          scale(1.08);
-
-        opacity:
-          1;
-      }
-    }
-
-
-    /* =====================================================
-       BADGE
-    ===================================================== */
-
-    .badge {
-
-      display:
-        inline-flex;
-
-      align-items:
-        center;
-
-      gap:
-        7px;
-
-      padding:
-        7px 14px;
-
-      border-radius:
-        50px;
-
-      background:
-        rgba(212,175,55,.10);
-
-      border:
-        1px solid
-        rgba(212,175,55,.25);
-
-      color:
-        var(--gold-light);
-
-      font-size:
-        10px;
-
-      font-weight:
-        700;
-
-      letter-spacing:
-        1.5px;
-
-      text-transform:
-        uppercase;
-
-      margin-bottom:
-        15px;
-
-      animation:
-        fadeUp
-        1s
-        .25s
-        both;
-    }
-
-
-    .badge-dot {
-
-      width:
-        6px;
-
-      height:
-        6px;
-
-      border-radius:
-        50%;
-
-      background:
-        var(--green);
-
-      box-shadow:
-        0 0 10px
-        var(--green);
-    }
-
-
-    /* =====================================================
-       TÍTULO
-    ===================================================== */
 
     h1 {
 
-      margin:
-        0;
+        font-size:
+            calc(
+                30px * var(--font-scale)
+            );
 
-      font-size:
-        clamp(
-          30px,
-          8vw,
-          55px
-        );
-
-      line-height:
-        1.04;
-
-      letter-spacing:
-        -1.7px;
-
-      font-weight:
-        850;
-
-      animation:
-        fadeUp
-        1s
-        .4s
-        both;
+        letter-spacing: -1px;
     }
 
-
-    h1 span {
-
-      display:
-        block;
-
-      margin-top:
-        6px;
-
-      background:
-
-        linear-gradient(
-          100deg,
-          #ffffff,
-          var(--gold-light),
-          #ffffff
-        );
-
-      -webkit-background-clip:
-        text;
-
-      background-clip:
-        text;
-
-      color:
-        transparent;
-
-      background-size:
-        200% auto;
-
-      animation:
-        shine
-        4s
-        linear
-        infinite;
-    }
-
-
-    @keyframes shine {
-
-      to {
-
-        background-position:
-          200% center;
-      }
-    }
-
-
-    /* =====================================================
-       SUBTÍTULO
-    ===================================================== */
 
     .subtitle {
 
-      max-width:
-        430px;
+        font-size:
+            calc(
+                13px * var(--font-scale)
+            );
 
-      margin:
-        18px auto 0;
-
-      font-size:
-        14px;
-
-      line-height:
-        1.65;
-
-      color:
-        var(--muted);
-
-      animation:
-        fadeUp
-        1s
-        .55s
-        both;
+        max-width: 340px;
     }
 
-
-    /* =====================================================
-       BOTÃO VEJA
-    ===================================================== */
 
     .btn-veja {
 
-      position:
-        relative;
+        min-width: 210px;
 
-      margin-top:
-        27px;
-
-      min-width:
-        220px;
-
-      padding:
-        15px 24px;
-
-      display:
-        flex;
-
-      align-items:
-        center;
-
-      justify-content:
-        center;
-
-      gap:
-        12px;
-
-      border:
-        1px solid
-        rgba(245,215,110,.55);
-
-      border-radius:
-        50px;
-
-      background:
-
-        linear-gradient(
-          135deg,
-          #d4af37,
-          #f5d76e
-        );
-
-      color:
-        #080908;
-
-      font-size:
-        12px;
-
-      font-weight:
-        850;
-
-      letter-spacing:
-        1.4px;
-
-      cursor:
-        pointer;
-
-      box-shadow:
-
-        0 10px 35px
-        rgba(212,175,55,.25),
-
-        inset 0 1px 0
-        rgba(255,255,255,.5);
-
-      animation:
-        fadeUp
-        1s
-        .7s
-        both;
-
-      transition:
-        .3s ease;
-
-      overflow:
-        hidden;
+        padding:
+            14px 20px;
     }
 
-
-    .btn-veja::before {
-
-      content:
-        "";
-
-      position:
-        absolute;
-
-      top:
-        0;
-
-      left:
-        -100%;
-
-      width:
-        70%;
-
-      height:
-        100%;
-
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          rgba(255,255,255,.45),
-          transparent
-        );
-
-      transform:
-        skewX(-20deg);
-
-      transition:
-        .7s;
-    }
-
-
-    .btn-veja:hover::before {
-
-      left:
-        140%;
-    }
-
-
-    .btn-veja:hover {
-
-      transform:
-        translateY(-4px);
-
-      box-shadow:
-
-        0 16px 45px
-        rgba(212,175,55,.40),
-
-        inset 0 1px 0
-        rgba(255,255,255,.6);
-    }
-
-
-    .btn-veja:active {
-
-      transform:
-        scale(.95);
-    }
-
-
-    .btn-arrow {
-
-      font-size:
-        20px;
-
-      line-height:
-        0;
-
-      transition:
-        transform .3s ease;
-    }
-
-
-    .btn-veja:hover
-    .btn-arrow {
-
-      transform:
-        translateX(5px);
-    }
-
-
-    /* =====================================================
-       LOADER
-    ===================================================== */
 
     .loader-container {
 
-      width:
-        100%;
-
-      max-width:
-        280px;
-
-      margin-top:
-        25px;
-
-      animation:
-        fadeUp
-        1s
-        .8s
-        both;
+        max-width: 230px;
     }
 
 
-    .loader-info {
-
-      display:
-        flex;
-
-      justify-content:
-        space-between;
-
-      margin-bottom:
-        8px;
-
-      font-size:
-        9px;
-
-      color:
-        var(--muted);
-
-      text-transform:
-        uppercase;
-
-      letter-spacing:
-        1px;
-    }
-
-
-    .loader {
-
-      width:
-        100%;
-
-      height:
-        4px;
-
-      background:
-        rgba(255,255,255,.12);
-
-      border-radius:
-        20px;
-
-      overflow:
-        hidden;
-    }
-
-
-    .loader-bar {
-
-      width:
-        0%;
-
-      height:
-        100%;
-
-      border-radius:
-        inherit;
-
-      background:
-
-        linear-gradient(
-          90deg,
-          var(--green),
-          var(--gold-light)
-        );
-
-      box-shadow:
-        0 0 15px
-        rgba(212,175,55,.5);
-
-      animation:
-        loading
-        3s
-        linear
-        forwards;
-    }
-
-
-    @keyframes loading {
-
-      to {
-        width:
-          100%;
-      }
-    }
-
-
-    /* =====================================================
-       FOOTER
-    ===================================================== */
-
-    .footer {
-
-      position:
-        fixed;
-
-      bottom:
-        max(
-          18px,
-          env(safe-area-inset-bottom)
-        );
-
-      left:
-        0;
-
-      right:
-        0;
-
-      text-align:
-        center;
-
-      z-index:
-        10;
-
-      color:
-        rgba(255,255,255,.4);
-
-      font-size:
-        9px;
-
-      letter-spacing:
-        1.2px;
-
-      animation:
-        fadeUp
-        1s
-        1s
-        both;
-    }
-
-
-    /* =====================================================
-       ANIMAÇÃO GERAL
-    ===================================================== */
-
-    @keyframes fadeUp {
-
-      from {
-
-        opacity:
-          0;
-
-        transform:
-          translateY(18px);
-      }
-
-      to {
-
-        opacity:
-          1;
-
-        transform:
-          translateY(0);
-      }
-    }
-
-
-    /* =====================================================
-       MOBILE
-    ===================================================== */
-
-    @media (max-width:480px) {
-
-      .app {
-
-        padding-left:
-          20px;
-
-        padding-right:
-          20px;
-      }
-
-
-      .logo {
+    .settings-panel {
 
         width:
-          120px;
+            calc(
+                100vw - 40px
+            );
 
-        height:
-          120px;
-
-        border-radius:
-          27px;
-      }
-
-
-      .logo-wrapper {
-
-        margin-bottom:
-          22px;
-      }
-
-
-      h1 {
-
-        font-size:
-          30px;
-
-        letter-spacing:
-          -1px;
-      }
-
-
-      .subtitle {
-
-        font-size:
-          13px;
-
-        max-width:
-          335px;
-      }
-
-
-      .btn-veja {
-
-        min-width:
-          205px;
-
-        padding:
-          14px 20px;
-      }
-
-
-      .loader-container {
-
-        max-width:
-          225px;
-      }
+        max-width: 300px;
     }
 
 
-    /* =====================================================
-       ACESSIBILIDADE
-    ===================================================== */
+    .finance-chart {
 
-    @media (prefers-reduced-motion: reduce) {
+        opacity: .08;
 
-      * {
+        right: -20px;
+    }
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
 
         animation-duration:
-          .01ms !important;
+            .01ms !important;
 
         animation-iteration-count:
-          1 !important;
-      }
-    }
+            1 !important;
 
-  </style>
+        scroll-behavior:
+            auto !important;
+    }
+}
+
+</style>
+
 </head>
 
 
 <body>
 
 
-  <!-- ===================================================
-       FUNDO
-  ==================================================== -->
+<!-- =======================================================
+     FUNDO
+======================================================= -->
 
-  <div class="background"></div>
+<div class="background">
 
-  <div class="overlay"></div>
+    <div class="money bill">Kz 10.000</div>
+
+    <div class="money coin">Kz</div>
+
+    <div class="money bill">Kz 5.000</div>
+
+    <div class="money coin">₿</div>
+
+    <div class="money bill">Kz 20.000</div>
+
+    <div class="money coin">$</div>
+
+    <div class="money bill">Kz 50.000</div>
 
 
-  <!-- LUZES -->
+    <!-- GRÁFICO -->
 
-  <div class="light one"></div>
+    <div class="finance-chart">
 
-  <div class="light two"></div>
+        <svg viewBox="0 0 170 80">
+
+            <polyline
+                class="chart-line"
+                points="
+                    0,70
+                    20,58
+                    40,62
+                    60,38
+                    80,45
+                    100,25
+                    120,34
+                    145,10
+                    170,5
+                "
+            />
+
+        </svg>
+
+    </div>
+
+</div>
 
 
-  <!-- ===================================================
-       CONFIGURAÇÕES
-  ==================================================== -->
+<div class="overlay"></div>
 
-  <button
+
+<div class="light one"></div>
+
+<div class="light two"></div>
+
+
+<!-- =======================================================
+     DEFINIÇÕES
+======================================================= -->
+
+<button
     class="settings-button"
+    id="settingsButton"
     onclick="toggleSettings()"
-    aria-label="Abrir configurações">
+    aria-label="Abrir definições">
 
-    ⚙
+    ⚙️
 
-  </button>
+</button>
 
 
-  <div
+<div
     class="settings-panel"
     id="settingsPanel">
 
-    <div class="settings-title">
 
-      CONFIGURAÇÕES
+    <div class="settings-header">
+
+        <div class="settings-title">
+
+            DEFINIÇÕES
+
+        </div>
+
+        <button
+            class="settings-close"
+            onclick="toggleSettings()">
+
+            ✕
+
+        </button>
 
     </div>
 
 
-    <button
-      class="theme-button"
-      onclick="toggleTheme()">
+    <!-- TEMA -->
 
-      🌗 Alterar tema
+    <div class="setting-group">
 
-    </button>
+        <span class="setting-label">
 
+            APARÊNCIA
 
-    <a
-      class="support"
-      href="https://wa.me/244929311220"
-      target="_blank"
-      rel="noopener">
-
-      💬 Suporte WhatsApp
-
-    </a>
-
-  </div>
+        </span>
 
 
-  <!-- ===================================================
-       CONTEÚDO PRINCIPAL
-  ==================================================== -->
+        <div class="setting-row">
 
-  <main class="app">
+            <button
+                class="setting-btn"
+                onclick="setTheme('dark')">
 
-    <section class="content">
+                🌙 Escuro
+
+            </button>
 
 
-      <!-- LOGO -->
+            <button
+                class="setting-btn"
+                onclick="setTheme('light')">
 
-      <div class="logo-wrapper">
+                ☀️ Claro
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- TAMANHO DA LETRA -->
+
+    <div class="setting-group">
+
+        <span class="setting-label">
+
+            TAMANHO DA LETRA
+
+        </span>
+
+
+        <div class="setting-row">
+
+            <button
+                class="setting-btn"
+                onclick="changeFont(-0.1)">
+
+                A−
+
+            </button>
+
+
+            <button
+                class="setting-btn"
+                onclick="resetFont()">
+
+                A
+
+            </button>
+
+
+            <button
+                class="setting-btn"
+                onclick="changeFont(0.1)">
+
+                A+
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONTACTO -->
+
+    <div class="setting-group">
+
+        <span class="setting-label">
+
+            ENTRE EM CONTACTO
+
+        </span>
+
+
+        <a
+            class="contact-btn email"
+            href="mailto:tchipepeboks@gmail.com">
+
+            ✉️
+
+            E-mail
+
+        </a>
+
+
+        <a
+            class="contact-btn whatsapp"
+            href="https://wa.me/244929311220"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            💬
+
+            WhatsApp
+
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<!-- =======================================================
+     CONTEÚDO
+======================================================= -->
+
+<main class="app">
+
+
+<section class="content">
+
+
+    <!-- LOGO -->
+
+    <div class="logo-wrapper">
 
         <img
-          src="IMG_1810.jpeg"
-          class="logo"
-          alt="APP Finanças">
+            src="IMG_1810.jpeg"
+            class="logo"
+            alt="Aplicativo As 10 Lições sobre Finanças">
 
-      </div>
+    </div>
 
 
-      <!-- BADGE -->
+    <!-- BADGE -->
 
-      <div class="badge">
+    <div class="badge">
 
         <span class="badge-dot"></span>
 
         Educação financeira
 
-      </div>
+    </div>
 
 
-      <!-- TÍTULO -->
+    <!-- TÍTULO -->
 
-      <h1>
+    <h1>
 
         AS 10 LIÇÕES
 
         <span>
-          MAIS PODEROSAS SOBRE FINANÇAS
+
+            MAIS PODEROSAS
+            SOBRE FINANÇAS
+
         </span>
 
-      </h1>
+    </h1>
 
 
-      <!-- DESCRIÇÃO -->
+    <!-- DESCRIÇÃO -->
 
-      <p class="subtitle">
+    <p class="subtitle">
 
         Transforme a sua relação com o dinheiro,
         desenvolva uma mentalidade financeira
         poderosa e construa um futuro mais próspero.
 
-      </p>
+    </p>
 
 
-      <!-- =================================================
-           BOTÃO PRINCIPAL
-      ================================================== -->
+    <!-- BOTÃO -->
 
-      <button
+    <button
         class="btn-veja"
         onclick="verLicoes()">
 
         <span>
-          VEJA AS 10 LIÇÕES
+
+            VEJA AS 10 LIÇÕES
+
         </span>
 
         <span class="btn-arrow">
-          →
+
+            →
+
         </span>
 
-      </button>
+    </button>
 
 
-      <!-- =================================================
-           CARREGAMENTO
-      ================================================== -->
+    <!-- CARREGAMENTO -->
 
-      <div class="loader-container">
+    <div class="loader-container">
 
         <div class="loader-info">
 
-          <span>
-            Preparando experiência
-          </span>
+            <span>
 
-          <span id="progress">
-            0%
-          </span>
+                Preparando experiência
+
+            </span>
+
+
+            <span id="progress">
+
+                0%
+
+            </span>
 
         </div>
 
 
         <div class="loader">
 
-          <div
-            class="loader-bar">
-          </div>
+            <div
+                class="loader-bar">
+            </div>
 
         </div>
 
-      </div>
+    </div>
 
 
-    </section>
-
-  </main>
+</section>
 
 
-  <!-- ===================================================
-       RODAPÉ
-  ==================================================== -->
+</main>
 
-  <footer class="footer">
+
+<!-- =======================================================
+     RODAPÉ
+======================================================= -->
+
+<footer class="footer">
 
     APP FINANÇAS TCHIPEPE • 2026
 
-  </footer>
+</footer>
 
 
-  <!-- ===================================================
-       JAVASCRIPT
-  ==================================================== -->
+<script>
 
-  <script>
+/* =========================================================
+   ELEMENTOS
+========================================================= */
 
+const panel =
+    document.getElementById(
+        "settingsPanel"
+    );
 
-    /* ===================================================
-       ABRIR CONFIGURAÇÕES
-    ==================================================== */
+const settingsButton =
+    document.getElementById(
+        "settingsButton"
+    );
 
-    function toggleSettings() {
-
-      const panel =
-        document.getElementById(
-          "settingsPanel"
-        );
-
-      panel.classList.toggle(
-        "active"
-      );
-    }
-
-
-    /* ===================================================
-       TEMA
-    ==================================================== */
-
-    function toggleTheme() {
-
-      document.body.classList.toggle(
-        "light"
-      );
-
-      const isLight =
-        document.body.classList.contains(
-          "light"
-        );
-
-      localStorage.setItem(
-        "theme",
-        isLight
-          ? "light"
-          : "dark"
-      );
-    }
-
-
-    /* ===================================================
-       CARREGAR TEMA GUARDADO
-    ==================================================== */
-
-    if (
-      localStorage.getItem(
-        "theme"
-      ) === "light"
-    ) {
-
-      document.body.classList.add(
-        "light"
-      );
-    }
-
-
-    /* ===================================================
-       PROGRESSO
-    ==================================================== */
-
-    const progress =
-      document.getElementById(
+const progress =
+    document.getElementById(
         "progress"
-      );
-
-    let percentage = 0;
-
-
-    const interval =
-      setInterval(() => {
-
-        percentage++;
-
-        progress.textContent =
-          percentage + "%";
-
-
-        if (
-          percentage >= 100
-        ) {
-
-          clearInterval(
-            interval
-          );
-        }
-
-      }, 30);
-
-
-    /* ===================================================
-       BOTÃO VEJA AS 10 LIÇÕES
-    ==================================================== */
-
-    function verLicoes() {
-
-      window.location.href =
-        "indice.html";
-
-    }
-
-
-    /* ===================================================
-       SPLASH AUTOMÁTICO
-       
-       Depois de 6 segundos,
-       abre automaticamente o índice.
-    ==================================================== */
-
-    setTimeout(() => {
-
-      window.location.href =
-        "indice.html";
-
-    }, 6000);
-
-
-    /* ===================================================
-       FECHAR CONFIGURAÇÕES
-       AO CLICAR FORA
-    ==================================================== */
-
-    document.addEventListener(
-      "click",
-      function(event) {
-
-        const panel =
-          document.getElementById(
-            "settingsPanel"
-          );
-
-        const button =
-          document.querySelector(
-            ".settings-button"
-          );
-
-
-        if (
-
-          !panel.contains(
-            event.target
-          )
-
-          &&
-
-          !button.contains(
-            event.target
-          )
-
-        ) {
-
-          panel.classList.remove(
-            "active"
-          );
-
-        }
-
-      }
     );
 
 
-  </script>
+/* =========================================================
+   DEFINIÇÕES
+========================================================= */
+
+function toggleSettings() {
+
+    panel.classList.toggle(
+        "active"
+    );
+}
+
+
+/* =========================================================
+   TEMA
+========================================================= */
+
+function setTheme(theme) {
+
+    if (theme === "light") {
+
+        document.body.classList.add(
+            "light"
+        );
+
+    } else {
+
+        document.body.classList.remove(
+            "light"
+        );
+    }
+
+
+    localStorage.setItem(
+        "theme",
+        theme
+    );
+}
+
+
+const savedTheme =
+    localStorage.getItem(
+        "theme"
+    );
+
+
+if (savedTheme) {
+
+    setTheme(savedTheme);
+}
+
+
+/* =========================================================
+   TAMANHO DA LETRA
+========================================================= */
+
+let fontScale =
+    parseFloat(
+        localStorage.getItem(
+            "fontScale"
+        )
+    );
+
+
+if (
+    isNaN(fontScale)
+) {
+
+    fontScale = 1;
+}
+
+
+function applyFontScale() {
+
+    /*
+       Limites:
+       mínimo = 0.8
+       máximo = 1.4
+    */
+
+    fontScale =
+        Math.max(
+            0.8,
+            Math.min(
+                1.4,
+                fontScale
+            )
+        );
+
+
+    document.documentElement.style
+        .setProperty(
+            "--font-scale",
+            fontScale
+        );
+
+
+    localStorage.setItem(
+        "fontScale",
+        fontScale
+    );
+}
+
+
+function changeFont(value) {
+
+    fontScale += value;
+
+    applyFontScale();
+}
+
+
+function resetFont() {
+
+    fontScale = 1;
+
+    applyFontScale();
+}
+
+
+applyFontScale();
+
+
+/* =========================================================
+   PROGRESSO
+========================================================= */
+
+let percentage = 0;
+
+
+const interval =
+    setInterval(
+        () => {
+
+            percentage++;
+
+            progress.textContent =
+                percentage + "%";
+
+
+            if (
+                percentage >= 100
+            ) {
+
+                clearInterval(
+                    interval
+                );
+
+            }
+
+        },
+        30
+    );
+
+
+/* =========================================================
+   ABRIR ÍNDICE
+========================================================= */
+
+let alreadyOpened = false;
+
+
+function verLicoes() {
+
+    if (alreadyOpened)
+        return;
+
+
+    alreadyOpened = true;
+
+
+    window.location.href =
+        "indice.html";
+}
+
+
+/* =========================================================
+   ABERTURA AUTOMÁTICA
+========================================================= */
+
+const autoOpen =
+    setTimeout(
+        () => {
+
+            verLicoes();
+
+        },
+        6000
+    );
+
+
+/* =========================================================
+   CANCELAR REDIRECIONAMENTO QUANDO
+   O UTILIZADOR ABRE DEFINIÇÕES
+========================================================= */
+
+settingsButton.addEventListener(
+    "click",
+    () => {
+
+        clearTimeout(
+            autoOpen
+        );
+
+    }
+);
+
+
+/* =========================================================
+   FECHAR AO CLICAR FORA
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+
+            !panel.contains(
+                event.target
+            )
+
+            &&
+
+            !settingsButton.contains(
+                event.target
+            )
+
+        ) {
+
+            panel.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   TECLA ESC
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            panel.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);
+
+</script>
 
 
 </body>
 </html>
-```
