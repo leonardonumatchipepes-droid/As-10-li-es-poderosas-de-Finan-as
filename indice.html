@@ -1,237 +1,3116 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Índice - APP Finanças 10X</title>
+  <meta charset="UTF-8">
 
-<style>
-:root {
-  --bg: #000;
-  --card: rgba(255,255,255,0.08);
-  --text: #fff;
-  --accent: #e50914;
-  --locked: rgba(255,255,255,0.05);
-}
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-}
+  <meta
+    name="theme-color"
+    content="#050807"
+  >
 
-/* HEADER */
-.header {
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
 
-.header h1 {
-  font-size: 20px;
-  margin: 0;
-}
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+  >
 
-.header a {
-  color: var(--accent);
-  text-decoration: none;
-  font-size: 14px;
-}
+  <title>Índice | 10 Lições sobre Finanças</title>
 
-/* PROGRESSO */
-.progress {
-  height: 5px;
-  background: #222;
-  margin: 0 20px 10px;
-  border-radius: 10px;
-  overflow: hidden;
-}
+  <style>
 
-.bar {
-  height: 100%;
-  width: 0%;
-  background: var(--accent);
-  transition: 0.4s;
-}
+    /* =========================================================
+       RESET
+    ========================================================= */
 
-/* LEVEL */
-.level {
-  padding: 0 20px;
-  font-size: 13px;
-  opacity: 0.8;
-  margin-bottom: 10px;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* LISTA */
-.list {
-  padding: 10px 20px 30px;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.card {
-  background: var(--card);
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
-  position: relative;
-}
+    body {
+      min-height: 100vh;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
 
-.card:hover {
-  transform: scale(1.02);
-  background: rgba(255,255,255,0.12);
-}
+      color: #f5f7f6;
+      background: #050807;
 
-.locked {
-  opacity: 0.35;
-  cursor: not-allowed;
-}
+      overflow-x: hidden;
 
-.tag {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 11px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  background: rgba(0,0,0,0.4);
-}
+      transition:
+        background .35s ease,
+        color .35s ease;
+    }
 
-.open { color: #22c55e; }
-.lock { color: #e50914; }
-</style>
+    button,
+    input,
+    a {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    /* =========================================================
+       VARIÁVEIS
+    ========================================================= */
+
+    :root {
+
+      --bg: #050807;
+      --bg-2: #09100d;
+
+      --card: rgba(13, 24, 19, .78);
+      --card-strong: rgba(17, 31, 24, .94);
+
+      --border: rgba(211, 174, 72, .18);
+      --border-hover: rgba(211, 174, 72, .52);
+
+      --gold: #d8b34c;
+      --gold-light: #f0d77d;
+      --gold-dark: #9d7921;
+
+      --green: #1e9b64;
+      --green-light: #37c785;
+
+      --text: #f5f7f6;
+      --text-soft: #b4beb9;
+      --text-muted: #77837d;
+
+      --danger: #df6b6b;
+
+      --shadow:
+        0 25px 70px rgba(0, 0, 0, .45);
+
+      --radius: 22px;
+
+      --font-scale: 1;
+    }
+
+
+    /* =========================================================
+       TEMA CLARO
+    ========================================================= */
+
+    body.light {
+
+      --bg: #f3f6f4;
+      --bg-2: #e8eee9;
+
+      --card: rgba(255, 255, 255, .82);
+      --card-strong: rgba(255, 255, 255, .96);
+
+      --border: rgba(105, 82, 23, .16);
+      --border-hover: rgba(105, 82, 23, .38);
+
+      --text: #17201b;
+      --text-soft: #53615a;
+      --text-muted: #7d8882;
+
+      --shadow:
+        0 20px 60px rgba(21, 37, 28, .13);
+    }
+
+
+    /* =========================================================
+       FUNDO
+    ========================================================= */
+
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: -10;
+      overflow: hidden;
+      pointer-events: none;
+
+      background:
+        radial-gradient(
+          circle at 15% 15%,
+          rgba(31, 153, 100, .13),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(216, 179, 76, .10),
+          transparent 28%
+        ),
+
+        radial-gradient(
+          circle at 50% 90%,
+          rgba(20, 108, 72, .10),
+          transparent 32%
+        ),
+
+        linear-gradient(
+          135deg,
+          var(--bg),
+          var(--bg-2)
+        );
+    }
+
+
+    /* GRID FINANCEIRO */
+
+    .background::before {
+
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(216, 179, 76, .045) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(216, 179, 76, .045) 1px,
+          transparent 1px
+        );
+
+      background-size: 55px 55px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,.8),
+          transparent 85%
+        );
+    }
+
+
+    /* =========================================================
+       ELEMENTOS FINANCEIROS
+    ========================================================= */
+
+    .money {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      opacity: .13;
+
+      color: var(--gold);
+
+      filter:
+        drop-shadow(
+          0 10px 20px rgba(0,0,0,.25)
+        );
+
+      animation:
+        moneyFloat 10s ease-in-out infinite;
+    }
+
+    .bill {
+      width: 105px;
+      height: 52px;
+
+      border: 1px solid rgba(216,179,76,.35);
+
+      border-radius: 7px;
+
+      font-size: 17px;
+      font-weight: 800;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(216,179,76,.16),
+          rgba(30,155,100,.08)
+        );
+
+      transform: rotate(-14deg);
+    }
+
+    .coin {
+
+      width: 62px;
+      height: 62px;
+
+      border: 2px solid rgba(216,179,76,.35);
+
+      border-radius: 50%;
+
+      font-size: 18px;
+      font-weight: 900;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(216,179,76,.15),
+          rgba(216,179,76,.02)
+        );
+    }
+
+    .money:nth-child(1) {
+      left: 5%;
+      top: 18%;
+      animation-delay: -2s;
+    }
+
+    .money:nth-child(2) {
+      right: 7%;
+      top: 27%;
+      animation-delay: -5s;
+    }
+
+    .money:nth-child(3) {
+      left: 12%;
+      bottom: 14%;
+      animation-delay: -7s;
+    }
+
+    .money:nth-child(4) {
+      right: 16%;
+      bottom: 10%;
+      animation-delay: -3s;
+    }
+
+    .money:nth-child(5) {
+      left: 48%;
+      top: 10%;
+      animation-delay: -8s;
+    }
+
+    @keyframes moneyFloat {
+
+      0%,100% {
+        transform:
+          translate3d(0,0,0)
+          rotate(-8deg);
+      }
+
+      50% {
+        transform:
+          translate3d(0,-25px,0)
+          rotate(8deg);
+      }
+    }
+
+
+    /* =========================================================
+       GRÁFICO DECORATIVO
+    ========================================================= */
+
+    .finance-chart {
+
+      position: absolute;
+
+      width: 500px;
+      height: 240px;
+
+      right: -80px;
+      bottom: 80px;
+
+      opacity: .10;
+    }
+
+    .finance-chart polyline {
+
+      fill: none;
+
+      stroke: var(--gold);
+
+      stroke-width: 3;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+
+      stroke-dasharray: 900;
+      stroke-dashoffset: 900;
+
+      animation:
+        chartDraw 5s ease forwards;
+    }
+
+    @keyframes chartDraw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    header {
+
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      width: 100%;
+
+      background:
+        rgba(5,8,7,.72);
+
+      backdrop-filter:
+        blur(20px);
+
+      -webkit-backdrop-filter:
+        blur(20px);
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    body.light header {
+      background:
+        rgba(243,246,244,.76);
+    }
+
+    .header-inner {
+
+      width: min(1180px, calc(100% - 32px));
+
+      margin: auto;
+
+      min-height: 76px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+
+    /* LOGO */
+
+    .brand {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      min-width: 0;
+    }
+
+    .brand img {
+
+      width: 45px;
+      height: 45px;
+
+      border-radius: 13px;
+
+      object-fit: cover;
+
+      border:
+        1px solid var(--border);
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,.25);
+    }
+
+    .brand-text {
+
+      display: flex;
+      flex-direction: column;
+
+      min-width: 0;
+    }
+
+    .brand-text strong {
+
+      font-size: 14px;
+
+      letter-spacing: .08em;
+
+      text-transform: uppercase;
+
+      white-space: nowrap;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-text span {
+
+      font-size: 11px;
+
+      color: var(--text-muted);
+
+      margin-top: 2px;
+    }
+
+
+    /* HEADER ACTIONS */
+
+    .header-actions {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 9px;
+    }
+
+    .icon-btn {
+
+      width: 42px;
+      height: 42px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 13px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(255,255,255,.035);
+
+      color: var(--text);
+
+      transition:
+        .25s ease;
+    }
+
+    .icon-btn:hover {
+
+      border-color:
+        var(--border-hover);
+
+      transform:
+        translateY(-2px);
+
+      color: var(--gold-light);
+    }
+
+
+    /* =========================================================
+       CONTAINER
+    ========================================================= */
+
+    main {
+
+      width: min(
+        1180px,
+        calc(100% - 32px)
+      );
+
+      margin: auto;
+
+      padding:
+        55px 0 80px;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+
+      position: relative;
+
+      padding: 38px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        30px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(216,179,76,.07),
+          rgba(30,155,100,.04)
+        ),
+        var(--card);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+      box-shadow:
+        var(--shadow);
+
+      overflow: hidden;
+    }
+
+    .hero::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      right: -90px;
+      top: -110px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(216,179,76,.15),
+          transparent 68%
+        );
+    }
+
+    .eyebrow {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding:
+        8px 13px;
+
+      border-radius: 999px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(216,179,76,.07);
+
+      color:
+        var(--gold-light);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: .12em;
+
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background:
+        var(--green-light);
+
+      box-shadow:
+        0 0 12px var(--green-light);
+    }
+
+    .hero h1 {
+
+      max-width: 780px;
+
+      margin-top: 20px;
+
+      font-size:
+        clamp(
+          34px,
+          5vw,
+          65px
+        );
+
+      line-height: 1.02;
+
+      letter-spacing: -.045em;
+
+      font-weight: 900;
+    }
+
+    .hero h1 span {
+
+      color:
+        var(--gold-light);
+    }
+
+    .hero p {
+
+      max-width: 720px;
+
+      margin-top: 18px;
+
+      color:
+        var(--text-soft);
+
+      font-size:
+        calc(17px * var(--font-scale));
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       PROGRESS
+    ========================================================= */
+
+    .progress-box {
+
+      margin-top: 30px;
+
+      padding: 18px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 18px;
+
+      background:
+        rgba(0,0,0,.12);
+    }
+
+    .progress-top {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-bottom: 11px;
+
+      font-size: 13px;
+
+      color: var(--text-soft);
+    }
+
+    .progress-top strong {
+
+      color:
+        var(--gold-light);
+
+      font-size: 15px;
+    }
+
+    .progress-bar {
+
+      height: 8px;
+
+      border-radius: 99px;
+
+      overflow: hidden;
+
+      background:
+        rgba(255,255,255,.07);
+    }
+
+    .progress-fill {
+
+      height: 100%;
+
+      width: 0%;
+
+      border-radius: inherit;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--green),
+          var(--gold)
+        );
+
+      box-shadow:
+        0 0 18px rgba(216,179,76,.25);
+
+      transition:
+        width .5s ease;
+    }
+
+
+    /* =========================================================
+       CONTROLOS
+    ========================================================= */
+
+    .toolbar {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin:
+        35px 0 22px;
+    }
+
+    .section-title h2 {
+
+      font-size:
+        calc(27px * var(--font-scale));
+
+      letter-spacing: -.03em;
+    }
+
+    .section-title p {
+
+      margin-top: 5px;
+
+      color:
+        var(--text-muted);
+
+      font-size:
+        calc(13px * var(--font-scale));
+    }
+
+    .search {
+
+      width: min(330px, 100%);
+
+      position: relative;
+    }
+
+    .search input {
+
+      width: 100%;
+
+      height: 46px;
+
+      padding:
+        0 16px 0 44px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 14px;
+
+      outline: none;
+
+      background:
+        var(--card);
+
+      color:
+        var(--text);
+
+      transition:
+        .25s ease;
+    }
+
+    .search input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .search input:focus {
+
+      border-color:
+        var(--border-hover);
+
+      box-shadow:
+        0 0 0 4px
+        rgba(216,179,76,.06);
+    }
+
+    .search-icon {
+
+      position: absolute;
+
+      left: 15px;
+      top: 50%;
+
+      transform:
+        translateY(-50%);
+
+      color:
+        var(--text-muted);
+    }
+
+
+    /* =========================================================
+       GRID DAS LIÇÕES
+    ========================================================= */
+
+    .lessons-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 18px;
+    }
+
+
+    /* =========================================================
+       CARD
+    ========================================================= */
+
+    .lesson {
+
+      position: relative;
+
+      min-height: 235px;
+
+      padding: 25px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        var(--radius);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.025),
+          transparent
+        ),
+        var(--card);
+
+      backdrop-filter:
+        blur(16px);
+
+      -webkit-backdrop-filter:
+        blur(16px);
+
+      box-shadow:
+        0 15px 45px rgba(0,0,0,.18);
+
+      overflow: hidden;
+
+      transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .lesson:hover {
+
+      transform:
+        translateY(-6px);
+
+      border-color:
+        var(--border-hover);
+
+      box-shadow:
+        0 25px 60px rgba(0,0,0,.30);
+    }
+
+    .lesson.completed {
+
+      border-color:
+        rgba(55,199,133,.35);
+    }
+
+    .lesson::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 3px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--green),
+          var(--gold)
+        );
+
+      transform:
+        scaleX(0);
+
+      transform-origin: left;
+
+      transition:
+        transform .3s ease;
+    }
+
+    .lesson:hover::before,
+    .lesson.completed::before {
+
+      transform:
+        scaleX(1);
+    }
+
+
+    /* NÚMERO */
+
+    .lesson-number {
+
+      position: absolute;
+
+      right: 20px;
+      top: 17px;
+
+      font-size: 52px;
+
+      line-height: 1;
+
+      font-weight: 900;
+
+      color:
+        rgba(216,179,76,.08);
+
+      pointer-events: none;
+    }
+
+
+    /* ÍCONE */
+
+    .lesson-icon {
+
+      width: 54px;
+      height: 54px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 16px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(216,179,76,.08);
+
+      font-size: 25px;
+
+      margin-bottom: 18px;
+    }
+
+
+    .lesson-label {
+
+      display: inline-block;
+
+      color:
+        var(--gold-light);
+
+      font-size: 10px;
+
+      font-weight: 800;
+
+      letter-spacing: .13em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 8px;
+    }
+
+    .lesson h3 {
+
+      font-size:
+        calc(22px * var(--font-scale));
+
+      letter-spacing: -.025em;
+
+      line-height: 1.2;
+
+      padding-right: 50px;
+    }
+
+    .lesson p {
+
+      margin-top: 10px;
+
+      color:
+        var(--text-soft);
+
+      font-size:
+        calc(14px * var(--font-scale));
+
+      line-height: 1.55;
+
+      max-width: 500px;
+    }
+
+
+    /* =========================================================
+       CARD BOTTOM
+    ========================================================= */
+
+    .lesson-bottom {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 10px;
+
+      margin-top: 22px;
+    }
+
+    .open-btn {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
+
+      min-height: 42px;
+
+      padding:
+        0 16px;
+
+      border-radius: 12px;
+
+      border:
+        1px solid rgba(216,179,76,.28);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(216,179,76,.14),
+          rgba(216,179,76,.05)
+        );
+
+      color:
+        var(--gold-light);
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      transition:
+        .25s ease;
+    }
+
+    .open-btn:hover {
+
+      background:
+        rgba(216,179,76,.20);
+
+      transform:
+        translateY(-2px);
+    }
+
+    .complete-btn {
+
+      width: 42px;
+      height: 42px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        transparent;
+
+      color:
+        var(--text-muted);
+
+      transition:
+        .25s ease;
+    }
+
+    .complete-btn:hover {
+
+      border-color:
+        rgba(55,199,133,.45);
+
+      color:
+        var(--green-light);
+    }
+
+    .lesson.completed .complete-btn {
+
+      color:
+        var(--green-light);
+
+      border-color:
+        rgba(55,199,133,.35);
+
+      background:
+        rgba(55,199,133,.08);
+    }
+
+
+    /* =========================================================
+       EMPTY SEARCH
+    ========================================================= */
+
+    .empty {
+
+      display: none;
+
+      text-align: center;
+
+      padding: 50px 20px;
+
+      border:
+        1px dashed var(--border);
+
+      border-radius: 20px;
+
+      color:
+        var(--text-muted);
+    }
+
+    .empty.show {
+      display: block;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+
+      margin-top: 60px;
+
+      padding-top: 25px;
+
+      border-top:
+        1px solid var(--border);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      color:
+        var(--text-muted);
+
+      font-size: 12px;
+    }
+
+    .footer-actions {
+
+      display: flex;
+
+      gap: 8px;
+
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+
+      padding:
+        8px 11px;
+
+      border-radius: 10px;
+
+      border:
+        1px solid var(--border);
+
+      transition:
+        .25s ease;
+    }
+
+    .footer-link:hover {
+
+      border-color:
+        var(--border-hover);
+
+      color:
+        var(--gold-light);
+    }
+
+
+    /* =========================================================
+       SETTINGS
+    ========================================================= */
+
+    .settings-panel {
+
+      position: fixed;
+
+      z-index: 500;
+
+      top: 85px;
+      right: 18px;
+
+      width:
+        min(340px, calc(100vw - 36px));
+
+      padding: 20px;
+
+      border:
+        1px solid var(--border-hover);
+
+      border-radius: 22px;
+
+      background:
+        var(--card-strong);
+
+      backdrop-filter:
+        blur(25px);
+
+      -webkit-backdrop-filter:
+        blur(25px);
+
+      box-shadow:
+        0 30px 90px rgba(0,0,0,.42);
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transform:
+        translateY(-10px)
+        scale(.98);
+
+      transition:
+        .25s ease;
+    }
+
+    .settings-panel.open {
+
+      opacity: 1;
+
+      visibility: visible;
+
+      transform:
+        translateY(0)
+        scale(1);
+    }
+
+    .settings-head {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 20px;
+    }
+
+    .settings-head h3 {
+
+      font-size: 18px;
+    }
+
+    .close-settings {
+
+      width: 34px;
+      height: 34px;
+
+      border-radius: 10px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        transparent;
+
+      color:
+        var(--text);
+
+      font-size: 18px;
+    }
+
+    .setting-group {
+
+      margin-top: 20px;
+    }
+
+    .setting-group > label {
+
+      display: block;
+
+      margin-bottom: 9px;
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      color:
+        var(--text-muted);
+
+      text-transform: uppercase;
+
+      letter-spacing: .10em;
+    }
+
+    .setting-buttons {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 8px;
+    }
+
+    .setting-buttons.three {
+
+      grid-template-columns:
+        repeat(3, 1fr);
+    }
+
+    .setting-btn {
+
+      min-height: 42px;
+
+      border-radius: 11px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        rgba(255,255,255,.025);
+
+      color:
+        var(--text);
+
+      transition:
+        .25s ease;
+    }
+
+    .setting-btn:hover {
+
+      border-color:
+        var(--border-hover);
+
+      color:
+        var(--gold-light);
+    }
+
+    .contact {
+
+      display: grid;
+
+      gap: 8px;
+    }
+
+    .contact a {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 11px;
+
+      border-radius: 11px;
+
+      border:
+        1px solid var(--border);
+
+      color:
+        var(--text-soft);
+
+      font-size: 13px;
+
+      transition:
+        .25s ease;
+    }
+
+    .contact a:hover {
+
+      border-color:
+        var(--border-hover);
+
+      color:
+        var(--gold-light);
+    }
+
+
+    /* =========================================================
+       OVERLAY
+    ========================================================= */
+
+    .overlay {
+
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 400;
+
+      background:
+        rgba(0,0,0,.38);
+
+      backdrop-filter:
+        blur(2px);
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transition:
+        .25s ease;
+    }
+
+    .overlay.open {
+
+      opacity: 1;
+
+      visibility: visible;
+    }
+
+
+    /* =========================================================
+       ANIMAÇÃO DE ENTRADA
+    ========================================================= */
+
+    .animate {
+
+      opacity: 0;
+
+      transform:
+        translateY(20px);
+
+      animation:
+        reveal .7s ease forwards;
+    }
+
+    @keyframes reveal {
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0);
+      }
+    }
+
+    .delay-1 {
+      animation-delay: .08s;
+    }
+
+    .delay-2 {
+      animation-delay: .16s;
+    }
+
+    .delay-3 {
+      animation-delay: .24s;
+    }
+
+
+    /* =========================================================
+       ACESSIBILIDADE
+    ========================================================= */
+
+    :focus-visible {
+
+      outline:
+        2px solid var(--gold-light);
+
+      outline-offset:
+        3px;
+    }
+
+
+    /* =========================================================
+       RESPONSIVO
+    ========================================================= */
+
+    @media (max-width: 800px) {
+
+      .hero {
+        padding: 27px;
+      }
+
+      .lessons-grid {
+
+        grid-template-columns:
+          1fr;
+      }
+
+      .toolbar {
+
+        align-items:
+          stretch;
+
+        flex-direction:
+          column;
+      }
+
+      .search {
+
+        width: 100%;
+      }
+
+      footer {
+
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+      }
+
+      .finance-chart {
+        opacity: .06;
+      }
+    }
+
+
+    @media (max-width: 520px) {
+
+      .header-inner {
+
+        min-height: 68px;
+      }
+
+      .brand-text span {
+        display: none;
+      }
+
+      main {
+
+        width:
+          min(
+            100% - 22px,
+            1180px
+          );
+
+        padding-top:
+          30px;
+      }
+
+      .hero {
+
+        padding: 22px;
+
+        border-radius:
+          23px;
+      }
+
+      .hero h1 {
+
+        font-size:
+          38px;
+      }
+
+      .hero p {
+
+        font-size:
+          calc(15px * var(--font-scale));
+      }
+
+      .lesson {
+
+        min-height:
+          225px;
+
+        padding:
+          21px;
+      }
+
+      .settings-panel {
+
+        top: 76px;
+      }
+    }
+
+
+    /* =========================================================
+       REDUZIR MOVIMENTO
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+
+        animation-duration:
+          .01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        scroll-behavior:
+          auto !important;
+
+        transition-duration:
+          .01ms !important;
+      }
+    }
+
+  </style>
 </head>
+
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-  <h1>📺 Finanças 10X</h1>
-  <a href="autor.html">Autor ⚙️</a>
-</div>
+  <!-- =======================================================
+       FUNDO
+  ======================================================== -->
 
-<!-- LEVEL -->
-<div class="level">
-  Nível: <b id="level"></b>
-</div>
+  <div class="background">
 
-<!-- PROGRESSO -->
-<div class="progress">
-  <div class="bar" id="bar"></div>
-</div>
+    <div class="money bill">Kz 1000</div>
 
-<!-- LISTA -->
-<div class="list" id="list"></div>
+    <div class="money coin">Kz</div>
 
-<script>
+    <div class="money bill">Kz 5000</div>
 
-const lessons = [
-"Capítulo 01 - Mentalidade Financeira",
-"Capítulo 02 - Controle de Gastos",
-"Capítulo 03 - Salário não é riqueza",
-"Capítulo 04 - Dívidas",
-"Capítulo 05 - Poupança",
-"Capítulo 06 - Investimentos",
-"Capítulo 07 - Ativos vs Passivos",
-"Capítulo 08 - Emergência",
-"Capítulo 09 - Juros Compostos",
-"Capítulo 10 - Liberdade Financeira"
-];
+    <div class="money coin">$</div>
 
-function getProgress() {
-  return parseInt(localStorage.getItem("finance_progress") || "1");
-}
+    <div class="money coin">₿</div>
 
-/* NÍVEL DO UTILIZADOR */
-function getLevel(p) {
-  if (p <= 2) return "Iniciante";
-  if (p <= 4) return "Organizador";
-  if (p <= 6) return "Investidor";
-  if (p <= 8) return "Estratégico";
-  return "Liberdade Financeira";
-}
 
-let progress = getProgress();
+    <svg
+      class="finance-chart"
+      viewBox="0 0 500 240"
+      aria-hidden="true"
+    >
 
-/* LEVEL */
-document.getElementById("level").innerText = getLevel(progress);
+      <polyline
+        points="
+          0,205
+          45,180
+          80,195
+          120,150
+          165,160
+          210,115
+          250,130
+          300,85
+          345,105
+          390,60
+          440,78
+          500,20
+        "
+      />
 
-/* PROGRESS BAR */
-document.getElementById("bar").style.width =
-  (progress / lessons.length) * 100 + "%";
+    </svg>
 
-const list = document.getElementById("list");
+  </div>
 
-/* CAPÍTULOS */
-lessons.forEach((title, i) => {
-  let num = i + 1;
-  let unlocked = num <= progress;
 
-  let card = document.createElement("div");
-  card.className = "card " + (unlocked ? "" : "locked");
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
 
-  card.innerHTML = `
-    <div>${title}</div>
-    <div class="tag ${unlocked ? 'open' : 'lock'}">
-      ${unlocked ? "Desbloqueado" : "Bloqueado"}
+  <header>
+
+    <div class="header-inner">
+
+      <a
+        href="index.html"
+        class="brand"
+        aria-label="Voltar para a página inicial"
+      >
+
+        <img
+          src="IMG_1810.jpeg"
+          alt="Logo"
+        >
+
+        <div class="brand-text">
+
+          <strong>
+            10 Lições sobre Finanças
+          </strong>
+
+          <span>
+            Educação financeira
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <div class="header-actions">
+
+        <button
+          class="icon-btn"
+          id="settingsButton"
+          aria-label="Abrir definições"
+          title="Definições"
+        >
+          ⚙️
+        </button>
+
+      </div>
+
     </div>
-  `;
 
-  if (unlocked) {
-    card.onclick = () => {
-      localStorage.setItem("current_chapter", num);
-      window.location.href = "Cap0" + num + ".html";
-    };
-  }
+  </header>
 
-  list.appendChild(card);
-});
 
-/* 👤 SOBRE O AUTOR (DESBLOQUEIO) */
-let authorUnlocked = progress >= 4;
+  <!-- =======================================================
+       CONTEÚDO
+  ======================================================== -->
 
-let author = document.createElement("div");
-author.className = "card " + (authorUnlocked ? "" : "locked");
+  <main>
 
-author.innerHTML = `
-  <div>👤 Sobre o Autor</div>
-  <div class="tag ${authorUnlocked ? 'open' : 'lock'}">
-    ${authorUnlocked ? "Desbloqueado" : "Bloqueado"}
-  </div>
-`;
 
-if (authorUnlocked) {
-  author.onclick = () => {
-    window.location.href = "autor.html";
-  };
-}
+    <!-- HERO -->
 
-list.appendChild(author);
+    <section
+      class="hero animate"
+      aria-labelledby="pageTitle"
+    >
 
-/* 💼 CONSULTORIA */
-let consultUnlocked = progress >= 7;
+      <span class="eyebrow">
+        Índice oficial
+      </span>
 
-let consult = document.createElement("div");
-consult.className = "card " + (consultUnlocked ? "" : "locked");
+      <h1 id="pageTitle">
 
-consult.innerHTML = `
-  <div>💼 Consultoria Financeira</div>
-  <div class="tag ${consultUnlocked ? 'open' : 'lock'}">
-    ${consultUnlocked ? "Desbloqueado" : "Bloqueado"}
-  </div>
-`;
+        As 10 lições para
+        <span>
+          transformar
+        </span>
+        a sua vida financeira.
 
-if (consultUnlocked) {
-  consult.onclick = () => {
-    window.location.href = "consultoria.html";
-  };
-}
+      </h1>
 
-list.appendChild(consult);
+      <p>
 
-</script>
+        Um percurso prático de educação financeira,
+        organizado em 10 etapas. Avance no seu ritmo,
+        complete cada lição e construa uma relação
+        mais inteligente com o seu dinheiro.
+
+      </p>
+
+
+      <!-- PROGRESSO -->
+
+      <div class="progress-box">
+
+        <div class="progress-top">
+
+          <span>
+            Seu progresso
+          </span>
+
+          <strong id="progressText">
+            0%
+          </strong>
+
+        </div>
+
+        <div
+          class="progress-bar"
+          role="progressbar"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+          id="progressBar"
+        >
+
+          <div
+            class="progress-fill"
+            id="progressFill"
+          ></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TOOLBAR
+    ====================================================== -->
+
+    <div
+      class="toolbar animate delay-1"
+    >
+
+      <div class="section-title">
+
+        <h2>
+          Índice das lições
+        </h2>
+
+        <p>
+          Escolha uma lição para começar.
+        </p>
+
+      </div>
+
+
+      <div class="search">
+
+        <span
+          class="search-icon"
+          aria-hidden="true"
+        >
+          🔎
+        </span>
+
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Pesquisar uma lição..."
+          aria-label="Pesquisar lições"
+        >
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         LIÇÕES
+    ====================================================== -->
+
+    <section
+      class="lessons-grid animate delay-2"
+      id="lessonsGrid"
+      aria-label="Lista das 10 lições"
+    >
+
+
+      <!-- LIÇÃO 1 -->
+
+      <article
+        class="lesson"
+        data-title="mentalidade financeira"
+        data-id="1"
+      >
+
+        <span class="lesson-number">
+          01
+        </span>
+
+        <div class="lesson-icon">
+          🧠
+        </div>
+
+        <span class="lesson-label">
+          Lição 01
+        </span>
+
+        <h3>
+          Mentalidade Financeira
+        </h3>
+
+        <p>
+          Aprenda a desenvolver uma mentalidade
+          consciente, disciplinada e estratégica
+          em relação ao dinheiro.
+        </p>
+
+        <div class="lesson-bottom">
+
+          <a
+            class="open-btn"
+            href="licao1.html"
+          >
+            Começar
+            <span>→</span>
+          </a>
+
+          <button
+            class="complete-btn"
+            onclick="toggleComplete(1)"
+            aria-label="Marcar lição 1 como concluída"
+            title="Marcar como concluída"
+          >
+            ✓
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- LIÇÃO 2 -->
+
+      <article
+        class="lesson"
+        data-title="conheça o seu dinheiro"
+        data-id="2"
+      >
+
+        <span class="lesson-number">
+          02
+        </span>
+
+        <div class="lesson-icon">
+          💰
+        </div>
+
+        <span class="lesson-label">
+          Lição 02
+        </span>
+
+        <h3>
+          Conheça o Seu Dinheiro
+        </h3>
+
+        <p>
+          Entenda de onde vem o seu dinheiro,
+          para onde ele vai e como assumir
+          o controlo das suas finanças.
+        </p>
+
+        <div class="lesson-bottom">
+
+          <a
+            class="open-btn"
+            href="licao2.html"
+          >
+            Começar
+            <span>→</span>
+          </a>
+
+          <button
+            class="complete-btn"
+            onclick="toggleComplete(2)"
+            aria-label="Marcar lição 2 como concluída"
+            title="Marcar como concluída"
+          >
+            ✓
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- LIÇÃO 3 -->
+
+      <article
+        class="lesson"
+        data-title="orçamento e planeamento financeiro"
+        data-id="3"
+      >
+
+        <span class="lesson-number">
+          03
+        </span>
+
+        <div class="lesson-icon">
+          📊
+        </div>
+
+        <span class="lesson-label">
+          Lição 03
+        </span>
+
+        <h3>
+          Orçamento e Planeamento
+        </h3>
+
+        <p>
+          Descubra como organizar receitas,
+          despesas e objetivos através de
+          um orçamento financeiro eficiente.
+        </p>
+
+        <div class="lesson-bottom">
+
+          <a
+            class="open-btn"
+            href="licao3.html"
+          >
+            Começar
+            <span>→</span>
+          </a>
+
+          <button
+            class="complete-btn"
+            onclick="toggleComplete(3)"
+            aria-label="Marcar lição 3 como concluída"
+            title="Marcar como concluída"
+          >
+            ✓
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- LIÇÃO 4 -->
+
+      <article
+        class="lesson"
+        data-title="poupança inteligente"
+        data-id="4"
+      >
+
+        <span class="lesson-number">
+          04
+        </span>
+
+        <div class="lesson-icon">
+          🏦
+        </div>
+
+        <span class="lesson-label">
+          Lição 04
+        </span>
+
+        <h3>
+          Poupança Inteligente
+        </h3>
+
+        <p>
+          Aprenda a poupar com propósito,
+          criar hábitos consistentes e
+          transformar pequenas quantias em capital.
+        </p>
+
+        <div class="lesson-bottom">
+
+          <a
+            class="open-btn"
+            href="licao4.html"
+          >
+            Começar
+            <span>→</span>
+          </a>
+
+          <button
+            class="complete-btn"
+            onclick="toggleComplete(4)"
+            aria-label="Marcar lição 4 como concluída"
+            title="Marcar como concluída"
+          >
+            ✓
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- LIÇÃO 5 -->
+
+      <article
+        class="lesson"
+        data-title="fundo de emergência"
+        data-id="5"
+      >
+
+        <span class="lesson-number">
+          05
+        </span>
+
+        <div class="lesson-icon">
+          🛡️
+        </div>
+
+        <span class="lesson-label">
+          Lição 05
+        </span>
+
+        <h3>
+          Fundo de Emergência
+        </h3>
+
+        <p>
+          Prepare-se para imprevistos e aprenda
+          a construir uma reserva financeira
+          capaz de proteger o seu futuro.
+        </p>
+
+        <div class="lesson-bottom">
+
+          <a
+            class="open-btn"
+            href="licao5.html"
+          >
+            Começar
+            <span>→</span>
+          </a>
+
+          <button
+            class="complete-btn"
+            onclick="toggleComplete(5)"
+            aria-label="Marcar lição 5 como concluída"
+            title="Marcar como concluída"
+          >
+            ✓
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- LIÇÃO 6 -->
+
+      <article
+        class="lesson"
+        data-title="dívidas crédito"
+        data-id="6"
+      >
+
+        <span class="lesson-number">
+          06
+        </span>
+
+        <div class="lesson-icon">
+          💳
+        </div>
+
+        <span class="lesson-label">
+          Lição 06
+        </span>
+
+        <h3>
+          Dívidas e Crédito
+        </h3>
+
+        <p>
+          Compreenda o funcionamento das dívidas,
+          do crédito e das taxas, evitando armadilhas
+          financeiras que comprometem o seu rendimento.
+        </p>
+
+        <div class="lesson-bottom">
+
+          <a
+            class="open-btn"
+            href="licao6.html"
+          >
+            Começar
+            <span>→</span>
+          </a>
+
+          <button
+            class="complete-btn"
+            onclick="toggleComplete(6)"
+            aria-label="Marcar lição 6 como concluída"
+            title="Marcar como concluída"
+          >
+            ✓
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- LIÇÃO 7 -->
+
+      <article
+        class="lesson"
+        data-title="investimentos"
+        data-id="7"
+      >
+
+        <span class="lesson-number">
+          07
+        </span>
+
+        <div class="lesson-icon">
+          📈
+        </div>
+
+        <span class="lesson-label">
+          Lição 07
+        </span>
+
+        <h3>
+          Investimentos
+        </h3>
+
+        <p>
+          Descubra os fundamentos dos investimentos,
+          risco, retorno, diversificação e
+          crescimento do património.
+        </p>
+
+        <div class="lesson-bottom">
+
+          <a
+            class="open-btn"
+            href="licao7.html"
+          >
+            Começar
+            <span>→</span>
+          </a>
+
+          <button
+            class="complete-btn"
+            onclick="toggleComplete(7)"
+            aria-label="Marcar lição 7 como concluída"
+            title="Marcar como concluída"
+          >
+            ✓
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- LIÇÃO 8 -->
+
+      <article
+        class="lesson"
+        data-title="aumentar rendimentos renda extra"
+        data-id="8"
+      >
+
+        <span class="lesson-number">
+          08
+        </span>
+
+        <div class="lesson-icon">
+          🚀
+        </div>
+
+        <span class="lesson-label">
+          Lição 08
+        </span>
+
+        <h3>
+          Aumentar os Rendimentos
+        </h3>
+
+        <p>
+          Explore estratégias para aumentar a sua
+          capacidade de gerar dinheiro através
+          de competências, negócios e rendimentos extras.
+        </p>
+
+        <div class="lesson-bottom">
+
+          <a
+            class="open-btn"
+            href="licao8.html"
+          >
+            Começar
+            <span>→</span>
+          </a>
+
+          <button
+            class="complete-btn"
+            onclick="toggleComplete(8)"
+            aria-label="Marcar lição 8 como concluída"
+            title="Marcar como concluída"
+          >
+            ✓
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- LIÇÃO 9 -->
+
+      <article
+        class="lesson"
+        data-title="proteção financeira seguros"
+        data-id="9"
+      >
+
+        <span class="lesson-number">
+          09
+        </span>
+
+        <div class="lesson-icon">
+          🔐
+        </div>
+
+        <span class="lesson-label">
+          Lição 09
+        </span>
+
+        <h3>
+          Proteção Financeira
+        </h3>
+
+        <p>
+          Aprenda a proteger o seu património,
+          os seus rendimentos e a sua família
+          contra riscos financeiros.
+        </p>
+
+        <div class="lesson-bottom">
+
+          <a
+            class="open-btn"
+            href="licao9.html"
+          >
+            Começar
+            <span>→</span>
+          </a>
+
+          <button
+            class="complete-btn"
+            onclick="toggleComplete(9)"
+            aria-label="Marcar lição 9 como concluída"
+            title="Marcar como concluída"
+          >
+            ✓
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- LIÇÃO 10 -->
+
+      <article
+        class="lesson"
+        data-title="liberdade financeira independência financeira"
+        data-id="10"
+      >
+
+        <span class="lesson-number">
+          10
+        </span>
+
+        <div class="lesson-icon">
+          🏆
+        </div>
+
+        <span class="lesson-label">
+          Lição 10
+        </span>
+
+        <h3>
+          Liberdade Financeira
+        </h3>
+
+        <p>
+          Reúna tudo o que aprendeu e construa
+          uma estratégia de longo prazo para alcançar
+          maior independência e liberdade financeira.
+        </p>
+
+        <div class="lesson-bottom">
+
+          <a
+            class="open-btn"
+            href="licao10.html"
+          >
+            Começar
+            <span>→</span>
+          </a>
+
+          <button
+            class="complete-btn"
+            onclick="toggleComplete(10)"
+            aria-label="Marcar lição 10 como concluída"
+            title="Marcar como concluída"
+          >
+            ✓
+          </button>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- PESQUISA VAZIA -->
+
+    <div
+      class="empty"
+      id="emptySearch"
+    >
+
+      <div style="font-size:35px;">
+        🔎
+      </div>
+
+      <h3 style="margin-top:12px;">
+        Nenhuma lição encontrada
+      </h3>
+
+      <p style="margin-top:7px;">
+        Tente pesquisar usando outro termo.
+      </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+      <span>
+        © 2026 • 10 Lições sobre Finanças
+      </span>
+
+      <div class="footer-actions">
+
+        <a
+          href="index.html"
+          class="footer-link"
+        >
+          ← Início
+        </a>
+
+        <a
+          href="mailto:tchipepeboks@gmail.com"
+          class="footer-link"
+        >
+          ✉️ Contacto
+        </a>
+
+      </div>
+
+    </footer>
+
+  </main>
+
+
+  <!-- =======================================================
+       OVERLAY
+  ======================================================== -->
+
+  <div
+    class="overlay"
+    id="overlay"
+  ></div>
+
+
+  <!-- =======================================================
+       PAINEL DE DEFINIÇÕES
+  ======================================================== -->
+
+  <aside
+    class="settings-panel"
+    id="settingsPanel"
+    aria-label="Definições"
+  >
+
+    <div class="settings-head">
+
+      <h3>
+        ⚙️ Definições
+      </h3>
+
+      <button
+        class="close-settings"
+        id="closeSettings"
+        aria-label="Fechar definições"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <!-- TEMA -->
+
+    <div class="setting-group">
+
+      <label>
+        Aparência
+      </label>
+
+      <div class="setting-buttons">
+
+        <button
+          class="setting-btn"
+          onclick="setTheme('dark')"
+        >
+          🌙 Escuro
+        </button>
+
+        <button
+          class="setting-btn"
+          onclick="setTheme('light')"
+        >
+          ☀️ Claro
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- TAMANHO -->
+
+    <div class="setting-group">
+
+      <label>
+        Tamanho do texto
+      </label>
+
+      <div class="setting-buttons three">
+
+        <button
+          class="setting-btn"
+          onclick="changeFont(-0.1)"
+        >
+          A−
+        </button>
+
+        <button
+          class="setting-btn"
+          onclick="resetFont()"
+        >
+          A
+        </button>
+
+        <button
+          class="setting-btn"
+          onclick="changeFont(0.1)"
+        >
+          A+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- CONTACTO -->
+
+    <div class="setting-group">
+
+      <label>
+        Entre em contacto
+      </label>
+
+      <div class="contact">
+
+        <a
+          href="mailto:tchipepeboks@gmail.com"
+        >
+          ✉️
+          <span>
+            tchipepeboks@gmail.com
+          </span>
+        </a>
+
+        <a
+          href="https://wa.me/244929311220"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          💬
+          <span>
+            WhatsApp
+          </span>
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- RESET -->
+
+    <div class="setting-group">
+
+      <button
+        class="setting-btn"
+        style="width:100%;"
+        onclick="resetProgress()"
+      >
+        ♻️ Reiniciar progresso
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    /* =======================================================
+       VARIÁVEIS
+    ======================================================== */
+
+    const settingsButton =
+      document.getElementById("settingsButton");
+
+    const settingsPanel =
+      document.getElementById("settingsPanel");
+
+    const closeSettings =
+      document.getElementById("closeSettings");
+
+    const overlay =
+      document.getElementById("overlay");
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const lessons =
+      document.querySelectorAll(".lesson");
+
+    const emptySearch =
+      document.getElementById("emptySearch");
+
+    const progressFill =
+      document.getElementById("progressFill");
+
+    const progressText =
+      document.getElementById("progressText");
+
+    const progressBar =
+      document.getElementById("progressBar");
+
+
+    /* =======================================================
+       DEFINIÇÕES
+    ======================================================== */
+
+    function openSettings() {
+
+      settingsPanel.classList.add("open");
+
+      overlay.classList.add("open");
+
+      settingsButton.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+    }
+
+
+    function closeSettingsPanel() {
+
+      settingsPanel.classList.remove("open");
+
+      overlay.classList.remove("open");
+
+      settingsButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+    }
+
+
+    settingsButton.addEventListener(
+      "click",
+      openSettings
+    );
+
+
+    closeSettings.addEventListener(
+      "click",
+      closeSettingsPanel
+    );
+
+
+    overlay.addEventListener(
+      "click",
+      closeSettingsPanel
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          closeSettingsPanel();
+
+        }
+
+      }
+    );
+
+
+    /* =======================================================
+       TEMA
+    ======================================================== */
+
+    function setTheme(theme) {
+
+      if (theme === "light") {
+
+        document.body.classList.add("light");
+
+      } else {
+
+        document.body.classList.remove("light");
+
+      }
+
+      localStorage.setItem(
+        "financas_theme",
+        theme
+      );
+    }
+
+
+    const savedTheme =
+      localStorage.getItem(
+        "financas_theme"
+      );
+
+
+    if (savedTheme) {
+
+      setTheme(savedTheme);
+
+    }
+
+
+    /* =======================================================
+       TAMANHO DA FONTE
+    ======================================================== */
+
+    let fontScale =
+      parseFloat(
+        localStorage.getItem(
+          "financas_font_scale"
+        )
+      ) || 1;
+
+
+    function applyFontScale() {
+
+      fontScale =
+        Math.max(
+          0.85,
+          Math.min(
+            1.25,
+            fontScale
+          )
+        );
+
+      document.documentElement.style
+        .setProperty(
+          "--font-scale",
+          fontScale
+        );
+
+      localStorage.setItem(
+        "financas_font_scale",
+        fontScale
+      );
+    }
+
+
+    function changeFont(amount) {
+
+      fontScale += amount;
+
+      applyFontScale();
+    }
+
+
+    function resetFont() {
+
+      fontScale = 1;
+
+      applyFontScale();
+    }
+
+
+    applyFontScale();
+
+
+    /* =======================================================
+       PROGRESSO
+    ======================================================== */
+
+    function getCompleted() {
+
+      try {
+
+        return JSON.parse(
+          localStorage.getItem(
+            "financas_completed"
+          )
+        ) || [];
+
+      } catch {
+
+        return [];
+
+      }
+    }
+
+
+    function saveCompleted(list) {
+
+      localStorage.setItem(
+        "financas_completed",
+        JSON.stringify(list)
+      );
+    }
+
+
+    function updateProgress() {
+
+      const completed =
+        getCompleted();
+
+      const total =
+        lessons.length;
+
+      const percentage =
+        Math.round(
+          (completed.length / total) * 100
+        );
+
+
+      progressFill.style.width =
+        percentage + "%";
+
+
+      progressText.textContent =
+        percentage + "%";
+
+
+      progressBar.setAttribute(
+        "aria-valuenow",
+        percentage
+      );
+
+
+      lessons.forEach(
+        lesson => {
+
+          const id =
+            Number(
+              lesson.dataset.id
+            );
+
+          const button =
+            lesson.querySelector(
+              ".complete-btn"
+            );
+
+          if (completed.includes(id)) {
+
+            lesson.classList.add(
+              "completed"
+            );
+
+            button.setAttribute(
+              "aria-label",
+              "Desmarcar lição " +
+              id +
+              " como concluída"
+            );
+
+            button.title =
+              "Lição concluída";
+
+          } else {
+
+            lesson.classList.remove(
+              "completed"
+            );
+
+            button.setAttribute(
+              "aria-label",
+              "Marcar lição " +
+              id +
+              " como concluída"
+            );
+
+            button.title =
+              "Marcar como concluída";
+
+          }
+
+        }
+      );
+
+    }
+
+
+    /* =======================================================
+       MARCAR COMO CONCLUÍDA
+    ======================================================== */
+
+    function toggleComplete(id) {
+
+      let completed =
+        getCompleted();
+
+
+      if (completed.includes(id)) {
+
+        completed =
+          completed.filter(
+            item => item !== id
+          );
+
+      } else {
+
+        completed.push(id);
+
+      }
+
+
+      saveCompleted(completed);
+
+      updateProgress();
+    }
+
+
+    /* =======================================================
+       REINICIAR PROGRESSO
+    ======================================================== */
+
+    function resetProgress() {
+
+      const confirmReset =
+        confirm(
+          "Tem certeza que deseja reiniciar todo o seu progresso?"
+        );
+
+
+      if (!confirmReset) {
+        return;
+      }
+
+
+      localStorage.removeItem(
+        "financas_completed"
+      );
+
+
+      updateProgress();
+    }
+
+
+    /* =======================================================
+       PESQUISA
+    ======================================================== */
+
+    searchInput.addEventListener(
+      "input",
+      function() {
+
+        const query =
+          this.value
+            .trim()
+            .toLowerCase();
+
+        let visible =
+          0;
+
+
+        lessons.forEach(
+          lesson => {
+
+            const title =
+              lesson.dataset.title
+                .toLowerCase();
+
+            const content =
+              lesson.textContent
+                .toLowerCase();
+
+
+            if (
+              title.includes(query) ||
+              content.includes(query)
+            ) {
+
+              lesson.style.display =
+                "";
+
+              visible++;
+
+            } else {
+
+              lesson.style.display =
+                "none";
+
+            }
+
+          }
+        );
+
+
+        if (visible === 0) {
+
+          emptySearch.classList.add(
+            "show"
+          );
+
+        } else {
+
+          emptySearch.classList.remove(
+            "show"
+          );
+
+        }
+
+      }
+    );
+
+
+    /* =======================================================
+       INICIALIZAÇÃO
+    ======================================================== */
+
+    updateProgress();
+
+
+    /* =======================================================
+       MARCAR ANIMAÇÃO COMO VISÍVEL
+    ======================================================== */
+
+    window.addEventListener(
+      "load",
+      function() {
+
+        document
+          .querySelectorAll(".animate")
+          .forEach(
+            element => {
+
+              element.style.opacity = "";
+
+            }
+          );
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>
